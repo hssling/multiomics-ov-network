@@ -1,0 +1,468 @@
+layer	file_id	file_name	data_type	data_format	sample_barcode
+rna	04ab577f-fe6f-4f01-860f-f74c8a0f8f8b	b6bc859c-c245-47ba-9c47-92c1c33d42c8.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1489
+rna	006d3450-dab8-487d-a2f2-50fdd64c0a6b	c42ab178-9ded-405c-8eab-69583c4b1ad0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1347
+rna	9dece4a3-ecef-469d-a882-dfea3e2c61df	161a0325-0f8a-4d41-be34-6740025c4435.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0916
+rna	29524454-6515-44ba-93d0-56df19ee83a4	207cda7f-138a-4ae2-a6fd-90a003a94073.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1477
+rna	f324a574-e355-489a-b7d1-6af7269d8927	9fcfa97a-90b3-4e91-9f4d-7001fbd02fc7.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0768
+rna	d7cba469-98d9-406e-aaf6-fa616f3b49ad	9d472afb-5cd1-41d2-b188-fa9f8b706d35.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1510
+rna	139a7bac-e37e-4fb2-9b42-be1b1d62f7f1	524a6f24-3903-46f1-ae2e-eb83a522a0c0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-2051
+rna	c057a66e-2775-4fd6-b6e8-f4fb6350136e	36aef44f-03b6-4aff-bc8a-dfbc664dd2d0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1356
+rna	7cec3094-cc88-4107-b864-84a23bde14b4	06bfef84-bc96-4d26-a658-3da2432dd948.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-23-1021
+rna	826d878e-40e5-461a-8b14-16a50c4b60b1	abe4d03a-acbc-424b-8e1c-b79f5476e55a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1494
+rna	c4a162f4-ea15-409c-af3a-ebfc257b42bc	872c6084-34b9-4037-88bd-b6cb69b4bf1f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1492
+rna	f9042b6c-2394-498e-9362-cdf70beafce7	78b8f856-9896-41af-bb90-e35569bacc42.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1362
+rna	eb199fe3-be92-4d0f-a831-3e9f20ef32e0	5943d83c-7366-4b4a-9815-c5459003a10e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1497
+rna	9b75f0e7-ded6-4b10-8c40-c6c6977d9ced	c5de138c-103d-4a75-a2eb-7279c1046d0d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0800
+rna	04ebea53-3ad2-47ae-b24c-22001c6cd300	7d8d9d6c-b701-4eda-8e36-c36ca7c90903.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-0987
+rna	f84fd3bb-2d07-4d43-873b-02bc312499bb	808d8dcb-f3e5-4d7e-8b70-90a254ebc4e2.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1483
+rna	56376509-9721-4e6d-9e53-378efbe43d63	c2be3377-97dd-42be-887d-c9bf57034c98.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1361
+rna	e070fb7d-674e-4863-a65a-a5be0419d67b	0855ce26-6e6d-44aa-902d-da4927765dd4.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0890
+rna	65534be3-467f-4a8a-b695-2caaccb835b6	cad2eb6b-0dff-4e52-9d0e-baf5f4997089.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1685
+rna	527d3ff2-a64d-4d0b-83c6-41dabc025934	765e86db-4d7e-4b17-9051-3d7ee32df82a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1405
+rna	9490a06f-43ec-42d6-86ec-4b5480224489	72e3b5ff-0679-4d43-a7c2-697635faa1fc.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0714
+rna	06fde02a-86af-4e12-b891-b909b30cccd6	e827cb1c-e6f7-4746-b19e-f705c2de32bd.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-1674
+rna	bd1cbfe4-b92b-4d1f-84b5-1035d67b9579	7711187f-5e2a-44eb-804f-c32556a2f02f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0726
+rna	82cdc03b-fbae-42da-a7e8-416839910b94	1e36ddde-f989-45b5-a887-d7c6ac41aaeb.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-0991
+rna	11c60c68-57b6-4675-9aeb-916af8da75a7	31f82383-f710-4d46-8db5-b59ee094d74a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0923
+rna	2d15c2c8-0682-4286-81bf-6a85b97e3b5a	d563b5ea-0724-4d07-9b31-9713d6edd332.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-10-0934
+rna	375e04c5-54c5-47a1-a3ab-41b48372ad67	3f97103b-9c36-40df-b3d3-88e9b118f5ce.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0883
+rna	624eaf4a-8f25-4a43-aeb9-662708b32ce3	109c4aee-66f6-4015-8fab-969bd538fd61.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1505
+rna	cd79d887-b5f3-4a39-9778-07ebf068ca42	dfac6279-e38d-4c50-b1cf-c32bcf81a029.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1684
+rna	b29783c8-1d44-4a43-9727-ed574c833994	b849f8c0-4937-4e95-bfc7-c8da9340d021.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-2044
+rna	1fabf764-0f34-4640-9fd0-4f5476d69b19	8326bd93-55f7-49be-a164-edfb435de3b5.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1506
+rna	c7b574e5-66d6-46b0-8471-512ef4aebaf1	f03483bb-8ad5-42e2-9b5e-31e7af8edd2f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0765
+rna	21e3b1e2-2691-42bf-8b3c-5af3d13bfa7e	35f04f9f-3756-4d8d-858f-b49c4c94d4bd.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1498
+rna	db02a2f2-2d83-4486-b8a3-3b01d6f0a6f2	2fb7ad5a-0ef2-4524-9fa8-4d61d1bb04e1.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-23-1022
+rna	1c1c0516-1e12-46a8-adca-ea89d3c91bd3	bb5d75c1-c4fb-440f-8f09-0be3dd6b7daf.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1332
+rna	5dc950d7-010c-4008-8368-f5acc4f61a58	62c68df4-4b67-4c05-9cf4-f0f2e878b59e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1499
+rna	6683f1ae-4274-4d8d-942e-01d8fdb8373a	91ce2bbd-b743-4250-98c3-42fec28b9d49.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1682
+rna	d9e8391a-b253-4860-9e9e-8b20cbe4e4ff	fa401e4b-6102-4c3e-8bc9-62fa94e1388e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-A5FT
+rna	e4224f89-05e0-428c-958e-ea89c542ac21	0d31f76f-d6b7-4d9f-83b7-fb0babab1231.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-2045
+rna	41cf0bac-87b0-428c-84af-4d246521a0d0	f3aafcfa-9e92-4d07-905c-c9b4fdd276c0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-2060
+rna	b8849c64-a3c7-410d-a000-043bf12bfd8d	67293c0e-904a-4cc2-ad09-a99d791bd05a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0725
+rna	0bb7fb96-b1fd-4a47-9af9-128b9acad7a8	24ffd67a-b772-47de-a41b-eaa68078ad0e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1507
+rna	c0c53bda-8e05-4695-8c7f-8804b3b0d6d0	6ab54953-3d77-4239-bf4a-5a893cf9a43c.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1501
+rna	d9178135-301c-4101-85e9-6084bd0347f8	b66a1ba2-0f0d-4eb0-8f60-ca07cf3bc997.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0888
+rna	501e43ba-ec51-4b5b-b999-759c3bd4824f	be93160b-4c67-48f1-8bdf-23d29b8c815d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-0364
+rna	1882e360-8240-40b8-b0d9-152919cd2212	bfcea1b8-fb75-4e7b-972b-620d9f1fc3bb.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1331
+rna	9806deff-ba7f-4761-a421-7119ad12bc8c	eb300488-c9f0-4cb4-9bf5-00fc749360b9.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0897
+rna	d3dc97d0-65bc-48f2-a9c9-4b5dbf211e66	052a97e5-fd39-4af4-a29a-284bc185c9e7.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-10-0927
+rna	2bbb688f-2c41-4d85-92ae-44d71851cb9d	921df567-b883-4f95-ac75-7c63521b5a95.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0899
+rna	c858708c-538d-4da5-afda-6b436498ea99	6b5cd598-f52f-48bc-8256-74a2e98ec04b.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-10-0931
+rna	2d68ce4f-7c3a-450e-91e0-340708cb1991	6ac60ab5-8d16-4e62-9122-0b4d796b9bc0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1509
+rna	ba49f0c3-fed9-45e4-b24b-7976800603af	68f32d39-8608-443c-ac04-95f12812fb72.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1651
+rna	82e9e968-c243-4165-8ebe-1d86d31205b0	1730a0a1-8a5a-4532-a35e-4e4db4a4b4b6.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1648
+rna	3dc58a62-33f8-4e19-b549-c76a2ac1c026	0f3919e2-e4d0-4394-9cba-88b8653694a0.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1409
+rna	a3e9f9f6-6e2e-4302-8cd9-c9573356c8bd	880f1d5d-52b1-494c-83ed-164437af010f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0891
+rna	87372980-d776-4481-9c1a-c6cfc22fdea1	de46493c-07c7-4884-9361-8ab7d5cd0a72.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1403
+rna	48c20897-cd11-4b5e-88f8-f86fad1ba58e	fcd1465c-ddbb-438c-81c9-9be12b5327af.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0797
+rna	d71526e0-d0a0-4b29-9fab-c6987ddf9b96	c99daa88-5672-437c-af99-5b31f28ec087.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0887
+rna	938b7e12-0d8f-48a5-b7e3-1ad4dd4a006b	78c61237-b889-4cb8-bb8e-eacd33b3538f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-0369
+rna	993e59a5-4f7f-4ca1-87bc-f537bf84179a	cac17859-2779-4a77-98b7-3c6e392f0f1e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0804
+rna	036e90b7-e520-4c0d-aa25-1b7ad59f303b	a761adf7-b265-4d1d-90be-82dbfd776e45.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1511
+rna	2c3c36a2-4bac-44c4-8d1b-dda0dba01b41	2c5a90ae-67c6-46de-b865-1dde61e976bd.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0920
+rna	07ad67b6-8242-4cbf-b24c-037c025df522	be31437e-d2d6-4e6b-99e0-42ddb5a4359d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1488
+rna	5941a671-b8c0-43fb-bbd7-e9e92d66d953	1fbf116b-6325-42ef-94d2-dfdda4aa8d9f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0795
+rna	b998c7d1-8d7c-402a-9a33-1a571603d375	0f3357a3-d579-4b27-a486-1550bc45890d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1683
+rna	9e3b1dfa-ae3a-4c69-9669-26fae541190d	7477b82e-dc6c-4bf4-ba14-b7d33a867161.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1481
+rna	345c8a3b-63dd-4d20-b718-7f84e9ac61a6	d1cc1450-ae0d-42ea-b45f-dd4f8bcbd399.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-2056
+rna	8aa7edec-491c-47ab-893b-f6bd68bd1aca	676462aa-e44e-4f39-a9cb-222e8815bdfc.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0913
+rna	61662efc-a675-44b4-89dc-42315385670c	b6984d71-6903-423e-a1b0-e98ccc3be29f.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1411
+rna	b874e831-63cd-477e-b079-46307020b759	ec34b3b2-e9d3-49bb-bc27-6a16103ad51a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0893
+rna	952388fc-9c66-4083-ab08-18771ee62718	1d39253a-1714-4371-942f-98acaf24a4f9.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0908
+rna	c6f4a745-1426-4cee-87d3-e8123aacb60f	5c58a396-5f7b-4374-a6e7-09f381d945dd.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0884
+rna	46e6cdd0-9c35-43cf-9623-3998f06649be	c0b634eb-856b-491e-ab86-3088950176d9.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-2053
+rna	97f76d09-2471-43b9-99a4-2ef58caca5c9	d779f8e6-b653-4d7e-bfa4-729b9caf329d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1542
+rna	60678f17-e3d7-40cd-99ff-73706497968a	03c8e4fe-1e07-4ea3-a154-c17c2e8af508.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0886
+rna	e50c0ebe-0df8-4b77-a93a-06887ba1debd	d990fb46-63a9-4507-a950-e026c84cfb5a.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0905
+rna	569c70a4-f090-48f8-96b9-022d9f6e11d6	7d0b634a-b842-4f7c-afd3-9ba129e38da1.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-1670
+rna	e50173ef-c0f2-4b59-8ab4-d24997f38c5d	cadb3130-09b1-4e6a-b9ea-1c5182b2f1ed.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1512
+rna	e5693374-686a-418d-b4e1-c60a1aa9a86b	9fa353e5-d096-480e-af87-f3441deea8dd.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0911
+rna	56968450-385a-4e25-b4df-de1b130cef96	bd47a9d9-3e0e-4eef-ae47-887016a2df2d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-0367
+rna	96aca0af-a776-460d-95ff-87e364e4ac99	21ff9928-00f0-4b96-8d70-35e9bfad5d40.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-10-0933
+rna	aa3eff94-57ad-4aee-949d-cf8ab12a2644	7e2f7b6d-46d7-4b37-86d8-354da4408713.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0724
+rna	499c3293-eff1-4c26-91d3-437d804117ba	7bac05ec-f793-4b99-b1d1-c848f0c69b60.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1410
+rna	05e522c9-0286-496f-b0d2-623c07dcd18d	2d7f98e2-8e4c-48aa-9c87-e9953e952689.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1343
+rna	f864ab9b-e6f8-4c32-8770-395bc5e14311	3be2f59b-daaa-4d38-a948-bd21a07de659.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0910
+rna	31f1be69-bef5-4eec-83cd-6e2a686ea486	2e844d1a-874f-4972-820e-1d4f89575463.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1348
+rna	ca5a6062-3e46-4993-afcb-8e7114cb2d75	c133f156-8d5e-4072-a990-86ccb7db09c9.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1655
+rna	970f5191-bad7-4b9e-acb6-cd795518abc0	846a9737-f1d2-4c15-8023-360f22805491.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1482
+rna	6fe4ca5a-8c2c-4cfa-9ec7-f1c8839b42d2	d905f784-10c0-466f-b2a9-58b12bf69e1d.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0924
+rna	3922ee52-3288-4fc7-8843-370e43eea3f1	9b68eedc-cd12-4d48-865c-d69aec556dd4.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-04-1357
+rna	2f40fe64-b8e8-4b2d-b4a1-377652846c9a	34e59c84-b0d2-4373-9a9c-b265b828631e.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1496
+rna	cdba9907-dc7e-46ff-b773-1d093209dad8	b1f91d13-fe60-4444-a254-db4fd36163a4.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-10-0926
+rna	671fa360-7fdb-4b13-8e81-5b9acd3ddcba	6ec47cac-85ce-4536-a51d-346a0e281261.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-0760
+rna	97210398-6636-4de7-b6ee-03532552aaed	62bea110-bff8-4d67-a920-77d3f2d85d13.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1487
+rna	13af947c-a945-4bb3-9258-842f902e2f0c	984c9d22-35ae-4d5e-a506-30ef69568d46.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1687
+rna	6d20dd34-f36e-468e-bcfe-99fc45dd68a2	d59c9b4d-960f-4fd7-9a78-6b3bd9d31e06.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-20-1686
+rna	0058f6ab-2114-4ead-af5e-ba002b5f9cc2	8fd3c3ec-c5c5-4ded-bcbb-387ddc1ba5f7.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1495
+rna	97f3ecb3-c204-4266-a3e6-59d18dbc32fb	e4345410-d8f9-498c-b4fe-d6e951bd1f9c.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-1673
+rna	4ce38d8f-5682-44f0-b119-50dc9c5ac4da	582b5cee-9df1-4c95-9c52-de02e271c747.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-09-0366
+rna	cec8400f-6360-47ff-a9fd-6379ead2f83d	accf08d4-a784-4908-831a-7a08d4c5f0f5.rna_seq.augmented_star_gene_counts.tsv	Gene Expression Quantification	TSV	TCGA-13-1404
+cna	03e4f986-c8e6-418e-907d-10c07c634b78	TCGA-OV.794b6a48-f610-4711-8b1a-4736252c8bea.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-2056
+cna	80abbd11-3939-4657-9a2a-0cabccffacbc	TCGA-OV.bd52755a-499d-40c7-9f23-7aec08e3e558.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1489
+cna	0b189ab8-6740-47df-a4bf-cbb07daa8f21	TCGA-OV.055ce18b-41ec-4faf-baa4-863faef9be68.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0913
+cna	c3872d70-9bc3-474d-ad5b-713dc8bc7958	TCGA-OV.70d07271-15ef-4a45-aa05-421a65f61846.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1687
+cna	517feb42-47b1-47e1-bb45-f23b426fde08	TCGA-OV.46625639-1e23-44ed-8180-b609dc357e71.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1411
+cna	eedc6aca-d1d0-4a42-ab09-4a5910211354	TCGA-OV.c7844e0a-4d80-4c61-902d-5600c23eebd1.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1495
+cna	1c37e8d1-9f90-42b9-b981-69beb2c00a8e	TCGA-OV.1062384d-2437-4f50-9f5f-ec5630d1b710.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0893
+cna	eac37fbc-559c-4560-8976-26f78f0ace3d	TCGA-OV.75cbdc12-abdd-44a0-ac21-0ad30e6c5628.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0916
+cna	70adf579-3621-4657-b266-e0cff49e7160	TCGA-OV.3a8b9a57-2f04-40bd-85e7-2385fa37a913.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-23-1022
+cna	90057a9f-6c74-4cc2-94c3-acbeaf211f4a	TCGA-OV.c26c83eb-091f-4940-ae98-62e16254cc05.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0768
+cna	68f2da4d-8e78-4159-b4b7-c27610b91da3	TCGA-OV.75bbf327-ce62-4a7e-b08a-3d8dcf7d95a1.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1510
+cna	3da525ab-d75e-44e4-abbe-a2fc73846b4f	TCGA-OV.79e63073-7d6d-456b-92c7-a3a7f0216ee7.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1332
+cna	3265ae29-42cb-49b4-b9c0-b69dd360f6a4	TCGA-OV.55fae161-727b-441c-97ad-8bbc71cfdc32.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1499
+cna	02dcc978-01ee-421f-88bd-d04b1ea6df56	TCGA-OV.3c96b2d3-8778-4c9c-8bf9-dc7559292fa9.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-2051
+cna	39beb7ba-041c-41c5-a7bb-00f2f656e19d	TCGA-OV.c3f1fd36-fc3e-48f9-9d09-14d678126742.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-23-1021
+cna	1c445f33-ca8c-4d8d-9a03-23b2e403117d	TCGA-OV.91d90e5d-92a7-43f2-88e5-e2a861b1d6a9.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1494
+cna	c45bf2cd-4750-4fce-9617-07a2baef8c7c	TCGA-OV.948a6d77-e8ca-4114-add3-77e7db75b3b3.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-A5FT
+cna	9902d91b-b0c8-4138-b1cb-2d72f64b6117	TCGA-OV.9f0b16d5-3947-49d3-87cf-86a67627ad66.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1492
+cna	51c0ea79-8141-4213-8316-788f28ddc9a1	TCGA-OV.fa0c4583-eb33-4be7-9d29-a9587b4eeefe.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-10-0931
+cna	e84de3c8-9747-493d-ae90-d674f80fa1bb	TCGA-OV.0e3ff01f-4ce1-469b-9890-3040157b5976.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1509
+cna	43a22a26-d3cb-47f5-9e6c-3148ff1ca4f5	TCGA-OV.8fcdd3d0-8a62-49aa-b7e2-5b06cb390d40.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1362
+cna	4827ab8e-1f56-4581-aaba-a6d8fda4e7d9	TCGA-OV.5ce5aabb-61c2-484f-9fd2-be3da4e1242f.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1651
+cna	f94bc5bc-778f-4866-9777-d723f028ec64	TCGA-OV.7fe61c56-4c2b-497d-b9b4-55e57b3e634e.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1497
+cna	8c85fcfe-26c1-4277-a5a3-bafd916f9526	TCGA-OV.d346cd40-dcdc-4a57-8a9d-b20544c87d5f.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1542
+cna	16c942ca-e2a0-4ad4-b822-669fd22bb0b9	TCGA-OV.c1508580-23b1-433b-adbb-70473a7105e6.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0800
+cna	b4acd49d-1cfc-4371-a13e-c519e5a9fb53	TCGA-OV.d0a0712d-97d3-4301-b693-8c55388dda13.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-0987
+cna	031b9172-0ac9-4169-8525-2beceefd6c15	TCGA-OV.634da42b-ae78-42e0-8115-37a735e4e057.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1648
+cna	862d3782-45a0-4eda-b13d-4a58a35df6b5	TCGA-OV.cd9bfbe4-172b-4168-bdfe-636eff1767d0.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0886
+cna	2344a572-b455-4dbb-937c-5364a1bc5403	TCGA-OV.c34d9a57-203a-4bec-ab64-32e86784a143.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0890
+cna	eb037c20-5755-4dd0-9353-f862dead068c	TCGA-OV.ca2c5fe5-72fc-4cb1-b26c-708e72bf03a0.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1405
+cna	9a53bac2-4a8f-413d-8b53-9c3ea77d38be	TCGA-OV.c7485ff7-5733-441c-8496-c28f0056e5b3.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-2045
+cna	6248fa9e-15bd-47cc-ad7f-a71740849e14	TCGA-OV.14d6cfc7-8868-443e-8eaf-dc6c155958b0.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0797
+cna	52421dad-d67e-4a28-8cf7-eb2162012698	TCGA-OV.616b58ea-28e5-4d0c-aa5f-0f08a0c587f3.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0887
+cna	2747b8e8-755a-47bc-9f35-1bb32066a584	TCGA-OV.4f64fc1e-d250-4438-bd6d-c1c4b8f50033.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-2060
+cna	615009b9-f7b8-405b-8ef5-6fe62ac1d529	TCGA-OV.e33a75e9-bfad-4575-8b7f-46c7bdef6df2.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-1674
+cna	5bec5ae8-9c88-4b36-ac7b-d5d7f6ee5a5f	TCGA-OV.8f5395db-eecc-4317-8f7a-eb7b73388676.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0905
+cna	26423687-0af0-4d74-8d25-73bd628fb81a	TCGA-OV.0ae9f973-4f93-48f0-a214-35d671d46fef.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-0369
+cna	f0fc4fc4-7bc3-48a1-8ab3-d794004c20b9	TCGA-OV.e4f66c8d-3cf1-4e33-b49e-98b6ee4b98f2.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0714
+cna	caef7688-9ede-4abf-aa12-13507b0a87ca	TCGA-OV.49926024-a499-4744-9ea6-5dc05da705e8.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0726
+cna	1fd3c8a6-0062-4ce0-8bf7-6e2bf37fccf8	TCGA-OV.05fd7ce0-b787-48fa-baa6-3bfe9647f4ec.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-0991
+cna	caad5ff4-6f41-4b53-a490-b5eb14900510	TCGA-OV.b31aaae9-a48c-4344-8b6e-69b5dbdc6c2c.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0725
+cna	109ac194-adb7-45ad-ac7a-738bde646da1	TCGA-OV.886193e0-afe4-4d1b-9e48-7dd97ec354ce.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1501
+cna	b220c142-9d83-45f3-8665-6175e8f34146	TCGA-OV.afd657cb-1c27-4a3c-a8a6-9f5ccd3bb3d7.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-10-0934
+cna	130d5cce-f9b4-4812-9ad7-966856d26731	TCGA-OV.ceabd0be-fcb9-4fc3-9817-00452e386182.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0883
+cna	62142487-0721-4baa-b25c-e340beb9ef12	TCGA-OV.e60603fe-0486-4ab6-8ae2-de80564bd5f3.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0888
+cna	0437bf1d-f99f-40f0-9376-c4e6590186fc	TCGA-OV.3ad89fc4-fa3f-4090-a41c-a46b6aa68cd5.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-0364
+cna	6d3e3253-62cd-4d4d-b96d-ba238e27a77e	TCGA-OV.41399846-fdce-43f6-80fa-25f214c43933.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-0367
+cna	14e0a9ff-baf7-4e73-959b-9852b5cce964	TCGA-OV.41b3be7d-4f77-4065-af1b-a054a17e3810.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1505
+cna	8639bc9f-d923-4cbb-9439-87ee70e0b4e1	TCGA-OV.5494acf1-6054-4d4f-8f5e-d39c5e9eafa4.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1684
+cna	3819070a-64e6-49b4-8a18-b7b34e3668cb	TCGA-OV.e601f5e7-56ad-440a-873e-34e99749e92b.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-10-0933
+cna	79507a0c-3409-4c10-98c1-ae1712727c2e	TCGA-OV.797c5f18-5c06-4bf6-ae32-63b9a2a27150.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0795
+cna	2a2ed8ac-76ef-49e1-a7e0-8e83f4408eff	TCGA-OV.504b5d05-7e0b-40ff-ad58-fcb5ce50edb3.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1683
+cna	b0e9645d-613f-498b-bbc7-58f5f93aef2c	TCGA-OV.2ea95bbb-00cd-491e-814e-25360d715683.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1343
+cna	01892891-8ddc-4c1a-8afa-f136f407434b	TCGA-OV.e52a7802-fd03-4d83-b0ec-b06cd7a1aedc.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1410
+cna	eae0350e-9769-4d7a-9483-1c59f81c46ba	TCGA-OV.69a7fc68-d6f9-4804-87d1-693346e176e8.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1481
+cna	ca7ff471-c4a4-43b5-b2c4-78b52f230435	TCGA-OV.97311d8d-2d1e-4076-8e65-0039a0b7d473.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1487
+cna	8f361682-28f3-43b8-bf59-3d6366cfdff6	TCGA-OV.a399002a-41d4-4159-b13b-a3d13a44617e.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-2044
+cna	452b2510-95f2-4ab9-b843-33d2dcfa6294	4d5f1082-502d-4c2b-85a1-9a6bff7b15aa.wgs.ASCAT.gene_level.copy_number_variation.tsv	Gene Level Copy Number	TSV	TCGA-13-1506
+cna	ff34b301-9115-4d50-9e69-9e7a684174df	TCGA-OV.f7833173-18ff-44f8-97cb-148e73842517.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-1673
+cna	d45d6462-8b9b-4252-8cf4-b32c9596d89b	TCGA-OV.41386f0c-6c92-4ae3-9b7a-fc2b98108e4f.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1347
+cna	5c71ff8c-13ef-406e-bedd-4e3a4c506d13	TCGA-OV.7de5c913-6a77-47fc-8cac-af0c89b34e81.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0884
+cna	458349d7-5dcf-44f9-af03-5f3f060fc185	TCGA-OV.b7573c04-ffcc-4757-833c-afdab85ac718.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0899
+cna	32cebc64-0b71-46a2-a2ab-7551f2599683	TCGA-OV.72a0595a-c9a2-4424-bbfc-1b63c7c21489.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1356
+cna	02dcbccf-a9c8-4b1c-8df3-61c64454e2d1	TCGA-OV.1b33cc7d-0965-441d-8853-2b6f37ca2bce.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1682
+cna	bb0951a4-5f19-464d-8518-87c3216acdf0	TCGA-OV.47e05fb0-cbc1-4edd-a8d6-ae4a20ceb7c2.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1483
+cna	a58782a9-afa8-40e9-98ea-60b670c5dbb2	TCGA-OV.49aff11e-7532-4ca6-9192-b6d8e8b806c1.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1361
+cna	b7c45391-5b20-42b3-88f5-6210960d8242	TCGA-OV.e1e81ff9-3bdc-4ddb-81d0-dc524d0ef79d.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1409
+cna	02643a70-7778-47ff-b46b-5136daecf437	TCGA-OV.351e95b2-e001-4804-974d-fdac83240259.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1685
+cna	8e522fed-22a0-45aa-a33d-dad1c24c5194	TCGA-OV.4ef881f1-e35b-4d60-bf1d-384a637384af.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0891
+cna	a45a1a0b-8ff1-458b-b865-4ae19d0695b0	TCGA-OV.78a6bb48-90a5-4353-8a06-49c2975760a0.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1403
+cna	cdba0631-017c-4887-bcd2-4cca1be298a9	TCGA-OV.ea9edd51-f159-4f8d-8d59-3a6256dd4e33.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0923
+cna	4eb4eb48-12ff-40c4-8151-dd65ce985dd7	TCGA-OV.bfed3408-33c3-40cd-9382-0bcf1b91af89.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1507
+cna	6af3b5d0-bd75-4281-91ac-ddea656e240b	TCGA-OV.eb2cd85e-61a9-4180-b953-a8ad5fd9bef0.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1331
+cna	60b5a91d-ddf9-4bd5-8d19-98b09c5e9988	TCGA-OV.00f502c5-55b4-4a1b-987e-263ef1b9c3d6.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0897
+cna	9fc13d58-ef51-4023-8cb9-fbd9007626ee	TCGA-OV.0e7ef489-ce94-4404-8506-31d4b6cd02b9.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1511
+cna	a3bc85bf-90e6-4907-a9db-b59085b01ea6	TCGA-OV.a2f4000b-1021-4696-8f3c-ed7de514cb2f.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0920
+cna	0d986070-e683-4b23-b002-2954f1f108ae	TCGA-OV.b0fb393b-8bbd-4af4-97bd-fb5bc61b1edf.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0911
+cna	dad3bffa-2ec2-4375-8124-467760e7119c	TCGA-OV.0afd6963-4ee0-474d-89b9-4fa151d8f1b4.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-10-0927
+cna	68942059-0d03-492e-82d4-0c96ee87fce7	TCGA-OV.358465d0-302b-4c00-bf6a-bf7fe703ed3f.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1404
+cna	0562f497-3cb6-44ef-becd-9d5899470600	TCGA-OV.05a360b5-04ea-4f1b-be78-86470c58cb80.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1477
+cna	982c13db-4b7e-4c61-b24a-48860fbe89ee	e958709a-adf5-4ab8-8463-b784323e52cb.wgs.ASCAT.gene_level.copy_number_variation.tsv	Gene Level Copy Number	TSV	TCGA-13-1498
+cna	624a9c26-83b7-493a-bb69-7bd6d51f3130	TCGA-OV.e7b08df1-ec95-4c9e-93a8-b3d5a4b1bc74.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-1670
+cna	3acc4e30-e0e8-4b03-8514-18e3456289e5	TCGA-OV.b17d54a4-6801-452e-bb62-a9c403db4e92.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0804
+cna	635026ae-c0ac-4075-9a1b-9f1e135cc57c	TCGA-OV.42496ce6-0aae-4ae4-a70b-6f339b5b7e62.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1488
+cna	6ecf85f8-95f5-4e3c-807f-1162eb0a2482	TCGA-OV.f609b580-4ab3-4dc5-9636-f5562f2324e5.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0724
+cna	ce021d3a-d257-4667-82cf-9ad8184f34fd	TCGA-OV.72c6537f-1ae7-47d8-8b7c-43d393dffd3c.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0910
+cna	c4a20f69-87a5-4766-932b-514ae8745744	TCGA-OV.b56919c1-4fde-47bb-9b85-cf3b41fb51ce.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-20-1686
+cna	13558fc1-275e-4814-a3d4-2d8af8ba5d93	TCGA-OV.2a426242-071d-4ac0-b8d4-a01ee8aa11d2.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0908
+cna	422c339a-296c-4370-bf54-8657344da624	TCGA-OV.95cdd81f-7ef1-4d35-b210-da86727a610a.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-2053
+cna	7b5f54ca-d715-4177-a03c-e6c5d1ff7f45	TCGA-OV.26516073-2e76-4c62-aeec-c2b40ae3ae2a.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1512
+cna	50d7c4b0-75f7-4765-a6c0-0666c0fdeb86	TCGA-OV.6f7cae3d-aa66-4b4e-8e4d-78378952f19e.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0924
+cna	d528bc2e-8b6d-473a-84c9-240a5a0b12be	TCGA-OV.86b353ef-ba2c-4dd0-91f6-ef700eb3c5d6.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1348
+cna	ad6213cc-a4df-4159-9154-2a53d51e64d6	TCGA-OV.496e4773-961e-4a65-8f28-8997bde6290c.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1655
+cna	8ca38353-5f0d-48fb-8486-8589b67bc620	TCGA-OV.576a7db4-0c37-4d05-a4ed-cee6c88bc73c.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1482
+cna	a499614f-e02c-4395-b8ab-d716ea56d8ed	TCGA-OV.934ee741-d185-47f2-860c-74e90af24b4e.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-04-1357
+cna	c00670c3-3dfb-4177-9ed9-f74a48c10055	TCGA-OV.1b6ac59f-1dcb-4473-9af6-27d0d869f05e.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-1496
+cna	a2f79b16-45be-48fd-970e-a8967167488b	TCGA-OV.7f20859a-904e-4a7b-b57b-20ad49c3eeae.absolute_liftover.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-10-0926
+cna	2527c2e8-94f7-4a09-ad3b-4aa6d8faf161	TCGA-OV.5b3a8dc0-c3ed-4616-8b9d-65673910c222.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-13-0760
+cna	8652c2f0-3019-407a-baf7-3886af525736	TCGA-OV.00014f01-24a5-4226-9ed6-4b9cabacd074.ascat3.gene_level_copy_number.v36.tsv	Gene Level Copy Number	TSV	TCGA-09-0366
+cna	317a2673-9c64-4af0-a4bd-63b8ad5c3364	26624f62-b93e-4218-a0ba-b2685140f0b7.wgs.ASCAT.gene_level.copy_number_variation.tsv	Gene Level Copy Number	TSV	TCGA-13-0765
+methylation	c4543364-72a6-4ab3-8b44-e3ae5d6c0dce	3ea08217-2f7a-4d22-bd1c-e64face94c61.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-2056
+methylation	155f3898-eccf-4627-9418-cc410c384035	b85378a6-880f-4c4f-9333-4425477bde56.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1489
+methylation	9b7bceac-ff40-45bb-81c5-76c25ca2d0c6	9c7ab316-3e89-48a3-82cd-265a229de696.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1687
+methylation	3dbd0f8e-30d2-43e9-a94b-4375ca1ab064	5d0bccd4-3591-44e0-a853-7f82c7ac0d8a.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0916
+methylation	3f62e59c-6bba-4265-975b-df18ba5774b0	4dc6de56-8530-4cd8-9548-97f75fb0680f.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1404
+methylation	7096ec80-5638-4401-98b2-2ab713f6a2bb	c10b5917-9e17-4d79-a3e7-c402985d6911.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1510
+methylation	5f28ae00-5ebc-4850-ad62-f805d057c578	f6eba08b-080c-4a39-aded-ce65c526e186.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-2051
+methylation	df035b7b-e651-4b90-a3e9-fb63d221d72f	215c9c8c-036c-4259-8846-414413c433fc.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-23-1021
+methylation	16bc73cc-0e5e-465b-be9b-4714b968452e	c5606ad8-5de4-42d9-9b1f-8678579d4446.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1492
+methylation	3ca2e438-4f51-4417-b7e5-27ad9829b65f	a6df2a75-8cce-40db-8af0-e3d90f19792b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-10-0931
+methylation	b884769f-a484-447e-a6c1-5fd046681fc9	4941f0f1-fef4-4861-bb53-41f78154f8b3.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1362
+methylation	773fddc8-8d33-4c46-a12f-41ca9e135413	d13ce77c-db8b-480d-ac7c-2496943596c2.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-0987
+methylation	2dc12e0c-9ca2-40ca-a29d-f740f1407f24	ca7db3d4-345d-41fe-9bec-c8f1dce5dca0.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1409
+methylation	d63bea51-23b3-4a9e-9c75-cfa35fb786e4	4a1722f2-b9d6-4413-a345-7b89e05f8004.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1685
+methylation	67525d1c-305a-4c79-b870-2c8c33fb92e1	64eee4be-7833-405c-87fd-2bde6cf9db8b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0797
+methylation	cff16107-bc01-4ae2-b02c-86e5d2f088a5	7746dc81-ce58-4fde-9d11-548226da1ad6.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-2060
+methylation	0f1fbc98-17af-49cd-b803-eeb958b0a474	6862e5f8-8773-42c0-9bb7-e175b6ee02f4.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-0369
+methylation	fd7db939-b064-4283-a837-e44350bc147b	13530169-1736-488f-a15f-7975b2fa379a.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0905
+methylation	854d1902-0bfd-4eb1-b1b4-e2b0adfdd295	85cc565a-f52a-4f5b-85c1-b891b62b7126.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0714
+methylation	45954a1d-bc52-4339-aca5-8a2bad13cdb1	aba6d0b3-e254-4d2d-83ec-074a3cb58ea4.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-0991
+methylation	d5356e96-8f32-4bf4-b51f-7a55fcd2d927	e4c8f82e-3612-46cf-aa51-0f568f0391f5.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0725
+methylation	b1d874f6-7eef-4b76-a510-05774cab87fa	62939ed3-70c1-4e05-9553-18174ace6f38.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1501
+methylation	ac103fe0-c4c0-47c2-89e6-a756f034272a	215ed4d8-c689-4b28-84b5-bd219b31e61a.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1507
+methylation	8bbe8a82-377d-4d8a-a7d5-4c961fb4b6bc	94f2d575-c88d-45b8-8e8c-b471dbbc4bf4.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0883
+methylation	c994416b-5847-4ba3-932a-7eeb873f8281	c023caed-a917-4b29-bf2d-6808321e4463.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-0364
+methylation	8d93e927-561c-4b88-a4b1-35336e093786	9225dd25-cd84-4a29-b399-788e63033d70.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-10-0927
+methylation	7f2c655a-213b-4135-b028-9ab1996121d0	aa4de532-eb79-4932-9405-aa1bb94fab2e.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1684
+methylation	fbcf373c-032a-4a0c-ad9e-0b42f2896a93	607e4557-47f3-406c-8068-eea42e33c649.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-10-0933
+methylation	e6ad2c4c-494c-4004-b81f-7ef7ae3ba97c	7415d95e-f0d2-4f43-a925-c1f20dce741c.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0724
+methylation	d466f856-75f6-4b48-b822-e0288aedb696	5004fee5-eb05-48af-9a90-43a5c53bffef.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1683
+methylation	0fecf0c4-fb67-41f9-a934-aff764080832	7bd5d140-b08e-4cd2-9fea-1c35c9728bdb.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1506
+methylation	c68dcf17-18bb-46cf-9fec-a561d6b742bb	4879dfb4-ba73-48c4-b452-4582e3456a9c.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1495
+methylation	ffdcda97-fd93-4677-a965-fefd0814cd9a	67edbd8b-69df-4150-bcb5-edf32c80ad5a.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-1673
+methylation	f9400218-a5c9-45fd-8470-5f8bb8673f3d	8ad38aae-1482-49d9-8666-237472ffb91b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1347
+methylation	767e8f58-1870-4d0e-8c7d-6a1b7477854a	4802ea3f-b1a5-4301-af17-b373ae8fd954.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1498
+methylation	9c50f6c4-c2f4-4317-ad61-b53479d7f4f4	0495b668-2c1f-4f93-9f7c-1c3a74d7192b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-23-1022
+methylation	7d715503-7e86-4cb4-84c0-a900f8b0ca33	4c8dcba9-77b8-424d-9099-e074dbf9fc79.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0768
+methylation	e52d3fc7-b441-4d5b-a235-e2fde247a228	c88be2a7-9678-493e-9a65-b3dc27872fb7.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1332
+methylation	f394c8ee-3a04-457d-82e8-37107a7fe52f	b05a8b60-16b2-4ce6-b685-cb6c34e55f88.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1499
+methylation	7c2e3cf0-b525-43c5-9371-b02a3b3f5e26	3d679a07-9899-4673-a2ac-da61af15cb01.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1356
+methylation	f7e692ed-42dc-49d8-b848-efaacad3c908	548d41db-b736-47c8-ae5f-20fbe851794f.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1682
+methylation	2444c1d3-559f-4814-a2e5-02df075686e7	34208675-4fb2-4f3e-a014-1ca9662e118d.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1648
+methylation	f71722f8-a179-429b-84c9-01ff6bd7f10f	0f5a6490-5a42-48f0-b5be-872ee2889f54.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0886
+methylation	ef10c041-a292-4650-a886-17d2d5b24a78	73441d85-27e8-411a-b7f8-8625dd24afed.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-2045
+methylation	96e13206-d071-4153-bd6a-549ad3a8846a	8d16acc5-1914-4390-a412-11cbe76c80b2.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1405
+methylation	0ab81d6c-9509-48e8-8095-2d067cdc21b7	f402f353-1fb5-41cc-af55-fd4b96fbdebd.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0891
+methylation	60f33874-392d-4ea5-98c7-d623c6f0ba7a	5de7f2d4-00e7-4bbd-b212-37ff49591f55.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0887
+methylation	fe3934e6-8bdc-4471-8e04-a8d3ffbcb244	3e60ef6c-44ae-48a9-a1dc-31240f0349e3.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0726
+methylation	65256883-ba49-43b6-a754-52f1125c13c6	c88f2043-98c6-459d-8ada-6dbc55fef860.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0923
+methylation	063ba3c1-233a-47a6-becd-1b2e866798d3	f410b210-7aab-4290-a306-2094144c1a4b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-10-0934
+methylation	646c0e25-e02f-40b9-950c-2a29b7c7c576	c40196f4-76a7-4e21-87c0-bd5ab817883f.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0897
+methylation	edf72db1-8592-4447-9f0f-058db1e5bfb0	a8debd07-9247-47c7-a0e3-854e0008ad01.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1511
+methylation	0b3a03fe-e44b-4e9c-83c9-ef3364f0815c	931e9b69-6ab8-45a9-8d3c-936c38b8e395.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1505
+methylation	1fa69f0c-6b84-4840-a8b2-ef95dc72d1f7	0ab968cf-0c86-447c-b6f7-578d8cdb2d17.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0911
+methylation	ac56542d-5a85-4ddc-a22c-a99ae66ac07e	e090ce6b-f61a-4681-9384-0a47c5153509.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0899
+methylation	c01f1e6c-65d8-4bc3-b08b-dcea366fcba7	afe96b4d-be42-4c02-8706-06011e2bd94d.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1494
+methylation	20d6c52d-53ae-486e-9091-214cb2503b8f	56e8d1d7-3bcb-48fa-9128-5b3c9e8f3f45.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-A5FT
+methylation	39e6e809-2b82-4ece-9eec-1f94949c2e5c	a4a947fe-9a3e-4d77-aa17-01bfb273ffe7.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1509
+methylation	000bcedf-3094-409f-bc85-6570773877e5	be737c22-e2c5-41f0-9113-c6256541f151.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1651
+methylation	8dbc1df7-d53f-456a-81b8-587a8a625d6a	2f7f2f61-f140-4cf3-ac6e-4846c75da8b7.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1497
+methylation	c60cc196-6197-4561-805f-5445d06c55d8	9298e8eb-6565-4f6a-8836-9c24d58382ff.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1542
+methylation	75ee606d-2e0a-4cac-9163-2ad9d85b89d8	d1ec704a-9a5c-49ec-8c51-90c452a7ede0.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0800
+methylation	3ce75f23-8025-4717-94ed-36a8061f7ade	82325f96-ee2c-4ed9-88c4-72b6f33ec563.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0890
+methylation	77627065-ac3c-468d-9535-05ac786828ea	fdd4e187-eea1-44a3-ab4e-3b9f190d1fa8.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1403
+methylation	ac960cce-2244-48a5-97b3-d3e45a8928ac	5a934d68-9421-41f5-a248-2d87c55b3ce8.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1331
+methylation	74e4f9e4-36f1-40b4-9273-40d28927755c	c207ec11-6002-4b6c-b2ef-6ef1e85a078d.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0920
+methylation	b20ba1ea-28d0-49d0-b40d-ed9941686f84	98a60802-d820-4ad4-87a1-fa2cc43dbb39.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-0367
+methylation	e18c0ad3-4e0a-42e8-8cc5-027ba8ac87c6	ed3b7801-985a-4dc5-b02c-9f73dea35197.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1488
+methylation	526bb8d5-dfd6-481b-8cde-32743505fed0	10e63c95-cf14-4150-994c-be8dac8b93bd.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0795
+methylation	108f3a16-e5cd-4c4e-9e7e-04485454a9cf	fb6f82c3-82bd-4af1-9f37-2cf868a84017.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1343
+methylation	0eec9c8e-b11b-4a34-b55c-0ec5bf061c00	2a2d315e-15a8-468d-b6d9-b306f9d49dee.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1487
+methylation	405385c4-97a2-45bf-8067-733bb24ba7a7	ec16d531-545a-4b06-b5ae-3e8869f61f05.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0913
+methylation	511e6b0c-bd91-485b-b935-7559597da4eb	15d2f07f-4bd5-4d37-9eda-40abbc7dc59f.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1411
+methylation	a726e505-edd1-461c-a3ab-2e95dc621994	f34be550-ab37-44f5-8c41-bc4fbb216f74.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-2044
+methylation	227985b9-e1fb-449f-881f-87ae5aefdf24	c733766e-eccc-4c0d-b5bd-5d05fe30d765.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-0366
+methylation	1cf168a2-3d52-41af-b0ee-ac60eb94f0a8	a6a7272e-d34b-432d-951b-efdb3f19dc4e.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1477
+methylation	22a83f25-5e65-4458-9f91-0d7097f16096	78a0f5df-d0ad-49c1-95de-68a42c2182d9.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-2053
+methylation	0df0b088-5e2a-464d-8930-9fc70023ab12	4825da66-2f6b-4ba4-ad21-70a31bbf181e.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1483
+methylation	88f2f75f-a12b-4b67-8668-f80664f31ac6	77ffc522-538c-4868-880c-c4fc605d4b6e.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1361
+methylation	9a273d19-6f66-462b-8a9d-46c6c7b27f3b	21094588-2c58-4f2c-a245-79ea7ed6177f.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-1674
+methylation	8c23ac1c-81d9-4b58-a5c0-68e44c7d99da	9e2c2ebb-725c-4e07-a18f-d813f18cdb78.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-09-1670
+methylation	dc0215e5-3455-4ae9-a324-0faeb1adb734	8864c6dc-9052-445d-b749-8e399e757a21.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0888
+methylation	80e71deb-b0d2-4c0d-8606-72e5531a668c	b9b16c59-73fc-4446-8670-bf12eb4d69ed.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1512
+methylation	0cc6931b-74c3-4217-81cb-9139f294e116	2c951c73-ecff-4a78-89df-8058554c9375.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0804
+methylation	717e6e70-c009-4cef-ab33-51c9c2e7fde7	69bf1316-5534-45a4-92fe-d748fece3e5b.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1410
+methylation	9d9fafdc-d6f8-4e15-8e74-e46f82c83a08	89dcf1e2-f8a3-466d-bfd9-99a1ff058863.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1481
+methylation	39062d14-62a7-43cb-ad34-6ecd5afeba29	49c4725d-7edf-4838-bbc7-5106f7c5a212.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0910
+methylation	2fbfba62-bd05-4abb-afc5-50ea2bbf051d	da00bba6-86c4-4acd-8d68-f675f589bb37.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1482
+methylation	1b72d442-b9b1-4ec5-92eb-68f604b98810	52647a51-f1b7-49b9-917a-7f0ab523ac9d.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1348
+methylation	7891fb60-23cd-4f72-918b-c5e7dc8cb254	a49c6fcd-09dc-4ee1-a57a-9dc856097315.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0924
+methylation	499096a6-1945-404c-a262-85d7e4ea5a20	c55c3cf6-4566-4d65-a45d-3d4206c05de9.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1655
+methylation	caa1f25a-82d9-4798-b944-02c97e8d5ebb	c4f56576-c8c1-4dbd-b25e-edda70d12739.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-04-1357
+methylation	f96867a5-db66-4912-9d03-20107fac12f2	7b9a30b7-5f95-4380-826b-d9cdbfcfc6f4.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-1496
+methylation	c436a94e-ec2d-40e6-8aba-b70d79b0297d	287e60d5-8f5d-4604-98ac-f771fca970fb.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-10-0926
+methylation	1830f618-c78e-466e-9888-9cef18f0afc7	c049ea83-3d42-4a29-995a-7dc7349946c1.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0760
+methylation	debbbb90-76a1-4a9f-a729-bb6c6f64a0b2	48b13751-0997-458f-89ff-7a687083e681.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-20-1686
+methylation	4a34e0a3-4853-4618-be00-9d7cc81e516f	85d001e8-a4ab-4f0a-8793-ce4f8f9cecda.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0893
+methylation	469373bb-71f4-4740-a99d-b97848196ff3	1dfc1ea4-e88d-46a5-af3f-f8e31c1d8bb7.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0908
+methylation	b2788f78-79ce-4378-80be-b4d0399518d5	d55ec42d-94b5-48e2-b15b-e48be7c14aba.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0765
+methylation	232ce8cf-9377-41cf-bd20-5ca17755dbe7	b918ae7a-ed2e-43f3-808b-4c1a3b68532d.methylation_array.sesame.level3betas.txt	Methylation Beta Value	TXT	TCGA-13-0884
+mutation	3ff5e4ac-1d30-42db-a491-21e64a6c64ab	86451eb0-203d-4937-8dc3-9233638f0c96.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1489
+mutation	080dc2a0-bdd6-4ff9-b49c-60fea5231ff1	4ceeac95-6d3b-48c3-ba25-f8385ff3cd16.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1411
+mutation	818dbf34-acb1-4f65-bb95-bd00971f9179	be173637-576a-4695-b83a-57406e5b5801.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1347
+mutation	86d080bb-a565-49b9-8590-0161cc5c66f1	63e72043-7249-47a7-9f44-6bcb010e62a0.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-0366
+mutation	5788e994-a06b-43ce-be6a-018af892fe13	3857627a-af9a-4c8e-b00c-4182ec8ae451.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0916
+mutation	04f77e65-97c6-45d5-81af-82b7ab6426e4	66e76270-284e-4817-ba51-769bdb077477.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1477
+mutation	ff6f7a3b-fa85-4a67-9c17-69218786b166	454e6a68-f176-422f-8475-28712338790a.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1356
+mutation	cdaddfb8-5ee5-42c2-93bd-cf775f9bcfbc	95ac608f-050c-44b2-a31b-a1cd55d0a965.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1682
+mutation	ab3b0b3a-2874-42ea-a739-79cbc654519e	11f5fe2e-bd0b-44cd-9ade-dddfcf4e2cd4.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1492
+mutation	beaeec2f-5ecf-4313-8d5a-6374375f4acf	e6b90507-cfe1-4863-ae9b-25f87f070023.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1362
+mutation	0b9b3c39-95dd-4059-aa3f-f64bd8df5940	21553387-c6e0-47fc-9800-f86ba35b72b4.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1497
+mutation	8c4a467c-49ae-4974-9977-f8ab908bbe91	ce4680d7-580d-4472-91fc-a05848888a5f.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1542
+mutation	dcd75f8c-f9a8-4938-b8a3-96a66763062a	3c62b744-3cbd-4eeb-9f0f-2fa94de50e82.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0800
+mutation	a6b2022d-6cb0-4ebd-96a7-81ee7259aea0	4707929b-d612-427d-89c3-3d65b98e3fac.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0890
+mutation	5cff58e3-4d36-492c-8958-47536ef6e8d1	e6f02c3f-0d5c-4ee0-a660-ad798f98736b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-2045
+mutation	4517a66b-4723-4339-878b-8b859fb70db0	2d10e338-90b5-4447-b6a0-4107a39796d8.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1405
+mutation	c63e6606-4653-4e94-933c-d94652a71cfd	2fb37f66-ab78-4c2e-b828-74b514a0bc33.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1403
+mutation	05e31f09-c438-4715-b19f-a64671ee5918	ab77bb20-3d11-4ad4-97b5-304b62c4cf70.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-2060
+mutation	d1c61852-7bbd-4d2c-8cd0-89b09cc70e70	47df10e5-13ef-44be-9dec-381779518fad.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0887
+mutation	823ea226-95f0-4cbe-8a2f-0be06b7a958a	4fddc521-330b-4197-8111-a6b6616e4a9b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0726
+mutation	8e4ec8d6-26c9-45af-96f4-7356f6d8cadf	60924d5d-ca60-4041-bfbd-15ab113849c0.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-0991
+mutation	30424e97-f8fd-456f-8e79-f76013ebd22d	e56750dd-b899-4c2c-a367-0902fee17884.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0725
+mutation	b69bc84e-f625-4baf-a95f-dd53e4f7e809	d38698be-1463-4db6-bb3a-f6f6bddb2906.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-1670
+mutation	dc95f908-60d7-4f89-b8b2-9dd1e040a74b	02735926-1150-4f29-bc6c-3174ac7a0e09.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-0364
+mutation	6ff0faef-6cca-4d6c-89e6-27d4f2b1c299	76fcb2e1-223b-4ad9-a3e8-bf06f73e0c84.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1505
+mutation	ea9ea30b-c0a1-4ae3-bd60-6a2e2dcf3082	5fbbcd45-a1c9-40b1-beb8-825a1732b8c3.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-0367
+mutation	6b7438b2-abd9-4a6d-a033-a42a0ff77a9a	88ddbfd3-cdb3-451d-95a8-e2eaf89d6def.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-10-0933
+mutation	184d066a-942b-47e9-8ab7-d570ad2c7b0a	8514090e-a327-4e1d-8225-1f219518718e.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1343
+mutation	73cec020-9d79-4189-8ae7-b6be0c867371	6381d92c-df1c-436f-8445-d3a55aec989b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1410
+mutation	16a3dffd-3008-4470-9d41-5c161a2ef9ae	6396022a-4930-486b-9ae8-798639a91263.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1487
+mutation	9c0a1121-0113-4e76-a109-e23db502a8e9	c06cbcef-103e-4d03-a358-be17063c7abe.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-23-1022
+mutation	c5882c8f-6432-46f0-9c41-80f9699f60a4	fc01e12c-7047-4495-8cee-330dbd85a058.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0768
+mutation	9a2573a7-54e9-46da-830a-299eea4e9312	2be4fd96-1153-4c49-bbcb-a874a97400fa.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1510
+mutation	620a93bd-bcb4-4c24-8605-48709007e9e7	b249eaa9-577f-4c64-bb52-14468feae088.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1332
+mutation	7e88103e-cd94-400c-b48f-c958afcce95b	3097d354-3c07-4527-9d7e-3639bbcad261.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1499
+mutation	b29a62a8-0455-48c5-90ae-947a7c00bfcc	87c77496-c2ce-46ad-ade6-823297c4ec0e.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-2051
+mutation	0d69a3ec-5c0a-45cd-a04a-50a88416b6a9	7bd77835-051b-47cf-9ef1-f74602f6acb9.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-23-1021
+mutation	b1a09f5d-6146-4683-a3a5-a30ff020c1a6	d4e2a01b-82dd-4436-8b2b-2a2f8f286346.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1648
+mutation	c38b3a9b-0e2d-4dc0-b658-ab225648107f	3a778e67-9737-46b6-8a97-3cc4e5c32e87.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1685
+mutation	39845be3-22cc-439c-b839-69304821f68d	10cf8bf4-5ab3-42ae-b8e4-0f48bea23d96.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0797
+mutation	47a7f244-2636-47e2-b08c-aec3cbd1964f	16aa11a8-bf0f-494f-901b-28619b80d1f5.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0923
+mutation	9f46af25-c5bf-4e4f-a542-f86b4545f418	a6939a22-a6b3-4257-bbab-ee3e80d199ab.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-10-0934
+mutation	035aeea9-9a13-4b41-9af6-29a4fa477765	5224cd1b-7b50-42ca-b787-fd73268c1276.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0897
+mutation	5704355c-d62d-4571-999d-1a26f8bc43f2	31042945-f081-4939-931f-9b0f958698a9.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0804
+mutation	02c72f26-3c14-469d-bbca-2671e1e7e391	f8f60ff4-fe6b-481b-b8b5-8f0c71ba1b5b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1511
+mutation	6abbbfe0-61f3-47b7-812f-4b6976dd0889	5b525c93-d1b2-4d19-bce5-bdb15670d505.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1512
+mutation	6649b3fd-7ee2-491b-8f7c-a2efc8f66ef6	d42b050b-78a2-49c4-b09f-7f8997378fcf.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0893
+mutation	f34fc7ad-a21e-437c-901a-b764088e4fcc	abff1617-5ab3-4c00-8643-b843cf932e55.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0884
+mutation	01913850-b4a1-4459-8e26-ab89fac5ba98	0d730fdc-0507-43f5-a93a-7a973c287c5c.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0899
+mutation	27cfba6c-5ff8-4804-b44a-683922e8c981	f8174086-d5e4-4a71-8d6c-07e2ea02cc45.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1494
+mutation	433ac8bc-37bf-423a-8256-9d06fca4424f	6b30f800-d275-477c-9c5e-beb6bbaa5577.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-A5FT
+mutation	25ee790b-8f72-4d0d-9645-a08832679c0e	68c49706-fa58-480a-8baa-ade3cd0c5c69.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-10-0931
+mutation	bc3ebbdb-ff4f-4890-8921-5da0f2a2d25d	c838f923-9cca-4aea-8226-a5ab239a7542.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1509
+mutation	c7bc1cb2-6fc2-475a-9a48-8f93d6332062	29aaa420-04e9-484c-8d4f-c92ee0bed8a0.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1651
+mutation	5ac1f058-ef7f-4ea4-8caa-e912f7963876	a8704a45-7e46-4e14-b027-0b1a3507e354.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-0987
+mutation	849cade0-effb-40da-a451-45cf18dcb029	2a529f44-15b0-49c4-86a8-bb8a7013b400.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0886
+mutation	ea701cee-0ed5-46df-968b-b7020ae1a075	056a4ee9-9649-46ba-b666-2b821e38f8b2.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1361
+mutation	687d97c0-211a-4bdf-9157-f345930dad44	b2d6af47-c445-42f3-89a4-8a3d9712cc58.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1409
+mutation	6329f035-6c9a-41e2-9ebc-a28c8b920c1e	ef88fb7a-8a52-4c76-85e3-33db6e461192.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0891
+mutation	cd0aad5c-494d-4ded-8270-d916904a717e	401ad139-4ba9-4875-a5ad-5521effce945.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-0369
+mutation	c881f065-c062-47dc-aeb4-1ffa8ac6dd13	daa07075-605b-42e3-a4fd-afc4aa0efc9a.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0905
+mutation	e0c0a112-73d6-4a40-b358-01097d005da4	211d70cd-7010-4264-8dc5-af31939dad35.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0714
+mutation	a0e91124-a4e1-43a9-8f70-5e5aaf1329dd	c7ae3d2a-0255-4bed-9de5-22edd46630e0.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1501
+mutation	7e5aad6c-0122-42d6-a5f2-1e7b1218497e	eda8e587-bcf9-4012-855f-35fca16767bd.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0888
+mutation	7455ac79-76be-426c-971a-f0fc9a1b95c2	943c7f04-dcd0-4fc7-ab7f-2d1669be0218.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1331
+mutation	7d3ee0fd-9630-4026-a9f9-510c35bfa77d	db03beea-2a3b-4b21-aaec-012b1993029f.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0920
+mutation	a3c817a6-44d1-441a-9cbf-4ebb9ee563d7	67975836-171a-4642-8b0b-7dea41112eac.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1488
+mutation	58f01895-1738-4ca4-98d1-a6f9d370b803	07042e85-b5b8-43dc-b985-4fd2f8663d8f.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0724
+mutation	a15143bf-bdce-48fa-b28a-631977662499	df5913b1-641c-42b5-9de3-6a2d104ba25a.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1683
+mutation	074eb2bd-867c-405e-a25e-af06c05e6f37	057a79c6-86b4-4e32-94fe-ce99ba1094fb.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0910
+mutation	ed604620-eb1b-4872-9f8c-a44ea85e6c6b	a6c82434-08e2-4bff-801e-42bb8aeb55dd.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-2056
+mutation	efeec14f-3ca2-48d6-a5b7-4c7cc04b4807	1335d156-63c0-435f-8214-dca4c78b8033.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0913
+mutation	81a1cd70-343e-49b1-aba6-44a7886bb74d	c6220e5c-4580-4cb3-a02f-adb157cb8890.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-2044
+mutation	80e2ec5a-d251-4f18-acb2-fbca579101df	843064a1-9df8-4f62-8d0f-15777bad0aa6.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1506
+mutation	5dcefe88-bbbc-479c-b815-f5ebba64f9cc	3e77166a-e13d-46b4-8423-882bbb6e2b8e.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-1673
+mutation	cb388eab-e280-42db-bfbc-2f93d12e4885	859a2088-3f8d-4c13-9242-dbeadc878234.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1404
+mutation	2bd3b2b3-7b50-4a52-b505-51381d84ec74	965e68e5-3491-4439-be21-f8838fae804a.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0908
+mutation	a18bbb07-0620-42de-a631-838c09c34031	a99cf1b3-bb78-411d-b873-86a192f36b2b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-2053
+mutation	156cfa70-d34f-4fd7-83f1-0c3765507f73	2b431ed8-345b-4ae6-9bad-5ce1abf420ee.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0765
+mutation	b57f2202-935a-4577-8f0e-4161ecaa025b	912b007c-9a61-482b-8c99-8b8822f331c9.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1498
+mutation	92493cac-b70b-4b4f-b11e-7ada33c5ef50	6518e31c-2be3-4107-ab3b-b48b4a8d4ffe.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1483
+mutation	8b193a49-d9d0-4a8d-b841-0aa703c28731	1e19772a-33f4-4c06-854c-0b873444e6d1.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-09-1674
+mutation	a18afa30-4a2c-431f-b68c-38fa63b3cfcd	de7c91f2-be21-4a84-947d-7d7201ec7ff7.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1507
+mutation	0128e664-cadc-4798-8a24-9b43e18d5c2f	f7354559-3139-44d2-aa45-2b1abffe85ea.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0883
+mutation	8239c67a-95f8-4191-9bd0-5d7f5d57f33c	db271069-15ed-44df-b507-de0e81579f01.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0911
+mutation	e4d4515a-0120-4b07-997d-0941fbe1bc13	6b1f77ff-5783-4234-ad34-d16f3a930655.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-10-0927
+mutation	1b33eaac-c9e0-4b5f-8231-f430d9d58040	94d1fd78-3e56-4520-8298-683ddc315687.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1684
+mutation	dd0c48b2-5f5d-41ea-b3d9-ae3e3b93254f	d3ed52f1-f0e2-4f55-8766-dda06bd54509.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0795
+mutation	40f0f470-7a00-4945-b64e-63c432bf64dc	caa9e94c-3ccb-4c2f-8e3d-fe2f66228ab7.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1481
+mutation	4bcad7be-a3ff-43b4-8634-b711ce985ff2	543f220b-7a6e-4888-804f-456ac0408dc7.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0924
+mutation	1a3fe9ad-b921-4df3-8072-ad171d2c8dd7	737326ac-1ac9-4d13-a71b-cfb9249c79b2.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1348
+mutation	c7a2ef72-d30e-491b-a9f6-63798e2b1a82	20e45834-403d-4ce4-8ddf-1cef247423d5.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1357
+mutation	40d82bec-b01b-4b30-90f9-f18d85dccd5f	d917d5db-5859-4a4e-8597-f07101f5d023.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-04-1655
+mutation	472ac858-65b5-4b38-b4a6-7acb52b3cd89	355ddd23-8896-4d66-9e7e-7b57c816e0ef.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1482
+mutation	61de2edb-9892-450b-8515-39b91c0db35b	8a92832c-7b44-4ad8-85dd-63ad517c2b1b.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1496
+mutation	f1437c6c-7ab6-449e-a814-edd6689989ba	b3398d5f-d8ce-4ba6-b3cc-1d2a2eae27e3.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-10-0926
+mutation	a2637999-b053-4d98-9c42-2ef30cbd1eea	8c0a2ce8-49a1-4115-8e0d-4fd8770bdbb9.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-0760
+mutation	1a85963f-f394-4851-9047-c5eb0fa28519	8c4ef619-c834-4945-b4c0-09ac1476fc9e.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1687
+mutation	05129459-a31a-4d01-bcea-5ff828f150a4	ba454378-50aa-4a12-b76a-0f23b7a79ced.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-20-1686
+mutation	da0d3ac3-9477-4fcf-9b55-71027fad2338	970e164c-119a-4834-b649-bc1f37934ff1.wxs.aliquot_ensemble_masked.maf.gz	Masked Somatic Mutation	MAF	TCGA-13-1495
+protein	e4cc8881-c52c-461d-88f8-b58c44c1afac	TCGA-13-0913-02A-21-2189-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0913
+protein	3c8da3fc-7e84-4a11-8855-386a276eea2f	TCGA-20-1687-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1687
+protein	ffc257f4-e987-4879-8fe3-54f640d813f6	TCGA-13-1411-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1411
+protein	d2bb7757-e01d-4347-925e-0ebeeedcc830	TCGA-13-1495-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1495
+protein	6b41007c-7504-497c-8c3d-a1cb7ebffbea	TCGA-09-2051-01A-21-1560-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-2051
+protein	1a7b661b-07d7-43d8-958a-ae859b62cada	TCGA-04-1356-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1356
+protein	32d6e1c8-2978-4409-b321-cc113c0a0636	TCGA-20-1682-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1682
+protein	99a63e56-3ca7-4105-8ce5-6390e1d4d356	TCGA-13-1492-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1492
+protein	073d3cd0-6c03-42a5-a6b0-ff088fc177f2	TCGA-13-A5FT-01A-21-A45I-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-A5FT
+protein	1070a1fa-ef46-4707-8139-2adfccd24fec	TCGA-10-0931-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-10-0931
+protein	be571ac2-e674-4c41-9aab-58c33c07fe67	TCGA-13-1509-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1509
+protein	f138c358-01c4-4fbc-8b0e-60e3a1e919c0	TCGA-04-1362-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1362
+protein	43f25026-50a2-4ae3-9160-881690a3c805	TCGA-04-1361-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1361
+protein	07d562f9-0faf-4d80-911d-e6d656f5f2c7	TCGA-13-1409-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1409
+protein	65635210-7784-4dc8-995b-96f9077be5bb	TCGA-20-1685-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1685
+protein	440cb937-c541-4816-8e30-569b5418bd01	TCGA-20-1684-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1684
+protein	ca93a991-e3e3-47dd-b3d3-c0f84d844bc9	TCGA-13-1488-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1488
+protein	829c130e-7284-4b27-b757-2be06b1f1a57	TCGA-13-1487-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1487
+protein	c7ef7d01-ec48-454e-8183-44d741e3a2b3	TCGA-13-1506-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1506
+protein	d430913a-0694-4244-96a5-733f41ef2559	TCGA-13-1499-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1499
+protein	e48c919b-56be-4607-9708-8dc8357a970d	TCGA-04-1648-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1648
+protein	1516f93b-1942-482f-9914-a65f7d5425cf	TCGA-09-2045-01A-21-1560-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-2045
+protein	a3de637d-4401-4ebf-958c-9a14de2c860e	TCGA-13-1405-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1405
+protein	dcd62b2f-38ed-4ed2-b40e-cd12640017c7	TCGA-13-2060-01A-21-1560-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-2060
+protein	5accc54b-591d-481a-91fe-0af19349149b	TCGA-13-0725-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0725
+protein	466dddcb-ecd9-4bbd-90a4-aa6ef12bdef2	TCGA-13-1507-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1507
+protein	be8d558f-7107-449a-b958-a9986b572294	TCGA-09-1670-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-1670
+protein	6f5f1d05-723e-452a-8670-f2f9480f6557	TCGA-13-0888-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0888
+protein	2daf9e31-0b40-4272-af01-bda5b7513c9f	TCGA-13-0897-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0897
+protein	da25968b-e20e-4e23-8c3d-7e78d3a2dc60	TCGA-13-1477-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1477
+protein	68ef3c62-137d-46c7-afe4-585638d2daaf	TCGA-13-0899-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0899
+protein	3be230fa-b1ce-4fe5-bf07-185568d8f686	TCGA-04-1651-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1651
+protein	c9e27f4d-2bb6-434e-beb9-8d4d8bf60c75	TCGA-04-1542-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1542
+protein	5bb6a0de-8cec-4c16-883f-d04e1757683d	TCGA-13-0800-01A-03-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0800
+protein	83a2eea5-4f2c-4f11-b0d6-84d081be296c	TCGA-13-0891-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0891
+protein	ce031ef8-a576-4a82-ba1d-9c52901272a8	TCGA-13-0797-01A-03-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0797
+protein	3774ce53-4617-4e26-898f-0dfcaa3b542a	TCGA-13-0887-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0887
+protein	62cfc9d9-5aa0-4b3e-9025-9e56e6aede3c	TCGA-09-1674-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-1674
+protein	e79c8859-7e9f-456e-b039-bf3208e97961	TCGA-13-1511-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1511
+protein	8a72e5a6-8bca-4344-a2e6-62247a36aeeb	TCGA-13-0920-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0920
+protein	bdc70264-cdd7-4dc3-93e9-5c38cad869db	TCGA-13-0911-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0911
+protein	28b20284-5738-409f-90d4-61d3d01c4bfa	TCGA-20-1683-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1683
+protein	ff58cf85-7c28-4c88-8c80-d3bfe57fc7e4	TCGA-13-1481-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1481
+protein	082cb852-088f-4667-90b1-b8dd45e0713f	TCGA-09-2056-01B-21-1560-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-2056
+protein	466d7de7-9312-4993-9048-bb5c71c61761	TCGA-13-1489-02A-31-2189-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1489
+protein	795c6ab5-0e8f-4e16-a311-78200ef17fd8	TCGA-20-1686-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-20-1686
+protein	eceb4ac8-19d9-4c05-8a25-f8f9db3a20ab	TCGA-09-2044-01B-21-1560-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-2044
+protein	8d9f1ed2-1625-4d0d-80fc-1ce8a4f0b2c3	TCGA-13-0916-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0916
+protein	4de28da0-792c-4a3e-b4e9-0e6b16af3dce	TCGA-13-0884-01B-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0884
+protein	36220371-183b-4e51-8957-0f13ebd0c873	TCGA-13-1483-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1483
+protein	edb6af28-5638-4f00-b7df-0662c853b1e7	TCGA-13-0886-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0886
+protein	f9282876-49aa-4457-b5d5-3d3839bf2419	TCGA-13-1501-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1501
+protein	dc9e4cdb-c91b-4707-83e4-85282f35424b	TCGA-13-1512-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1512
+protein	5bb0c2ae-6aae-4aaa-b257-bb53ac482f9c	TCGA-13-0804-01A-03-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0804
+protein	ab534b36-cc68-4296-9307-1c7c9cb7f88b	TCGA-13-1505-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1505
+protein	d73e6397-8217-4860-87ea-371886ce2098	TCGA-10-0933-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-10-0933
+protein	1a3ce083-e464-4233-a6ec-db327f3bb521	TCGA-13-1410-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1410
+protein	bb9a5a86-1272-4cb1-a873-2db094b1d15a	TCGA-04-1343-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1343
+protein	e0eb05c5-3344-464b-a026-38121e35e1d7	TCGA-13-0910-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-0910
+protein	c8951fc3-3e14-49f6-86de-c3f8b1181d1a	TCGA-04-1357-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1357
+protein	3bc72d78-6a23-44f4-a47d-09e87f62893c	TCGA-13-1482-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1482
+protein	2efb7d2a-84bb-4c50-940a-9be995f57010	TCGA-04-1348-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-04-1348
+protein	e9bc41f6-42b6-47cb-a1c0-9ee768f61d05	TCGA-13-1496-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1496
+protein	7711f1b3-c088-4e19-b529-f19874e7cee7	TCGA-10-0926-01A-21-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-10-0926
+protein	5eb9043e-ce66-4768-a3e0-7c71a522d398	TCGA-09-1673-01A-21-1558-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-09-1673
+protein	ae1e4df1-56f8-46d8-8629-96fabcc5a9c7	TCGA-13-1404-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1404
+protein	8bc04fba-2578-4182-a9ed-8838b1e60ed8	TCGA-13-1498-01A-21-1562-20_RPPA_data.tsv	Protein Expression Quantification	TSV	TCGA-13-1498

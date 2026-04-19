@@ -1,0 +1,104 @@
+project:
+  name: multiomics-ov-network
+  cohort: TCGA-OV
+  seed: 42
+
+paths:
+  raw_gdc: data/raw/gdc
+  raw_cbioportal: data/raw/cbioportal
+  raw_pdc: data/raw/pdc
+  interim: data/interim
+  processed: data/processed
+  manifests: metadata/manifests
+  sample_maps: metadata/sample_maps
+  results_tables: results/tables
+  results_figures: results/figures
+  results_models: results/models
+  results_networks: results/networks
+
+download:
+  use_gdc_api: true
+  use_gdc_client: false
+  gdc_client_path: gdc-client
+  max_files_per_type: 100
+  download_chunk_size: 12
+  request_size: 2000
+  retry: 4
+  timeout_sec: 120
+  use_public_only: true
+  include_proteome_if_available: true
+
+cohort_filters:
+  project_id: TCGA-OV
+  primary_site: Ovary
+  data_types:
+    rna: Gene Expression Quantification
+    cna: Gene Level Copy Number
+    methylation: Methylation Beta Value
+    mutation: Masked Somatic Mutation
+    protein: Protein Expression Quantification
+    clinical: Clinical Supplement
+
+analysis:
+  main_layers:
+    - rna
+    - cna
+    - methylation
+    - mutation
+  optional_layers:
+    - protein
+  outcomes:
+    - survival_risk_group
+
+survival:
+  risk_split: median
+  time_col_candidates:
+    - days_to_death
+    - days_to_last_follow_up
+  event_col: vital_status
+
+qc:
+  rna:
+    min_mean_expr: 1.0
+    log1p: true
+    zscore: true
+  methylation:
+    min_probe_variance: 0.01
+    summarization: promoter
+  cna:
+    clip_min: -2.0
+    clip_max: 2.0
+  mutation:
+    min_mutated_samples: 3
+  missingness:
+    max_feature_missing_frac: 0.3
+    max_sample_missing_frac: 0.3
+
+features:
+  pathways_gmt: null
+  module_method: pca
+  module_n_components: 50
+
+integration:
+  mofa:
+    factors: 10
+    iterations: 1000
+  diablo:
+    ncomp: 2
+    keepX:
+      rna: [50, 50]
+      cna: [50, 50]
+      methylation: [50, 50]
+      mutation: [30, 30]
+
+network:
+  corr_threshold: 0.3
+  fdr_alpha: 0.05
+  top_hubs: 50
+
+perturbation:
+  perturb_fraction: 0.5
+  top_hubs_to_test: 20
+  bootstrap_iters: 200
+  propagation_steps: 3
+  damping: 0.85

@@ -1,0 +1,168 @@
+configfile: "configs/cohort.yaml"
+
+rule all:
+    input:
+        "results/tables/sample_matching_summary.csv",
+        "results/tables/feature_count_summary.csv",
+        "results/models/mofa_factors.csv",
+        "results/models/diablo_scores.csv",
+        "results/networks/network_centrality.csv",
+        "results/networks/network_centrality_stability.csv",
+        "results/tables/perturbation_delta.csv",
+        "results/tables/model_benchmark.csv",
+        "results/tables/model_benchmark_protein_matched.csv",
+        "results/figures/model_benchmark_auc_ci.png",
+        "results/figures/model_benchmark_cox_cindex_ci.png",
+        "results/figures/model_benchmark_protein_matched_auc_ci.png",
+        "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png",
+        "results/figures/perturbation_bootstrap_ci.png",
+        "results/figures/survival_km.png",
+        "results/reports/final_report.html",
+        "manuscript/manuscript_skeleton.md"
+
+rule download_gdc:
+    output:
+        "data/raw/gdc/gdc_download_manifest.tsv",
+        "data/raw/gdc/download_complete.flag"
+    log:
+        "results/tables/log_download_gdc.txt"
+    shell:
+        "python scripts/01_download/01_gdc_download.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule fetch_gdc_files:
+    input:
+        "data/raw/gdc/download_complete.flag"
+    output:
+        "data/raw/gdc/files_fetch_complete.flag"
+    log:
+        "results/tables/log_fetch_gdc_files.txt"
+    shell:
+        "python scripts/01_download/03_fetch_gdc_files.py --config configs/cohort.yaml > {log} 2>&1 && echo ok > {output}"
+
+rule import_optional_sources:
+    input:
+        "data/raw/gdc/files_fetch_complete.flag"
+    output:
+        "data/raw/cbioportal/import_complete.flag",
+        "data/raw/pdc/import_complete.flag"
+    log:
+        "results/tables/log_optional_import.txt"
+    shell:
+        "python scripts/01_download/02_optional_imports.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule qc_preprocess:
+    input:
+        "data/raw/gdc/files_fetch_complete.flag"
+    output:
+        "data/interim/qc_complete.flag"
+    log:
+        "results/tables/log_qc.txt"
+    shell:
+        "python scripts/02_qc/01_qc_preprocess.py --config configs/cohort.yaml --thresholds configs/thresholds.yaml > {log} 2>&1"
+
+rule harmonize:
+    input:
+        "data/interim/qc_complete.flag"
+    output:
+        "metadata/sample_maps/master_sample_sheet.csv",
+        "results/tables/sample_matching_summary.csv"
+    log:
+        "results/tables/log_harmonize.txt"
+    shell:
+        "python scripts/03_harmonize/01_harmonize_ids.py --config configs/cohort.yaml --thresholds configs/thresholds.yaml > {log} 2>&1"
+
+rule features:
+    input:
+        "metadata/sample_maps/master_sample_sheet.csv"
+    output:
+        "data/processed/features_complete.flag",
+        "results/tables/feature_count_summary.csv"
+    log:
+        "results/tables/log_features.txt"
+    shell:
+        "python scripts/04_features/01_build_features.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule integration_mofa:
+    input:
+        "data/processed/features_complete.flag"
+    output:
+        "results/models/mofa_factors.csv",
+        "results/figures/mofa_factors.png"
+    log:
+        "results/tables/log_mofa.txt"
+    shell:
+        "Rscript scripts/05_integration/01_run_mofa.R --config configs/cohort.yaml > {log} 2>&1"
+
+rule integration_diablo:
+    input:
+        "data/processed/features_complete.flag"
+    output:
+        "results/models/diablo_scores.csv",
+        "results/figures/diablo_components.png"
+    log:
+        "results/tables/log_diablo.txt"
+    shell:
+        "Rscript scripts/05_integration/02_run_diablo.R --config configs/cohort.yaml > {log} 2>&1"
+
+rule network:
+    input:
+        "results/models/mofa_factors.csv",
+        "results/models/diablo_scores.csv"
+    output:
+        "results/networks/multilayer_network_edges.csv",
+        "results/networks/network_centrality.csv",
+        "results/networks/network_centrality_stability.csv"
+    log:
+        "results/tables/log_network.txt"
+    shell:
+        "python scripts/06_network/01_build_network.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule perturbation:
+    input:
+        "results/networks/network_centrality.csv"
+    output:
+        "results/tables/perturbation_delta.csv"
+    log:
+        "results/tables/log_perturbation.txt"
+    shell:
+        "python scripts/07_perturbation/01_perturbation.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule benchmark:
+    input:
+        "data/processed/features_complete.flag"
+    output:
+        "results/tables/model_benchmark.csv",
+        "results/tables/model_benchmark_protein_matched.csv",
+        "results/figures/model_benchmark_auc_ci.png",
+        "results/figures/model_benchmark_cox_cindex_ci.png",
+        "results/figures/model_benchmark_protein_matched_auc_ci.png",
+        "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png",
+        "results/figures/perturbation_bootstrap_ci.png"
+    log:
+        "results/tables/log_benchmark.txt"
+    shell:
+        "python scripts/08_reporting/02_benchmark_models.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule reporting:
+    input:
+        "results/tables/sample_matching_summary.csv",
+        "results/tables/feature_count_summary.csv",
+        "results/models/mofa_factors.csv",
+        "results/models/diablo_scores.csv",
+        "results/networks/network_centrality.csv",
+        "results/networks/network_centrality_stability.csv",
+        "results/tables/perturbation_delta.csv",
+        "results/tables/model_benchmark.csv",
+        "results/tables/model_benchmark_protein_matched.csv",
+        "results/figures/model_benchmark_auc_ci.png",
+        "results/figures/model_benchmark_cox_cindex_ci.png",
+        "results/figures/model_benchmark_protein_matched_auc_ci.png",
+        "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png"
+    output:
+        "results/figures/survival_km.png",
+        "results/reports/final_report.html",
+        "manuscript/manuscript_skeleton.md"
+    log:
+        "results/tables/log_reporting.txt"
+    shell:
+        "python scripts/08_reporting/01_generate_report.py --config configs/cohort.yaml > {log} 2>&1"

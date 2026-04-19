@@ -1,0 +1,13 @@
+{
+  "filters": {
+    "op": "and",
+    "content": [
+      {"op": "in", "content": {"field": "cases.project.project_id", "value": ["TCGA-OV"]}},
+      {"op": "in", "content": {"field": "data_type", "value": ["Masked Somatic Mutation"]}},
+      {"op": "in", "content": {"field": "access", "value": ["open"]}}
+    ]
+  },
+  "format": "JSON",
+  "fields": "file_id,file_name,data_type,data_format,cases.case_id,cases.submitter_id",
+  "size": 2000
+}

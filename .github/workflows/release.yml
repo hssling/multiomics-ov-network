@@ -1,0 +1,24 @@
+﻿name: Release Artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build artifact bundle
+        run: |
+          mkdir -p artifact
+          cp -r results artifact/results
+          cp -r manuscript artifact/manuscript
+          cp README.md artifact/
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiomics-ov-network-artifacts
+          path: artifact

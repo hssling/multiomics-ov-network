@@ -1,0 +1,189 @@
+# multiomics-ov-network
+
+Reproducible, end-to-end public TCGA ovarian cancer multi-omics pipeline for network modelling.
+
+## Scope (first runnable pass)
+- Cohort: `TCGA-OV`
+- Main layers: RNA + CNA + methylation + mutation
+- Outcome: survival risk group (median split)
+- Models: MOFA2-like latent factors, DIABLO-like supervised components
+- Network: multi-layer graph with centrality ranking + in silico perturbation
+- Data policy: real public GDC data only (no synthetic fallback)
+
+## Repository Structure
+
+```text
+multiomics-ov-network/
++-- data/
++-- metadata/
++-- notebooks/
++-- scripts/
++-- results/
++-- configs/
++-- environment/
++-- workflow/
++-- manuscript/
++-- Snakefile
++-- Makefile
++-- README.md
+```
+
+## Environments
+
+- Python: `environment/environment-python.yml`
+- R: `environment/environment-r.yml`
+
+Create envs:
+
+```bash
+conda env create -f environment/environment-python.yml
+conda env create -f environment/environment-r.yml
+```
+
+## Run Order
+
+Dry run:
+
+```bash
+snakemake -n --cores 1
+```
+
+Full run:
+
+```bash
+snakemake --cores 4 --rerun-incomplete
+```
+
+Make targets:
+
+```bash
+make dryrun
+make run
+make report
+```
+
+## Workflow Stages and Scripts
+
+1. Download
+- `scripts/01_download/01_gdc_download.py`
+- `scripts/01_download/03_fetch_gdc_files.py`
+- `scripts/01_download/02_optional_imports.py`
+
+2. QC / preprocessing
+- `scripts/02_qc/01_qc_preprocess.py`
+
+3. Harmonize IDs
+- `scripts/03_harmonize/01_harmonize_ids.py`
+
+4. Feature engineering
+- `scripts/04_features/01_build_features.py`
+
+5. Integration
+- `scripts/05_integration/01_run_mofa.R`
+- `scripts/05_integration/02_run_diablo.R`
+
+6. Network
+- `scripts/06_network/01_build_network.py`
+
+7. Perturbation
+- `scripts/07_perturbation/01_perturbation.py`
+
+8. Reporting
+- `scripts/08_reporting/01_generate_report.py`
+
+## Exact GDC Query Templates
+
+Layer templates are in `metadata/manifests/`:
+- `gdc_query_rna.json`
+- `gdc_query_cna.json`
+- `gdc_query_methylation.json`
+- `gdc_query_mutation.json`
+
+Each uses:
+- `cases.project.project_id = TCGA-OV`
+- layer-specific `data_type`
+- `access = open`
+- output fields: `file_id,file_name,data_type,data_format,cases.case_id,cases.submitter_id`
+
+## Variable Contracts (key files)
+
+- `data/interim/*_matrix.parquet`
+  - required columns: `sample_id`, `patient_id`, feature columns
+- `metadata/sample_maps/master_sample_sheet.csv`
+  - per-patient layer presence + clinical labels
+- `data/processed/outcomes.csv`
+  - includes `patient_id`, `days_to_death`, `days_to_last_follow_up`, `vital_status`, `survival_risk_group`
+- `results/models/mofa_factors.csv`
+  - `patient_id`, `LF1..LFn`
+- `results/models/diablo_scores.csv`
+  - `patient_id`, `comp1`, `comp2`, `survival_risk_group`
+- `results/networks/network_centrality.csv`
+  - `node`, `degree`, `betweenness`, `pagerank`, `rank_score`
+- `results/tables/perturbation_delta.csv`
+  - perturbation impact metrics per hub
+
+## Validation Checks Included
+
+- file existence and stage flags
+- per-layer dimensions tracked (`results/tables/feature_count_summary.csv`)
+- matched-sample intersection summary (`results/tables/sample_matching_summary.csv`)
+- missingness filtering in QC
+- ID harmonization via TCGA barcode truncation rules
+
+## Resumability and Reproducibility
+
+- immutable raw data folders under `data/raw/`
+- stage completion flags
+- deterministic random seed in config (`project.seed`)
+- workflow-managed dependencies in Snakemake
+
+## Expected Outputs
+
+Tables:
+- `results/tables/sample_matching_summary.csv`
+- `results/tables/feature_count_summary.csv`
+- `results/tables/perturbation_delta.csv`
+- `results/tables/model_benchmark.csv`
+- `results/tables/model_benchmark_protein_matched.csv`
+
+Models:
+- `results/models/mofa_factors.csv`
+- `results/models/diablo_scores.csv`
+
+Network:
+- `results/networks/multilayer_network_edges.csv`
+- `results/networks/network_centrality.csv`
+- `results/networks/network_centrality_stability.csv`
+
+Figures:
+- `results/figures/mofa_factors.png`
+- `results/figures/diablo_components.png`
+- `results/figures/survival_km.png`
+- `results/figures/model_benchmark_auc_ci.png`
+- `results/figures/model_benchmark_protein_matched_auc_ci.png`
+- `results/figures/model_benchmark_cox_cindex_ci.png`
+- `results/figures/model_benchmark_protein_matched_cox_cindex_ci.png`
+- `results/figures/perturbation_bootstrap_ci.png`
+
+Reports:
+- `results/reports/final_report.html`
+- `manuscript/manuscript_skeleton.md`
+
+## Notes
+
+- `scripts/02_qc/01_qc_preprocess.py` is strict and parses only downloaded real GDC files; it fails fast when required layers are missing.
+- Optional cBioPortal/PDC imports are enabled via `data/raw/cbioportal` and `data/raw/pdc`.
+
+## CI/CD
+
+- CI pipeline: `.github/workflows/ci.yml`
+  - Python syntax smoke checks
+  - R script parse checks
+- Release pipeline: `.github/workflows/release.yml`
+  - Packages `results/` + `manuscript/` as versioned artifacts on tag (`v*`)
+
+## Public Release Targets
+
+- Kaggle package folder: `public_release/kaggle_dataset/`
+- Hugging Face package folder: `public_release/hf_dataset/`
+- Both contain derived outputs only (no raw GDC redistribution).

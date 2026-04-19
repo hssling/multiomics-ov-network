@@ -1,0 +1,9 @@
+metric,value
+n_patients_rna,99
+n_patients_cna,99
+n_patients_methylation,100
+n_patients_mutation,92
+n_patients_protein,61
+n_patients_intersection_all_main_layers,90
+intersection_threshold,30
+intersection_status,pass

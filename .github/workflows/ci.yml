@@ -1,0 +1,40 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  python-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install minimal deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy networkx pyyaml pyarrow matplotlib seaborn scikit-learn lifelines
+      - name: Validate script syntax
+        run: |
+          python -m py_compile $(find scripts -name '*.py')
+      - name: Validate key config files
+        run: |
+          test -f configs/project_config.yml
+          test -f workflow/Snakefile
+          test -f README.md
+
+  r-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.3'
+      - name: R script parse check
+        run: |
+          Rscript -e "files <- list.files('scripts', pattern='\\.R$', recursive=TRUE, full.names=TRUE); if (length(files)>0) lapply(files, parse); cat('R parse OK\\n')"

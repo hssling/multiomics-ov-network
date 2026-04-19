@@ -1,0 +1,49 @@
+﻿# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Environments
+.venv/
+venv/
+.env
+.env.*
+conda-meta/
+
+# Notebook and editor
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Keep raw and heavy intermediate data out of git
+data/raw/**
+!data/raw/.gitkeep
+data/interim/**
+!data/interim/.gitkeep
+
+# Optionally ignore heavy processed artifacts (keep summaries/results)
+data/processed/**
+!data/processed/.gitkeep
+
+# Ignore runtime flags/cache
+**/*.flag
+.cache/
+
+# Keep manuscript outputs tracked selectively
+manuscript/submission_package/targets/**/IJCO_*.docx
+manuscript/submission_package/targets/**/Internal_*.docx
+
+# Local publish creds/configs
+.kaggle/
+*.kaggle.json
+.hf/

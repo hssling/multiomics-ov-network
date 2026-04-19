@@ -1,0 +1,20 @@
+thresholds:
+  min_samples_per_layer: 40
+  min_intersection_samples: 30
+  min_features_rna: 2000
+  min_features_cna: 500
+  min_features_methylation: 1000
+  min_features_mutation: 50
+
+id_mapping:
+  tcga_id_delimiter: '-'
+  patient_id_parts: 3
+  sample_id_parts: 4
+  prioritize_tumor_samples:
+    - '01A'
+    - '01B'
+
+integrity:
+  require_nonempty_files: true
+  require_unique_patient_ids: true
+  allow_partial_layers: true

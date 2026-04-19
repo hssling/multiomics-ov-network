@@ -1,0 +1,24 @@
+name: multiomics-ov-network-r
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base=4.3
+  - r-data.table
+  - r-tidyverse
+  - r-yaml
+  - r-jsonlite
+  - r-optparse
+  - bioconductor-tcgabiolinks
+  - bioconductor-summarizedexperiment
+  - bioconductor-biocparallel
+  - bioconductor-mofa2
+  - r-mixomics
+  - r-survival
+  - r-survminer
+  - r-igraph
+  - r-ggplot2
+  - r-rmarkdown
+  - r-arrow
+  - pandoc

@@ -1,0 +1,28 @@
+name: multiomics-ov-network-py
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - statsmodels
+  - networkx
+  - lifelines
+  - pyarrow
+  - pyyaml
+  - requests
+  - tqdm
+  - matplotlib
+  - seaborn
+  - plotly
+  - jinja2
+  - pydantic
+  - snakemake
+  - xgboost
+  - python-igraph
+  - pip:
+      - gseapy

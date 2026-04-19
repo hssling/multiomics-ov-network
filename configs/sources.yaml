@@ -1,0 +1,15 @@
+gdc:
+  base: https://api.gdc.cancer.gov
+  endpoints:
+    files: /files
+    cases: /cases
+    projects: /projects
+  format: JSON
+  size: 2000
+
+cbioportal:
+  study_id: ov_tcga_pan_can_atlas_2018
+  notes: Place downloaded study files under data/raw/cbioportal
+
+pdc:
+  notes: Optional extension layer. Place ovarian proteomics tables under data/raw/pdc.

@@ -1,0 +1,6 @@
+layer,n_samples,n_features,n_manifest_files,n_local_files
+rna,99,50422,100,100
+cna,99,46216,100,100
+methylation,100,7594,100,100
+mutation,92,292,100,100
+protein,61,464,67,67
