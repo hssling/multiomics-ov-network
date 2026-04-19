@@ -1,0 +1,197 @@
+﻿import json
+from pathlib import Path
+
+p = Path('public_release/kaggle_kernel')
+p.mkdir(parents=True, exist_ok=True)
+
+cells = [
+    {
+        'cell_type': 'markdown',
+        'metadata': {},
+        'source': [
+            '# TCGA-OV Multi-Omics Advanced Evidence Notebook\n',
+            '\n',
+            'This Kaggle kernel reproduces and summarizes advanced evidence from the public derived dataset:\n',
+            '- predictive benchmarks\n',
+            '- DAG/network pathway outputs\n',
+            '- perturbation and sensitivity analyses\n',
+            '- input-output ablation experiments\n',
+            '- PCA structure summaries\n',
+        ],
+    },
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'import os\n',
+            'import numpy as np\n',
+            'import pandas as pd\n',
+            'import matplotlib.pyplot as plt\n',
+            'import seaborn as sns\n',
+            'sns.set_theme(style="whitegrid")\n',
+            'DATA_ROOT = "/kaggle/input/tcga-ov-multiomics-network-derived-results"\n',
+            'assert os.path.exists(DATA_ROOT), f"Dataset path not found: {DATA_ROOT}"\n',
+            'DATA_ROOT\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Load Core Tables']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'tables = f"{DATA_ROOT}/results/tables"\n',
+            'nets = f"{DATA_ROOT}/results/networks"\n',
+            'figs = f"{DATA_ROOT}/results/figures"\n',
+            'model_benchmark = pd.read_csv(f"{tables}/model_benchmark.csv")\n',
+            'model_benchmark_prot = pd.read_csv(f"{tables}/model_benchmark_protein_matched.csv")\n',
+            'adv_ml = pd.read_csv(f"{tables}/advanced_ml_benchmark.csv")\n',
+            'ablation = pd.read_csv(f"{tables}/input_output_ablation_auc.csv")\n',
+            'perm = pd.read_csv(f"{tables}/permutation_test_auc.csv")\n',
+            'pca_summary = pd.read_csv(f"{tables}/pca_summary.csv")\n',
+            'sens = pd.read_csv(f"{tables}/sensitivity_hub_slope_summary.csv")\n',
+            'sens_grid = pd.read_csv(f"{tables}/sensitivity_perturb_fraction_grid.csv")\n',
+            'pathway = pd.read_csv(f"{tables}/causal_pathway_strength_summary.csv")\n',
+            'network_centrality = pd.read_csv(f"{nets}/network_centrality.csv")\n',
+            'dag_edges = pd.read_csv(f"{nets}/dag_pathways.csv")\n',
+            'sample_summary = pd.read_csv(f"{tables}/sample_matching_summary.csv")\n',
+            'feature_summary = pd.read_csv(f"{tables}/feature_count_summary.csv")\n',
+            'print("Loaded tables successfully")\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Cohort and Feature Overview']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': ['display(sample_summary)\n', 'display(feature_summary)\n'],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Benchmark Models (All-Sample and Protein-Matched)']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'display(model_benchmark.sort_values("auc", ascending=False))\n',
+            'display(model_benchmark_prot.sort_values("auc", ascending=False))\n',
+            'fig, ax = plt.subplots(1, 2, figsize=(14, 5))\n',
+            'mb = model_benchmark.sort_values("auc", ascending=False)\n',
+            'ax[0].barh(mb["model"], mb["auc"])\n',
+            'ax[0].set_title("All-sample AUC")\n',
+            'ax[0].set_xlim(0, 1)\n',
+            'mp = model_benchmark_prot.sort_values("auc", ascending=False)\n',
+            'ax[1].barh(mp["model"], mp["auc"])\n',
+            'ax[1].set_title("Protein-matched AUC")\n',
+            'ax[1].set_xlim(0, 1)\n',
+            'plt.tight_layout()\n',
+            'plt.show()\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Advanced ML and Permutation Evidence']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'display(adv_ml.sort_values("auc", ascending=False))\n',
+            'display(perm)\n',
+            'best = adv_ml.sort_values("auc", ascending=False).iloc[0]\n',
+            'print(f"Top model: {best.model}, AUC={best.auc:.3f}")\n',
+            'print(f"Permutation p-value: {perm.loc[0, \"p_value_right_tail\"]:.4f}")\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Input-Output Parameter Experiments (Ablation)']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'ab = ablation.sort_values("auc", ascending=False)\n',
+            'display(ab)\n',
+            'plt.figure(figsize=(10, 5))\n',
+            'sns.barplot(data=ab.head(10), y="blocks", x="auc", color="steelblue")\n',
+            'plt.xlim(0, 1)\n',
+            'plt.title("Top omics block combinations by AUC")\n',
+            'plt.tight_layout()\n',
+            'plt.show()\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## Network, DAG Pathway, and Sensitivity']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': [
+            'display(network_centrality.head(15))\n',
+            'display(pathway.sort_values(["n_edges", "mean_abs_weight"], ascending=False))\n',
+            'display(sens.sort_values("delta_global_slope", ascending=False).head(10))\n',
+            'plt.figure(figsize=(7, 5))\n',
+            'top = sens.sort_values("delta_global_slope", ascending=False).head(6)["hub"].tolist()\n',
+            'for h in top:\n',
+            '    d = sens_grid[sens_grid["hub"] == h].sort_values("perturb_fraction")\n',
+            '    plt.plot(d["perturb_fraction"], d["delta_global_pagerank_l1"], marker="o", label=h)\n',
+            'plt.title("Sensitivity curves for top hubs")\n',
+            'plt.xlabel("Perturbation fraction")\n',
+            'plt.ylabel("Delta global PageRank L1")\n',
+            'plt.legend(ncol=2, fontsize=8)\n',
+            'plt.tight_layout()\n',
+            'plt.show()\n',
+        ],
+    },
+    {'cell_type': 'markdown', 'metadata': {}, 'source': ['## PCA Structure Evidence']},
+    {
+        'cell_type': 'code',
+        'execution_count': None,
+        'metadata': {},
+        'outputs': [],
+        'source': ['display(pca_summary.sort_values("pc1_pc2_cum_var", ascending=False))\n'],
+    },
+    {
+        'cell_type': 'markdown',
+        'metadata': {},
+        'source': [
+            '## Final Evidence Snapshot\n',
+            '\n',
+            'This notebook confirms that the released TCGA-OV evidence package contains:\n',
+            '- reproducible cross-layer integration outputs\n',
+            '- robust network and perturbation sensitivity evidence\n',
+            '- advanced ML and permutation-based inferential support\n',
+            '- interpretable input-output ablation experiments\n',
+        ],
+    },
+]
+
+nb = {
+    'cells': cells,
+    'metadata': {
+        'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
+        'language_info': {'name': 'python', 'version': '3.10'},
+    },
+    'nbformat': 4,
+    'nbformat_minor': 5,
+}
+
+(p / 'tcga_ov_multiomics_advanced.ipynb').write_text(json.dumps(nb, indent=2), encoding='utf-8')
+
+meta = {
+    'id': 'jkhospital/tcga-ov-multiomics-advanced-evidence',
+    'title': 'TCGA-OV Multi-Omics Advanced Evidence Notebook',
+    'code_file': 'tcga_ov_multiomics_advanced.ipynb',
+    'language': 'python',
+    'kernel_type': 'notebook',
+    'is_private': 'false',
+    'enable_gpu': 'false',
+    'enable_tpu': 'false',
+    'dataset_sources': ['jkhospital/tcga-ov-multiomics-network-derived-results'],
+}
+(p / 'kernel-metadata.json').write_text(json.dumps(meta, indent=2), encoding='utf-8')
+
+print('kernel files created')
