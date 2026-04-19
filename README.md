@@ -143,8 +143,15 @@ Tables:
 - `results/tables/sample_matching_summary.csv`
 - `results/tables/feature_count_summary.csv`
 - `results/tables/perturbation_delta.csv`
+- `results/tables/sensitivity_perturb_fraction_grid.csv`
+- `results/tables/sensitivity_hub_slope_summary.csv`
 - `results/tables/model_benchmark.csv`
 - `results/tables/model_benchmark_protein_matched.csv`
+- `results/tables/pca_summary.csv`
+- `results/tables/advanced_ml_benchmark.csv`
+- `results/tables/input_output_ablation_auc.csv`
+- `results/tables/permutation_test_auc.csv`
+- `results/tables/causal_pathway_strength_summary.csv`
 
 Models:
 - `results/models/mofa_factors.csv`
@@ -154,6 +161,7 @@ Network:
 - `results/networks/multilayer_network_edges.csv`
 - `results/networks/network_centrality.csv`
 - `results/networks/network_centrality_stability.csv`
+- `results/networks/dag_pathways.csv`
 
 Figures:
 - `results/figures/mofa_factors.png`
@@ -164,6 +172,11 @@ Figures:
 - `results/figures/model_benchmark_cox_cindex_ci.png`
 - `results/figures/model_benchmark_protein_matched_cox_cindex_ci.png`
 - `results/figures/perturbation_bootstrap_ci.png`
+- `results/figures/multilayer_network_graph.png`
+- `results/figures/dag_pathway_graph.png`
+- `results/figures/sensitivity_perturbation_curves.png`
+- `results/figures/advanced_ml_benchmark_auc_ci.png`
+- `results/figures/input_output_ablation_top_auc.png`
 
 Reports:
 - `results/reports/final_report.html`

@@ -1,0 +1,2 @@
+auc_observed,auc_null_mean,auc_null_sd,p_value_right_tail,model
+0.6454293628808865,0.45950138504155125,0.11158916622394034,0.058823529411764705,xgboost

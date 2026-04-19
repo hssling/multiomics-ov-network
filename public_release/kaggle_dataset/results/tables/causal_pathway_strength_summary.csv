@@ -1,0 +1,4 @@
+source_layer,target_layer,n_edges,mean_abs_weight,mean_signed_weight
+RNA,Latent,40,0.44142713585624593,-0.02442667260390019
+Latent,Protein,16,0.3498155130597529,0.10266334577563795
+Latent,Outcome,1,0.3813296554726817,-0.3813296554726817

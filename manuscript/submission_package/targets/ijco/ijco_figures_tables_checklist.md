@@ -8,6 +8,11 @@
 5. Benchmark Cox C-index CI (`results/figures/model_benchmark_cox_cindex_ci.png`)
 6. Protein-matched AUC/Cox benchmark CIs (`results/figures/model_benchmark_protein_matched_*.png`)
 7. Perturbation bootstrap CI (`results/figures/perturbation_bootstrap_ci.png`)
+8. Integrated network graph (`results/figures/multilayer_network_graph.png`)
+9. DAG pathway graph (`results/figures/dag_pathway_graph.png`)
+10. Sensitivity perturbation curves (`results/figures/sensitivity_perturbation_curves.png`)
+11. Advanced ML benchmark (`results/figures/advanced_ml_benchmark_auc_ci.png`)
+12. Input-output ablation top AUC (`results/figures/input_output_ablation_top_auc.png`)
 
 ## Tables
 1. Sample matching summary (`results/tables/sample_matching_summary.csv`)
@@ -17,3 +22,10 @@
 5. Network centrality (`results/networks/network_centrality.csv`)
 6. Hub stability (`results/networks/network_centrality_stability.csv`)
 7. Perturbation deltas with CIs (`results/tables/perturbation_delta.csv`)
+8. Sensitivity grid (`results/tables/sensitivity_perturb_fraction_grid.csv`)
+9. Sensitivity slope summary (`results/tables/sensitivity_hub_slope_summary.csv`)
+10. PCA summary (`results/tables/pca_summary.csv`)
+11. Advanced ML benchmark (`results/tables/advanced_ml_benchmark.csv`)
+12. Input-output ablation (`results/tables/input_output_ablation_auc.csv`)
+13. Permutation test (`results/tables/permutation_test_auc.csv`)
+14. Causal pathway strengths (`results/tables/causal_pathway_strength_summary.csv`)

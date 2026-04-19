@@ -8,6 +8,8 @@
 - Clarify pathway-level biological interpretation for top latent hubs.
 - Add concise comparison to prior ovarian multi-omics integrative studies.
 - Keep Methods highly explicit and reproducible for technical reviewers.
+- Add DAG-style pathway figure and causal-pathway strength summary.
+- Include advanced ML benchmark with permutation p-value as inferential support.
 
 ## Suggested Title
 "Robust Multi-Omics Network Integration in TCGA Ovarian Cancer: Bootstrap-Calibrated Prediction, Hub Stability, and Perturbation Evidence"

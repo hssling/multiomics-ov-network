@@ -7,6 +7,8 @@
       <li>Top all-sample AUC model: rna_modules (AUC=0.613)</li>
       <li>Top central hub: LF8 (rank_score=0.982)</li>
       <li>Top perturbation-sensitive hub: LF7 (delta_global=0.054)</li>
+      <li>Top advanced ML model: xgboost (AUC=0.645)</li>
+      <li>Permutation test p-value: 0.0588</li>
     </ul>
     <h2>Sample Matching Summary</h2>
     <table border="1" class="dataframe">
@@ -796,6 +798,68 @@
     </tr>
   </tbody>
 </table>
+    <h2>Sensitivity Slope Summary</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>hub</th>
+      <th>delta_global_slope</th>
+      <th>monotonic_non_decreasing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LF7</td>
+      <td>0.127242</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF8</td>
+      <td>0.122861</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF6</td>
+      <td>0.113245</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF5</td>
+      <td>0.109522</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF2</td>
+      <td>0.096994</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF4</td>
+      <td>0.094463</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>rna_module_004</td>
+      <td>0.081193</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>rna_module_005</td>
+      <td>0.074452</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>rna_module_007</td>
+      <td>0.067416</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>LF3</td>
+      <td>0.063961</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
     <h2>Benchmark (Single-Omics vs Integrated)</h2>
     <p>Protein layer included (n_samples=57)</p>
     <table border="1" class="dataframe">
@@ -1019,6 +1083,230 @@
     </tr>
   </tbody>
 </table>
+    <h2>Advanced ML Benchmark</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>n_samples</th>
+      <th>auc</th>
+      <th>auc_ci_low</th>
+      <th>auc_ci_high</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xgboost</td>
+      <td>57</td>
+      <td>0.645429</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>elastic_net</td>
+      <td>57</td>
+      <td>0.526316</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>random_forest</td>
+      <td>57</td>
+      <td>0.522853</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logistic_l2</td>
+      <td>57</td>
+      <td>0.458449</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+    <h2>Input-Output Ablation Experiments (Top)</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>blocks</th>
+      <th>n_blocks</th>
+      <th>n_features</th>
+      <th>n_features_compressed</th>
+      <th>n_samples</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>protein_modules+rna_modules</td>
+      <td>2</td>
+      <td>70</td>
+      <td>56</td>
+      <td>57</td>
+      <td>0.644044</td>
+    </tr>
+    <tr>
+      <td>burdens+protein_modules+rna_modules</td>
+      <td>3</td>
+      <td>73</td>
+      <td>56</td>
+      <td>57</td>
+      <td>0.559557</td>
+    </tr>
+    <tr>
+      <td>burdens+protein_modules</td>
+      <td>2</td>
+      <td>23</td>
+      <td>23</td>
+      <td>57</td>
+      <td>0.491690</td>
+    </tr>
+    <tr>
+      <td>protein_modules</td>
+      <td>1</td>
+      <td>20</td>
+      <td>20</td>
+      <td>57</td>
+      <td>0.488920</td>
+    </tr>
+    <tr>
+      <td>burdens</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>57</td>
+      <td>0.465374</td>
+    </tr>
+    <tr>
+      <td>rna_modules</td>
+      <td>1</td>
+      <td>50</td>
+      <td>50</td>
+      <td>57</td>
+      <td>0.416898</td>
+    </tr>
+    <tr>
+      <td>burdens+rna_modules</td>
+      <td>2</td>
+      <td>53</td>
+      <td>53</td>
+      <td>57</td>
+      <td>0.379501</td>
+    </tr>
+  </tbody>
+</table>
+    <h2>PCA Summary</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>view</th>
+      <th>n_samples</th>
+      <th>n_features</th>
+      <th>pc1_var</th>
+      <th>pc2_var</th>
+      <th>pc1_pc2_cum_var</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rna_modules</td>
+      <td>90</td>
+      <td>50</td>
+      <td>0.020000</td>
+      <td>0.020000</td>
+      <td>0.040000</td>
+    </tr>
+    <tr>
+      <td>cna</td>
+      <td>90</td>
+      <td>46216</td>
+      <td>0.454018</td>
+      <td>0.032477</td>
+      <td>0.486495</td>
+    </tr>
+    <tr>
+      <td>methylation</td>
+      <td>90</td>
+      <td>7594</td>
+      <td>0.109153</td>
+      <td>0.056638</td>
+      <td>0.165791</td>
+    </tr>
+    <tr>
+      <td>mutation</td>
+      <td>90</td>
+      <td>292</td>
+      <td>0.048747</td>
+      <td>0.035976</td>
+      <td>0.084723</td>
+    </tr>
+    <tr>
+      <td>protein_modules</td>
+      <td>57</td>
+      <td>20</td>
+      <td>0.050000</td>
+      <td>0.050000</td>
+      <td>0.100000</td>
+    </tr>
+  </tbody>
+</table>
+    <h2>Causal Pathway Strength Summary</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>source_layer</th>
+      <th>target_layer</th>
+      <th>n_edges</th>
+      <th>mean_abs_weight</th>
+      <th>mean_signed_weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RNA</td>
+      <td>Latent</td>
+      <td>40</td>
+      <td>0.441427</td>
+      <td>-0.024427</td>
+    </tr>
+    <tr>
+      <td>Latent</td>
+      <td>Protein</td>
+      <td>16</td>
+      <td>0.349816</td>
+      <td>0.102663</td>
+    </tr>
+    <tr>
+      <td>Latent</td>
+      <td>Outcome</td>
+      <td>1</td>
+      <td>0.381330</td>
+      <td>-0.381330</td>
+    </tr>
+  </tbody>
+</table>
+    <h2>Permutation Test</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>auc_observed</th>
+      <th>auc_null_mean</th>
+      <th>auc_null_sd</th>
+      <th>p_value_right_tail</th>
+      <th>model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.645429</td>
+      <td>0.459501</td>
+      <td>0.111589</td>
+      <td>0.058824</td>
+      <td>xgboost</td>
+    </tr>
+  </tbody>
+</table>
     <h2>Figures</h2>
     <p><img src="../figures/survival_km.png" width="500"></p>
     <p><img src="../figures/mofa_factors.png" width="500"></p>
@@ -1028,5 +1316,10 @@
     <p><img src="../figures/model_benchmark_protein_matched_auc_ci.png" width="500"></p>
     <p><img src="../figures/model_benchmark_protein_matched_cox_cindex_ci.png" width="500"></p>
     <p><img src="../figures/perturbation_bootstrap_ci.png" width="500"></p>
+    <p><img src="../figures/multilayer_network_graph.png" width="500"></p>
+    <p><img src="../figures/dag_pathway_graph.png" width="500"></p>
+    <p><img src="../figures/sensitivity_perturbation_curves.png" width="500"></p>
+    <p><img src="../figures/advanced_ml_benchmark_auc_ci.png" width="500"></p>
+    <p><img src="../figures/input_output_ablation_top_auc.png" width="500"></p>
     </body></html>
     

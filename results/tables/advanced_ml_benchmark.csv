@@ -1,0 +1,5 @@
+model,n_samples,auc,auc_ci_low,auc_ci_high
+xgboost,57,0.6454293628808865,,
+elastic_net,57,0.5263157894736842,,
+random_forest,57,0.5228531855955678,,
+logistic_l2,57,0.4584487534626039,,

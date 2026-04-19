@@ -6,16 +6,30 @@ rule all:
         "results/tables/feature_count_summary.csv",
         "results/models/mofa_factors.csv",
         "results/models/diablo_scores.csv",
+        "results/networks/multilayer_network_edges.csv",
         "results/networks/network_centrality.csv",
         "results/networks/network_centrality_stability.csv",
+        "results/networks/dag_pathways.csv",
         "results/tables/perturbation_delta.csv",
+        "results/tables/sensitivity_perturb_fraction_grid.csv",
+        "results/tables/sensitivity_hub_slope_summary.csv",
         "results/tables/model_benchmark.csv",
         "results/tables/model_benchmark_protein_matched.csv",
+        "results/tables/pca_summary.csv",
+        "results/tables/advanced_ml_benchmark.csv",
+        "results/tables/input_output_ablation_auc.csv",
+        "results/tables/permutation_test_auc.csv",
+        "results/tables/causal_pathway_strength_summary.csv",
         "results/figures/model_benchmark_auc_ci.png",
         "results/figures/model_benchmark_cox_cindex_ci.png",
         "results/figures/model_benchmark_protein_matched_auc_ci.png",
         "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png",
         "results/figures/perturbation_bootstrap_ci.png",
+        "results/figures/multilayer_network_graph.png",
+        "results/figures/dag_pathway_graph.png",
+        "results/figures/sensitivity_perturbation_curves.png",
+        "results/figures/advanced_ml_benchmark_auc_ci.png",
+        "results/figures/input_output_ablation_top_auc.png",
         "results/figures/survival_km.png",
         "results/reports/final_report.html",
         "manuscript/manuscript_skeleton.md"
@@ -117,6 +131,18 @@ rule network:
     shell:
         "python scripts/06_network/01_build_network.py --config configs/cohort.yaml > {log} 2>&1"
 
+rule network_visualize:
+    input:
+        "results/networks/multilayer_network_edges.csv"
+    output:
+        "results/figures/multilayer_network_graph.png",
+        "results/figures/dag_pathway_graph.png",
+        "results/networks/dag_pathways.csv"
+    log:
+        "results/tables/log_network_visualize.txt"
+    shell:
+        "python scripts/06_network/02_visualize_network_and_dag.py --config configs/cohort.yaml > {log} 2>&1"
+
 rule perturbation:
     input:
         "results/networks/network_centrality.csv"
@@ -126,6 +152,18 @@ rule perturbation:
         "results/tables/log_perturbation.txt"
     shell:
         "python scripts/07_perturbation/01_perturbation.py --config configs/cohort.yaml > {log} 2>&1"
+
+rule sensitivity_experiments:
+    input:
+        "results/networks/network_centrality.csv"
+    output:
+        "results/tables/sensitivity_perturb_fraction_grid.csv",
+        "results/tables/sensitivity_hub_slope_summary.csv",
+        "results/figures/sensitivity_perturbation_curves.png"
+    log:
+        "results/tables/log_sensitivity.txt"
+    shell:
+        "python scripts/07_perturbation/02_sensitivity_experiments.py --config configs/cohort.yaml > {log} 2>&1"
 
 rule benchmark:
     input:
@@ -143,6 +181,23 @@ rule benchmark:
     shell:
         "python scripts/08_reporting/02_benchmark_models.py --config configs/cohort.yaml > {log} 2>&1"
 
+rule advanced_analytics:
+    input:
+        "data/processed/features_complete.flag",
+        "results/networks/dag_pathways.csv"
+    output:
+        "results/tables/pca_summary.csv",
+        "results/tables/advanced_ml_benchmark.csv",
+        "results/tables/input_output_ablation_auc.csv",
+        "results/tables/permutation_test_auc.csv",
+        "results/tables/causal_pathway_strength_summary.csv",
+        "results/figures/advanced_ml_benchmark_auc_ci.png",
+        "results/figures/input_output_ablation_top_auc.png"
+    log:
+        "results/tables/log_advanced_analytics.txt"
+    shell:
+        "python scripts/08_reporting/05_advanced_analytics.py --config configs/cohort.yaml > {log} 2>&1"
+
 rule reporting:
     input:
         "results/tables/sample_matching_summary.csv",
@@ -151,13 +206,26 @@ rule reporting:
         "results/models/diablo_scores.csv",
         "results/networks/network_centrality.csv",
         "results/networks/network_centrality_stability.csv",
+        "results/networks/dag_pathways.csv",
         "results/tables/perturbation_delta.csv",
+        "results/tables/sensitivity_perturb_fraction_grid.csv",
+        "results/tables/sensitivity_hub_slope_summary.csv",
         "results/tables/model_benchmark.csv",
         "results/tables/model_benchmark_protein_matched.csv",
+        "results/tables/pca_summary.csv",
+        "results/tables/advanced_ml_benchmark.csv",
+        "results/tables/input_output_ablation_auc.csv",
+        "results/tables/permutation_test_auc.csv",
+        "results/tables/causal_pathway_strength_summary.csv",
         "results/figures/model_benchmark_auc_ci.png",
         "results/figures/model_benchmark_cox_cindex_ci.png",
         "results/figures/model_benchmark_protein_matched_auc_ci.png",
-        "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png"
+        "results/figures/model_benchmark_protein_matched_cox_cindex_ci.png",
+        "results/figures/multilayer_network_graph.png",
+        "results/figures/dag_pathway_graph.png",
+        "results/figures/sensitivity_perturbation_curves.png",
+        "results/figures/advanced_ml_benchmark_auc_ci.png",
+        "results/figures/input_output_ablation_top_auc.png"
     output:
         "results/figures/survival_km.png",
         "results/reports/final_report.html",

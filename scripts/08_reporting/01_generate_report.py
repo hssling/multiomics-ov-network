@@ -88,6 +88,16 @@ def main():
     hub_stab = pd.read_csv(hub_stab_path).head(20) if hub_stab_path.exists() else pd.DataFrame()
     perturb = pd.read_csv(tables / "perturbation_delta.csv").head(20)
     perturb_full = pd.read_csv(tables / "perturbation_delta.csv")
+    sensitivity = pd.read_csv(tables / "sensitivity_hub_slope_summary.csv") if (tables / "sensitivity_hub_slope_summary.csv").exists() else pd.DataFrame()
+    advanced_ml = pd.read_csv(tables / "advanced_ml_benchmark.csv") if (tables / "advanced_ml_benchmark.csv").exists() else pd.DataFrame()
+    ablation = pd.read_csv(tables / "input_output_ablation_auc.csv") if (tables / "input_output_ablation_auc.csv").exists() else pd.DataFrame()
+    perm = pd.read_csv(tables / "permutation_test_auc.csv") if (tables / "permutation_test_auc.csv").exists() else pd.DataFrame()
+    pca_summary = pd.read_csv(tables / "pca_summary.csv") if (tables / "pca_summary.csv").exists() else pd.DataFrame()
+    pathway_summary = (
+        pd.read_csv(tables / "causal_pathway_strength_summary.csv")
+        if (tables / "causal_pathway_strength_summary.csv").exists()
+        else pd.DataFrame()
+    )
     benchmark_path = tables / "model_benchmark.csv"
     benchmark = pd.read_csv(benchmark_path) if benchmark_path.exists() else pd.DataFrame()
     benchmark_prot_path = tables / "model_benchmark_protein_matched.csv"
@@ -114,6 +124,16 @@ def main():
         if not perturb.empty and "delta_global_pagerank_l1" in perturb.columns
         else "Top perturbation-sensitive hub: unavailable"
     )
+    top_adv_txt = (
+        f"Top advanced ML model: {advanced_ml.iloc[0]['model']} (AUC={advanced_ml.iloc[0]['auc']:.3f})"
+        if not advanced_ml.empty and pd.notna(advanced_ml.iloc[0]["auc"])
+        else "Top advanced ML model: unavailable"
+    )
+    perm_txt = (
+        f"Permutation test p-value: {perm.iloc[0]['p_value_right_tail']:.4f}"
+        if not perm.empty and "p_value_right_tail" in perm.columns and pd.notna(perm.iloc[0]["p_value_right_tail"])
+        else "Permutation test p-value: unavailable"
+    )
     render_perturbation_ci(perturb_full, figures / "perturbation_bootstrap_ci.png")
 
     html_tpl = Template("""
@@ -125,6 +145,8 @@ def main():
       <li>{{ key_find_1 }}</li>
       <li>{{ key_find_2 }}</li>
       <li>{{ key_find_3 }}</li>
+      <li>{{ key_find_4 }}</li>
+      <li>{{ key_find_5 }}</li>
     </ul>
     <h2>Sample Matching Summary</h2>
     {{ sample_table }}
@@ -136,11 +158,23 @@ def main():
     {{ hub_stability_table }}
     <h2>Perturbation Delta (Top)</h2>
     {{ perturb_table }}
+    <h2>Sensitivity Slope Summary</h2>
+    {{ sensitivity_table }}
     <h2>Benchmark (Single-Omics vs Integrated)</h2>
     <p>{{ protein_status }}</p>
     {{ benchmark_table }}
     <h2>Benchmark (Protein-Matched Fair Comparison)</h2>
     {{ benchmark_protein_table }}
+    <h2>Advanced ML Benchmark</h2>
+    {{ advanced_ml_table }}
+    <h2>Input-Output Ablation Experiments (Top)</h2>
+    {{ ablation_table }}
+    <h2>PCA Summary</h2>
+    {{ pca_table }}
+    <h2>Causal Pathway Strength Summary</h2>
+    {{ pathway_table }}
+    <h2>Permutation Test</h2>
+    {{ permutation_table }}
     <h2>Figures</h2>
     <p><img src="../figures/survival_km.png" width="500"></p>
     <p><img src="../figures/mofa_factors.png" width="500"></p>
@@ -150,6 +184,11 @@ def main():
     <p><img src="../figures/model_benchmark_protein_matched_auc_ci.png" width="500"></p>
     <p><img src="../figures/model_benchmark_protein_matched_cox_cindex_ci.png" width="500"></p>
     <p><img src="../figures/perturbation_bootstrap_ci.png" width="500"></p>
+    <p><img src="../figures/multilayer_network_graph.png" width="500"></p>
+    <p><img src="../figures/dag_pathway_graph.png" width="500"></p>
+    <p><img src="../figures/sensitivity_perturbation_curves.png" width="500"></p>
+    <p><img src="../figures/advanced_ml_benchmark_auc_ci.png" width="500"></p>
+    <p><img src="../figures/input_output_ablation_top_auc.png" width="500"></p>
     </body></html>
     """)
 
@@ -159,14 +198,22 @@ def main():
         hub_table=top_hubs.to_html(index=False),
         hub_stability_table=(hub_stab.to_html(index=False) if not hub_stab.empty else "<p>No hub stability table available.</p>"),
         perturb_table=perturb.to_html(index=False),
+        sensitivity_table=(sensitivity.head(20).to_html(index=False) if not sensitivity.empty else "<p>No sensitivity table available.</p>"),
         benchmark_table=(benchmark.to_html(index=False) if not benchmark.empty else "<p>No benchmark table available.</p>"),
         benchmark_protein_table=(
             benchmark_prot.to_html(index=False) if not benchmark_prot.empty else "<p>No protein-matched benchmark table available.</p>"
         ),
+        advanced_ml_table=(advanced_ml.to_html(index=False) if not advanced_ml.empty else "<p>No advanced ML benchmark table available.</p>"),
+        ablation_table=(ablation.head(20).to_html(index=False) if not ablation.empty else "<p>No ablation table available.</p>"),
+        pca_table=(pca_summary.to_html(index=False) if not pca_summary.empty else "<p>No PCA summary table available.</p>"),
+        pathway_table=(pathway_summary.to_html(index=False) if not pathway_summary.empty else "<p>No causal pathway summary table available.</p>"),
+        permutation_table=(perm.to_html(index=False) if not perm.empty else "<p>No permutation test table available.</p>"),
         protein_status=protein_status,
         key_find_1=top_model_txt,
         key_find_2=top_hub_txt,
         key_find_3=top_pert_txt,
+        key_find_4=top_adv_txt,
+        key_find_5=perm_txt,
     )
 
     (reports / "final_report.html").write_text(html, encoding="utf-8")

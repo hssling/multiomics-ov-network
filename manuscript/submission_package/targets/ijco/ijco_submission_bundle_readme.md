@@ -25,3 +25,16 @@ This folder contains a journal-tailored package for **International Journal of C
 2. Add external validation analysis before final top-tier submission if feasible.
 3. Verify IJCO article-type limits at submission (word count/figure limits may vary by type).
 4. Confirm subscription route in the production agreement to keep APC-free path.
+
+## Advanced Analytics Assets (Current Extension)
+- `results/figures/multilayer_network_graph.png`
+- `results/figures/dag_pathway_graph.png`
+- `results/figures/sensitivity_perturbation_curves.png`
+- `results/figures/advanced_ml_benchmark_auc_ci.png`
+- `results/figures/input_output_ablation_top_auc.png`
+- `results/tables/advanced_ml_benchmark.csv`
+- `results/tables/input_output_ablation_auc.csv`
+- `results/tables/permutation_test_auc.csv`
+- `results/tables/causal_pathway_strength_summary.csv`
+- `manuscript/submission_package/manuscript_expanded_advanced_analytics.md`
+- `manuscript/submission_package/split_manuscript_strategy.md`

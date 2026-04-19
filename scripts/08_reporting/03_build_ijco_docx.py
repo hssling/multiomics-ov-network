@@ -53,6 +53,16 @@ def insert_figure(doc: Document, img_path: Path, caption: str, width_in: float =
     cp.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 
+def safe_save_doc(doc: Document, path: Path) -> Path:
+    try:
+        doc.save(path)
+        return path
+    except PermissionError:
+        alt = path.with_name(path.stem + "_updated.docx")
+        doc.save(alt)
+        return alt
+
+
 def make_graphical_abstract(out_png: Path, metrics: dict) -> None:
     plt.figure(figsize=(14, 8), dpi=220)
     ax = plt.gca()
@@ -122,6 +132,12 @@ def build_main_docx(base: Path) -> None:
     hubs = pd.read_csv(nets / "network_centrality.csv")
     hub_stab = pd.read_csv(nets / "network_centrality_stability.csv")
     pert = pd.read_csv(tables / "perturbation_delta.csv")
+    sens = pd.read_csv(tables / "sensitivity_hub_slope_summary.csv") if (tables / "sensitivity_hub_slope_summary.csv").exists() else pd.DataFrame()
+    pca = pd.read_csv(tables / "pca_summary.csv") if (tables / "pca_summary.csv").exists() else pd.DataFrame()
+    adv_ml = pd.read_csv(tables / "advanced_ml_benchmark.csv") if (tables / "advanced_ml_benchmark.csv").exists() else pd.DataFrame()
+    ablation = pd.read_csv(tables / "input_output_ablation_auc.csv") if (tables / "input_output_ablation_auc.csv").exists() else pd.DataFrame()
+    perm = pd.read_csv(tables / "permutation_test_auc.csv") if (tables / "permutation_test_auc.csv").exists() else pd.DataFrame()
+    pathway = pd.read_csv(tables / "causal_pathway_strength_summary.csv") if (tables / "causal_pathway_strength_summary.csv").exists() else pd.DataFrame()
 
     n_core = int(sample.loc[sample["metric"] == "n_patients_intersection_all_main_layers", "value"].iloc[0])
     n_prot = int(sample.loc[sample["metric"] == "n_patients_protein", "value"].iloc[0])
@@ -194,6 +210,18 @@ def build_main_docx(base: Path) -> None:
     add_table_from_df(doc, hubs.head(15), "Table 5. Top network hubs by rank_score.")
     add_table_from_df(doc, hub_stab.head(15), "Table 6. Hub bootstrap stability summary.")
     add_table_from_df(doc, pert.head(15), "Table 7. Perturbation effect and stability summary.")
+    if not sens.empty:
+        add_table_from_df(doc, sens.head(15), "Table 8. Sensitivity slope summary across perturbation fractions.")
+    if not adv_ml.empty:
+        add_table_from_df(doc, adv_ml, "Table 9. Advanced ML benchmark (integrated input set).")
+    if not ablation.empty:
+        add_table_from_df(doc, ablation.head(15), "Table 10. Input-output ablation combinations (top AUC).")
+    if not pca.empty:
+        add_table_from_df(doc, pca, "Table 11. PCA variance summary by omics view.")
+    if not perm.empty:
+        add_table_from_df(doc, perm, "Table 12. Permutation test of best ML model.")
+    if not pathway.empty:
+        add_table_from_df(doc, pathway, "Table 13. DAG causal-pathway layer transition strengths.")
 
     insert_figure(doc, ga_png, "Figure 1. Graphical abstract of the study design and key findings.")
     insert_figure(doc, figs / "mofa_factors.png", "Figure 2. MOFA-like latent factor projection (LF1 vs LF2).")
@@ -204,6 +232,11 @@ def build_main_docx(base: Path) -> None:
     insert_figure(doc, figs / "model_benchmark_protein_matched_cox_cindex_ci.png", "Figure 7. Protein-matched fair benchmark Cox C-index with bootstrap 95% CI.")
     insert_figure(doc, figs / "perturbation_bootstrap_ci.png", "Figure 8. Perturbation effect size (delta global PageRank L1) with bootstrap 95% CI.")
     insert_figure(doc, figs / "survival_km.png", "Figure 9. Survival curves by derived risk groups.")
+    insert_figure(doc, figs / "multilayer_network_graph.png", "Figure 10. Integrated multi-layer network graph.")
+    insert_figure(doc, figs / "dag_pathway_graph.png", "Figure 11. DAG-style pathway graph from inputs to outcomes.")
+    insert_figure(doc, figs / "sensitivity_perturbation_curves.png", "Figure 12. Sensitivity curves for hub perturbation strength.")
+    insert_figure(doc, figs / "advanced_ml_benchmark_auc_ci.png", "Figure 13. Advanced ML benchmark AUC with bootstrap 95% CI.")
+    insert_figure(doc, figs / "input_output_ablation_top_auc.png", "Figure 14. Top input-output ablation experiment combinations by AUC.")
 
     add_heading(doc, "Discussion", level=2)
     doc.add_paragraph(
@@ -227,7 +260,7 @@ def build_main_docx(base: Path) -> None:
         doc.add_paragraph(f"{i}. {r}")
 
     out_doc = out_dir / "IJCO_Main_Manuscript.docx"
-    doc.save(out_doc)
+    safe_save_doc(doc, out_doc)
 
 
 def build_supplementary_docx(base: Path) -> None:
@@ -249,7 +282,7 @@ def build_supplementary_docx(base: Path) -> None:
 
     add_heading(doc, "Supplementary Methods", level=2)
     doc.add_paragraph("S1. Data processing and harmonization details: strict patient-level matching across layers; optional protein extension retained for fairness-controlled analyses.")
-    doc.add_paragraph("S2. Bootstrap settings: 200 iterations for network/perturbation stability; 300 iterations for predictive benchmarking intervals.")
+    doc.add_paragraph("S2. Bootstrap settings: network/perturbation and predictive analyses were bootstrap-calibrated with script-level fixed seeds; current advanced benchmark run used reduced bootstrap iterations for computational stability.")
     doc.add_paragraph("S3. Cox benchmarking strategy: penalized Cox primary fold fit with PHReg/linear fallback for numerical robustness.")
 
     add_heading(doc, "Supplementary Tables", level=2)
@@ -257,6 +290,12 @@ def build_supplementary_docx(base: Path) -> None:
     add_table_from_df(doc, bench_p, "Supplementary Table S2. Protein-matched benchmark full table.")
     add_table_from_df(doc, hub_stab, "Supplementary Table S3. Hub stability full table.")
     add_table_from_df(doc, pert, "Supplementary Table S4. Perturbation bootstrap and rank-stability full table.")
+    if (tables / "advanced_ml_benchmark.csv").exists():
+        add_table_from_df(doc, pd.read_csv(tables / "advanced_ml_benchmark.csv"), "Supplementary Table S5. Advanced ML benchmark.")
+    if (tables / "input_output_ablation_auc.csv").exists():
+        add_table_from_df(doc, pd.read_csv(tables / "input_output_ablation_auc.csv"), "Supplementary Table S6. Input-output ablation results.")
+    if (tables / "sensitivity_perturb_fraction_grid.csv").exists():
+        add_table_from_df(doc, pd.read_csv(tables / "sensitivity_perturb_fraction_grid.csv").head(30), "Supplementary Table S7. Perturbation sensitivity grid (top rows).")
 
     add_heading(doc, "Supplementary Figures", level=2)
     insert_figure(doc, figs / "model_benchmark_auc_ci.png", "Supplementary Figure S1. All-sample AUC CI.")
@@ -264,8 +303,13 @@ def build_supplementary_docx(base: Path) -> None:
     insert_figure(doc, figs / "model_benchmark_protein_matched_auc_ci.png", "Supplementary Figure S3. Protein-matched AUC CI.")
     insert_figure(doc, figs / "model_benchmark_protein_matched_cox_cindex_ci.png", "Supplementary Figure S4. Protein-matched Cox C-index CI.")
     insert_figure(doc, figs / "perturbation_bootstrap_ci.png", "Supplementary Figure S5. Perturbation CI.")
+    insert_figure(doc, figs / "multilayer_network_graph.png", "Supplementary Figure S6. Integrated network graph.")
+    insert_figure(doc, figs / "dag_pathway_graph.png", "Supplementary Figure S7. DAG pathway graph.")
+    insert_figure(doc, figs / "sensitivity_perturbation_curves.png", "Supplementary Figure S8. Sensitivity curves.")
+    insert_figure(doc, figs / "advanced_ml_benchmark_auc_ci.png", "Supplementary Figure S9. Advanced ML benchmark.")
+    insert_figure(doc, figs / "input_output_ablation_top_auc.png", "Supplementary Figure S10. Input-output ablation ranking.")
 
-    doc.save(base / "IJCO_Supplementary_Appendix.docx")
+    safe_save_doc(doc, base / "IJCO_Supplementary_Appendix.docx")
 
 
 def build_cover_letter_docx(base: Path) -> None:
@@ -291,7 +335,7 @@ def build_cover_letter_docx(base: Path) -> None:
     doc.add_paragraph(
         "Sincerely,\n\nDr Siddalingaiah H S\nProfessor, Community Medicine\nShridevi Institute of Medical Sciences and Research Hospital, Tumkur\nEmail: hssling@yahoo.com | Phone: 8941087719\nORCID: 0000-0002-4771-8285"
     )
-    doc.save(base / "IJCO_Cover_Letter.docx")
+    safe_save_doc(doc, base / "IJCO_Cover_Letter.docx")
 
 
 def build_peer_review_docs(base: Path) -> None:
@@ -301,7 +345,7 @@ def build_peer_review_docs(base: Path) -> None:
     r1.add_paragraph("Scope/Novelty: Acceptable translational scope with reproducible workflow and uncertainty quantification.")
     r1.add_paragraph("Major concerns addressed: explicit fairness benchmarking, Cox fallback robustness, and hub stability CI.")
     r1.add_paragraph("Minor recommendations: strengthen discussion on external validation requirement and clinical utility framing.")
-    r1.save(base / "Internal_Peer_Review_A.docx")
+    safe_save_doc(r1, base / "Internal_Peer_Review_A.docx")
 
     r2 = Document()
     set_default_font(r2)
@@ -309,7 +353,7 @@ def build_peer_review_docs(base: Path) -> None:
     r2.add_paragraph("Statistical robustness: bootstrap CIs and rank-stability metrics materially improve confidence.")
     r2.add_paragraph("Reproducibility: deterministic pipeline and staged outputs adequate for computational reproducibility.")
     r2.add_paragraph("Final recommendation: submit after final author metadata and funding/declaration verification.")
-    r2.save(base / "Internal_Peer_Review_B.docx")
+    safe_save_doc(r2, base / "Internal_Peer_Review_B.docx")
 
     audit = Document()
     set_default_font(audit)
@@ -320,10 +364,11 @@ def build_peer_review_docs(base: Path) -> None:
         "Validated Vancouver-style numbered references and in-text indexing.",
         "Included author identity, contact, affiliation, and ORCID.",
         "Generated supplementary appendix with full benchmark/hub/perturbation tables.",
+        "Added advanced analytics assets: PCA, advanced ML, ablation, DAG pathway summary, and sensitivity curves.",
         "Generated two independent internal peer-review documents and incorporated improvements.",
     ]:
         audit.add_paragraph(f"- {item}")
-    audit.save(base / "Final_Audit_Log.docx")
+    safe_save_doc(audit, base / "Final_Audit_Log.docx")
 
 
 def main() -> None:
