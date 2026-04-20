@@ -20,6 +20,13 @@ This reproducible framework identifies robust cross-layer network hubs and calib
 # Keywords
 Ovarian cancer; TCGA; multi-omics; network biology; perturbation analysis; DAG; reproducible research
 
+# Plain-Language Summary
+1. We combined several public ovarian cancer data types (DNA changes, RNA, and protein) from the same patients.
+2. We identified a small set of stable “hub” signals (LF7, LF8, LF6) that repeatedly showed strong influence in the network.
+3. When we simulated perturbations, these hubs consistently produced the largest downstream network changes.
+4. Predictive models showed moderate performance; therefore, this work is strongest as biologically grounded hypothesis generation rather than immediate bedside prediction.
+5. The full workflow is reproducible and publicly shareable, so other groups can validate and extend these findings.
+
 # Introduction
 Ovarian cancer remains a high-mortality disease with clinically important molecular heterogeneity [1]. Multi-omics integration can connect upstream DNA-layer variation to downstream transcriptomic and proteomic states and then to patient-level outcomes [2-8]. However, many analyses still rely on point-estimate performance reporting without uncertainty-aware interpretation across model discrimination, network robustness, and perturbation sensitivity.
 
@@ -70,6 +77,9 @@ Advanced ML on integrated features showed modest discrimination: XGBoost AUC 0.5
 This study provides a reproducible uncertainty-aware TCGA-OV systems-oncology framework integrating unsupervised structure learning, supervised multi-block integration, network centrality, perturbation stability, and pathway-oriented sensitivity analysis. The strongest evidence in this cohort arises from network-level robustness and perturbation behavior rather than high clinical discrimination from advanced ML.
 
 The advanced-ML results are scientifically informative despite modest AUC values. They show that with strict sample matching and current features, predictive gains are constrained; however, the ablation and DAG analyses still reveal interpretable cross-layer signal architecture, particularly RNA-latent-protein transitions and stable latent hubs. This supports a mechanistic, hypothesis-generating interpretation.
+
+## What This Means for Clinicians and Translational Teams
+First, this study provides a practical shortlist of robust molecular hub candidates that can be prioritized for orthogonal laboratory validation. Second, it demonstrates that uncertainty-aware reporting can prevent overstatement of predictive readiness. Third, it offers a reusable analytic template for other cohorts, helping teams move from fragmented multi-omics analyses toward more reliable, transparent evidence synthesis.
 
 ## Strengths
 1. Fully scriptable and reproducible public-data pipeline.
@@ -155,4 +165,3 @@ Table 13. DAG pathway transition strength summary.
 11. National Cancer Institute. Proteomic Data Commons (PDC) [Internet]. Available from: https://pdc.cancer.gov/  
 12. Cox DR. Regression models and life-tables. J R Stat Soc Series B Stat Methodol. 1972;34(2):187-220.  
 13. Hagberg A, Swart P, Chult DS. Exploring network structure, dynamics, and function using NetworkX. In: Proceedings of the 7th Python in Science Conference; 2008. p. 11-15.
-

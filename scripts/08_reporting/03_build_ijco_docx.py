@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import date
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -138,6 +139,7 @@ def build_main_docx(base: Path) -> None:
     ablation = pd.read_csv(tables / "input_output_ablation_auc.csv") if (tables / "input_output_ablation_auc.csv").exists() else pd.DataFrame()
     perm = pd.read_csv(tables / "permutation_test_auc.csv") if (tables / "permutation_test_auc.csv").exists() else pd.DataFrame()
     pathway = pd.read_csv(tables / "causal_pathway_strength_summary.csv") if (tables / "causal_pathway_strength_summary.csv").exists() else pd.DataFrame()
+    sens_grid = pd.read_csv(tables / "sensitivity_perturb_fraction_grid.csv") if (tables / "sensitivity_perturb_fraction_grid.csv").exists() else pd.DataFrame()
 
     n_core = int(sample.loc[sample["metric"] == "n_patients_intersection_all_main_layers", "value"].iloc[0])
     n_prot = int(sample.loc[sample["metric"] == "n_patients_protein", "value"].iloc[0])
@@ -182,11 +184,22 @@ def build_main_docx(base: Path) -> None:
     )
     doc.add_paragraph("Conclusions: A reproducible uncertainty-aware multi-omics framework identifies robust cross-layer ovarian cancer signals and perturbation-sensitive hubs suitable for translational hypothesis generation.")
 
+    add_heading(doc, "Plain-Language Summary", level=2)
+    doc.add_paragraph("1. We combined several public ovarian cancer molecular data types from the same patients.")
+    doc.add_paragraph("2. A small set of latent hubs (LF7, LF8, LF6) repeatedly showed strong influence across analyses.")
+    doc.add_paragraph("3. Simulated perturbations confirmed that these hubs produce the largest downstream network changes.")
+    doc.add_paragraph("4. Predictive models were moderate, so findings are strongest for mechanistic hypothesis generation.")
+    doc.add_paragraph("5. The full workflow is reproducible and designed for external validation and extension.")
+
     add_heading(doc, "Introduction", level=2)
     doc.add_paragraph(
         "High-grade serous ovarian cancer exhibits substantial molecular heterogeneity, motivating integration of genomic, epigenomic, transcriptomic, and proteomic signals [1,11]. "
         "Prior integration frameworks support unsupervised and supervised discovery but are not always reported with reproducibility and uncertainty diagnostics [5-8]. "
         "This study provides an end-to-end reproducible TCGA-OV pipeline with bootstrap-calibrated inference for performance, hub stability, and perturbation impact."
+    )
+    doc.add_paragraph(
+        "The primary aim was to identify cross-layer hubs that remain stable under different analytical views and perturbation settings. "
+        "A secondary aim was to quantify whether integrated predictive performance was materially improved compared with single-layer views under both all-available and fairness-restricted matched subsets."
     )
 
     add_heading(doc, "Methods", level=2)
@@ -201,27 +214,53 @@ def build_main_docx(base: Path) -> None:
         "Network and perturbation: We built a multilayer graph and ranked hubs by degree, betweenness, and PageRank [12,13]. "
         "Perturbation used edge dampening around top hubs with bootstrap confidence intervals for delta-global and rank stability."
     )
+    doc.add_paragraph(
+        "Advanced evidence extension: We added DAG-style pathway orientation, perturbation-fraction sensitivity curves, block-wise input-output ablation, "
+        "and repeated cross-validation confidence intervals for advanced machine-learning models. A permutation test was used to compare observed discrimination "
+        "against shuffled-label null performance for the top advanced model."
+    )
 
     add_heading(doc, "Results", level=2)
-    add_table_from_df(doc, sample, "Table 1. Sample matching summary.")
-    add_table_from_df(doc, features, "Table 2. Feature count summary.")
-    add_table_from_df(doc, bench, "Table 3. All-sample benchmark (AUC/C-index/Cox C-index with 95% CIs).")
-    add_table_from_df(doc, bench_p, "Table 4. Protein-matched fairness benchmark.", max_rows=10)
-    add_table_from_df(doc, hubs.head(15), "Table 5. Top network hubs by rank_score.")
-    add_table_from_df(doc, hub_stab.head(15), "Table 6. Hub bootstrap stability summary.")
-    add_table_from_df(doc, pert.head(15), "Table 7. Perturbation effect and stability summary.")
-    if not sens.empty:
-        add_table_from_df(doc, sens.head(15), "Table 8. Sensitivity slope summary across perturbation fractions.")
+    doc.add_paragraph(
+        f"Cohort matching produced n={n_core} patients in the core four-layer analysis and n={n_prot} in the protein-matched subset. "
+        "This attrition pattern is expected in public multi-omics cohorts and was explicitly addressed via fairness-controlled benchmarking."
+    )
+    doc.add_paragraph(
+        f"In all-available benchmarking, the highest discrimination was observed for {metrics['best_auc_model']} ({metrics['best_auc']}). "
+        f"The highest Cox C-index was observed for {metrics['best_cox_model']} ({metrics['best_cox']})."
+    )
     if not adv_ml.empty:
-        add_table_from_df(doc, adv_ml, "Table 9. Advanced ML benchmark (integrated input set).")
-    if not ablation.empty:
-        add_table_from_df(doc, ablation.head(15), "Table 10. Input-output ablation combinations (top AUC).")
-    if not pca.empty:
-        add_table_from_df(doc, pca, "Table 11. PCA variance summary by omics view.")
-    if not perm.empty:
-        add_table_from_df(doc, perm, "Table 12. Permutation test of best ML model.")
+        top_adv = adv_ml.sort_values("auc", ascending=False).head(1).iloc[0]
+        doc.add_paragraph(
+            f"Advanced ML on integrated features showed modest discrimination, led by {top_adv['model']} "
+            f"(AUC={top_adv['auc']:.3f}, 95% repeated-CV CI {top_adv['auc_ci_low']:.3f}-{top_adv['auc_ci_high']:.3f})."
+        )
+    if not perm.empty and pd.notna(perm.iloc[0].get("p_value_right_tail", np.nan)):
+        doc.add_paragraph(
+            f"Permutation testing for the top advanced model yielded p={perm.iloc[0]['p_value_right_tail']:.4f}, "
+            "supporting conservative interpretation of advanced predictive gains at current sample size."
+        )
+    if not sens.empty:
+        top_sens = sens.sort_values("delta_global_slope", ascending=False).head(3)["hub"].tolist()
+        doc.add_paragraph(
+            f"Sensitivity analysis across perturbation fractions highlighted monotonic high-impact hubs ({', '.join(top_sens)})."
+        )
     if not pathway.empty:
-        add_table_from_df(doc, pathway, "Table 13. DAG causal-pathway layer transition strengths.")
+        p1 = pathway.sort_values(["n_edges", "mean_abs_weight"], ascending=False).head(1).iloc[0]
+        doc.add_paragraph(
+            f"DAG pathway aggregation showed the dominant transition {p1['source_layer']}->{p1['target_layer']} "
+            f"(edges={int(p1['n_edges'])}, mean absolute weight={p1['mean_abs_weight']:.3f})."
+        )
+
+    # Keep only key summary tables in main manuscript; full tables are in supplementary.
+    t1 = sample.copy()
+    t2 = bench[["model", "n_samples", "auc", "auc_ci_low", "auc_ci_high", "cox_c_index", "cox_c_index_ci_low", "cox_c_index_ci_high"]].copy()
+    t3 = hub_stab[["node", "rank_score", "rank_score_mean", "rank_score_ci_low", "rank_score_ci_high", "topk_freq"]].head(10).copy()
+    t4 = adv_ml.copy() if not adv_ml.empty else pd.DataFrame(columns=["model", "n_samples", "auc", "auc_ci_low", "auc_ci_high"])
+    add_table_from_df(doc, t1, "Table 1. Sample matching summary.")
+    add_table_from_df(doc, t2, "Table 2. Core model benchmark summary (AUC and Cox C-index).", max_rows=10)
+    add_table_from_df(doc, t3, "Table 3. Top hub stability summary.", max_rows=10)
+    add_table_from_df(doc, t4, "Table 4. Advanced ML benchmark summary.", max_rows=10)
 
     insert_figure(doc, ga_png, "Figure 1. Graphical abstract of the study design and key findings.")
     insert_figure(doc, figs / "mofa_factors.png", "Figure 2. MOFA-like latent factor projection (LF1 vs LF2).")
@@ -240,12 +279,28 @@ def build_main_docx(base: Path) -> None:
 
     add_heading(doc, "Discussion", level=2)
     doc.add_paragraph(
-        "This analysis shows robust latent-factor hub signals and uncertainty-calibrated performance estimates in TCGA-OV. "
-        "RNA modules achieved the highest discrimination in the all-sample setting, while fairness-restricted protein-matched analysis altered ranking, highlighting sample-overlap sensitivity. "
-        "Bootstrap hub and perturbation stability provide a stronger evidence base than point estimates alone."
+        "This analysis demonstrates that robust network and perturbation findings can be obtained from public TCGA-OV multi-omics data "
+        "even when predictive discrimination remains moderate. The stability of latent-factor hubs across centrality, bootstrap ranking, and perturbation-fraction sensitivity "
+        "supports their prioritization as mechanistic candidates."
     )
     doc.add_paragraph(
-        "Limitations include attrition in strict matched subsets and single-cohort design. External validation and biological follow-up of LF-associated hub mechanisms are essential next steps."
+        "Comparing all-available and protein-matched fairness benchmarks materially reduced risk of sample-overlap bias. "
+        "The advanced ML extension provided useful calibration: observed discrimination was not strongly separated from shuffled-label null in permutation testing, "
+        "which argues for restrained clinical-utility claims at this stage."
+    )
+    doc.add_paragraph(
+        "Limitations include strict matched-sample attrition, single-cohort design, and inferential uncertainty under modest sample sizes for some extensions. "
+        "Future work should focus on external cohort validation, prospective benchmarking, and biological follow-up of LF7/LF8/LF6-centered modules."
+    )
+    doc.add_paragraph(
+        "For clinical and translational audiences, the immediate value is a robust shortlist of biologically coherent candidates and a transparent evidence framework, "
+        "rather than immediate deployment as a stand-alone clinical predictor."
+    )
+
+    add_heading(doc, "Conclusions", level=2)
+    doc.add_paragraph(
+        "A reproducible uncertainty-aware TCGA-OV framework identified stable cross-layer hubs and coherent pathway transitions, with strongest evidence at the network-mechanistic level. "
+        "This supports high-confidence hypothesis generation for translational follow-up while maintaining conservative interpretation of immediate clinical predictive performance."
     )
 
     add_heading(doc, "Declarations", level=2)
