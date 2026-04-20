@@ -1,0 +1,2 @@
+entry_id,panel_label,source_category,source_title,target_antigen,construct_identifier,sequence_status,review_status,owner,approval_basis,public_source_url,notes
+example_001,approved_internal_panel,internal_registry,Example approved entry,CD19,example-construct-id,not_included_in_repo,pending_review,replace_with_owner,replace_with_approval_basis,https://example.org,Metadata template row only

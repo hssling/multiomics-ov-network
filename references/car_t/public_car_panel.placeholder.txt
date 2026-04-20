@@ -1,0 +1,10 @@
+No CAR construct FASTA is included in this repository.
+
+Expected filename when an approved external panel is available:
+- public_car_panel.fasta
+
+Required conditions before use:
+1. Reference provenance reviewed
+2. Access permission confirmed
+3. Entry metadata recorded in reference_panel_manifest_template.csv
+4. Alignment use limited to benchmark or approved validation scope

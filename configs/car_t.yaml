@@ -1,0 +1,32 @@
+paths:
+  results_tables: results/tables
+
+car_t:
+  reference_panel_fasta: references/car_t/public_car_panel.fasta
+  reference_panel_readme: references/car_t/README.md
+  reference_panel_metadata: results/tables/car_t_architecture_metadata.csv
+  readiness_table: results/tables/cart_reference_alignment_readiness.csv
+  readiness_report: results/reports/cart_reference_alignment_plan.md
+  readiness_commands: results/reports/cart_reference_alignment_commands.sh
+  raw_read_roots:
+    - data/raw/gdc/files
+    - data/raw/external_validation/car_benchmark
+  raw_read_patterns:
+    - "*.bam"
+    - "*.cram"
+    - "*.fastq"
+    - "*.fastq.gz"
+    - "*.fq"
+    - "*.fq.gz"
+  alignment:
+    aligner: bwa
+    bwa_path: /home/devcontainers/miniconda3/envs/cartalign/bin/bwa
+    samtools_path: /home/devcontainers/miniconda3/envs/cartalign/bin/samtools
+    minimap2_path: /home/devcontainers/miniconda3/envs/cartalign/bin/minimap2
+    min_mapq: 20
+    min_softclip_bases: 15
+    min_junction_support_reads: 3
+  notes:
+    requires_sequence_level_inputs: true
+    current_tcga_ov_workspace_supports_direct_cart_screen: false
+    validated_reference_required_for_alignment_claims: true

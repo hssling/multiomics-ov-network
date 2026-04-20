@@ -1,0 +1,27 @@
+external_validation:
+  sra_datasets:
+    - accession: GSM4877937
+      linked_sra_experiment: SRX9423612
+      linked_run: SRR12971262
+      linked_bioproject: PRJNA674045
+      context: metastatic ovarian cancer TIL RNA-seq
+      use_case: external ovarian immune-context validation
+      relevance: indirect_car_relevance
+      data_type: bulk_rna_seq
+    - accession: SRX26389396
+      linked_sra_experiment: SRX26389396
+      linked_run: SRR31001810
+      linked_bioproject: PRJNA1173154
+      context: CD22 CAR-T infusion product RNA-seq
+      use_case: direct CAR workflow benchmark
+      relevance: direct_car_relevance
+      data_type: bulk_rna_seq
+    - accession: SRX26517613
+      linked_sra_experiment: SRX26517613
+      linked_run: SRR31135546
+      linked_bioproject: PRJNA980643
+      context: BCMA CAR-T single-cell multi-omics
+      use_case: future CAR/TCR/BCR-aware extension
+      relevance: direct_car_relevance
+      data_type: single_cell_multiomic
+

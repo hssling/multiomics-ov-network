@@ -1,0 +1,7 @@
+root,pattern,count
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.bam,0
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.cram,0
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.fastq,0
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.fastq.gz,0
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.fq,0
+D:\Ovarian cancer network analysis\multiomics-ov-network\data\raw\gdc\files,*.fq.gz,0

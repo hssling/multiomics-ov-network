@@ -1,0 +1,4 @@
+accession,linked_sra_experiment,linked_run,linked_bioproject,context,use_case,relevance,data_type
+GSM4877937,SRX9423612,SRR12971262,PRJNA674045,metastatic ovarian cancer TIL RNA-seq,external ovarian immune-context validation,indirect_car_relevance,bulk_rna_seq
+SRX26389396,SRX26389396,SRR31001810,PRJNA1173154,CD22 CAR-T infusion product RNA-seq,direct CAR workflow benchmark,direct_car_relevance,bulk_rna_seq
+SRX26517613,SRX26517613,SRR31135546,PRJNA980643,BCMA CAR-T single-cell multi-omics,future CAR/TCR/BCR-aware extension,direct_car_relevance,single_cell_multiomic

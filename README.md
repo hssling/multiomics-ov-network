@@ -60,6 +60,8 @@ Make targets:
 make dryrun
 make run
 make report
+make immune
+make car_t
 ```
 
 ## Workflow Stages and Scripts
@@ -68,6 +70,7 @@ make report
 - `scripts/01_download/01_gdc_download.py`
 - `scripts/01_download/03_fetch_gdc_files.py`
 - `scripts/01_download/02_optional_imports.py`
+- `scripts/01_download/04_prepare_external_sra_manifest.py` (optional external validation/CAR benchmark manifest)
 
 2. QC / preprocessing
 - `scripts/02_qc/01_qc_preprocess.py`
@@ -77,6 +80,7 @@ make report
 
 4. Feature engineering
 - `scripts/04_features/01_build_features.py`
+- `scripts/04_features/02_immune_receptor_proxy.py` (optional immune-context branch)
 
 5. Integration
 - `scripts/05_integration/01_run_mofa.R`
@@ -90,6 +94,12 @@ make report
 
 8. Reporting
 - `scripts/08_reporting/01_generate_report.py`
+- `scripts/08_reporting/09_external_validation_and_cart_benchmark.py` (optional external ovarian validation + direct CAR FASTQ benchmark)
+
+9. Optional CAR-T extension
+- `scripts/09_cart/01_build_car_t_assets.py`
+- `scripts/09_cart/02_screen_car_raw_reads.py`
+- `workflow/car_t_raw_read_screening.smk`
 
 ## Exact GDC Query Templates
 
@@ -181,11 +191,35 @@ Figures:
 Reports:
 - `results/reports/final_report.html`
 - `manuscript/manuscript_skeleton.md`
+- `results/reports/immune_receptor_proxy.md`
+- `results/reports/car_t_architecture_summary.md`
+- `results/reports/car_t_raw_read_screening_plan.md`
+
+Optional extension outputs:
+- `results/tables/car_t_architecture_metadata.csv`
+- `results/tables/car_t_raw_read_inventory.csv`
+- `results/tables/external_sra_manifest.csv`
+- `results/tables/external_cart_dataset_candidates.csv`
+- `results/tables/external_validation_file_inventory.csv`
+- `results/tables/external_ovarian_immune_scores.csv`
+- `results/tables/external_ovarian_immune_summary.csv`
+- `results/tables/cart_direct_benchmark_qc.csv`
+- `results/tables/immune_receptor_proxy_scores.csv`
+- `results/tables/immune_receptor_proxy_summary.csv`
+- `results/figures/immune_receptor_proxy_heatmap.png`
+- `results/figures/immune_receptor_proxy_by_risk.png`
+- `results/figures/external_ovarian_immune_scores.png`
+- `results/figures/external_ovarian_immune_heatmap.png`
+- `results/reports/external_sra_manifest.md`
+- `results/reports/gsm4877937_suitability.md`
+- `results/reports/external_validation_and_cart_benchmark.md`
 
 ## Notes
 
 - `scripts/02_qc/01_qc_preprocess.py` is strict and parses only downloaded real GDC files; it fails fast when required layers are missing.
 - Optional cBioPortal/PDC imports are enabled via `data/raw/cbioportal` and `data/raw/pdc`.
+- The CAR-T extension is metadata-first. Direct CAR/transgene screening requires BAM/CRAM/FASTQ plus a validated custom reference FASTA.
+- The immune-receptor branch provides expression-level proxy scores only. It is not a clonotype reconstruction workflow.
 
 ## CI/CD
 
@@ -200,3 +234,32 @@ Reports:
 - Kaggle package folder: `public_release/kaggle_dataset/`
 - Hugging Face package folder: `public_release/hf_dataset/`
 - Both contain derived outputs only (no raw GDC redistribution).
+
+## CAR Scaffold Release
+
+- CAR-related public assets are scaffold-only and metadata-first.
+- `references/car_t/` contains:
+  - `README.md`
+  - `reference_panel_manifest_template.csv`
+  - `public_car_panel.placeholder.txt`
+- The workflow can benchmark approved external reference panels when supplied later, but no engineered construct FASTA is bundled in this repository.
+- Current readiness outputs are in:
+  - `results/tables/cart_reference_alignment_readiness.csv`
+  - `results/reports/cart_reference_alignment_plan.md`
+  - `results/reports/car_t_public_panel_scaffold.md`
+- Notebook entry point:
+  - `notebooks/tcga_ov_car_panel_scaffold.ipynb`
+  - `notebooks/tcga_ov_host_alignment_car_benchmark.ipynb`
+
+## GitHub Release Note
+
+Suggested release message for the current public package:
+
+```text
+TCGA-OV multi-omics public release refresh:
+- JBI manuscript package added
+- CAR benchmark workflow refreshed
+- metadata-only CAR panel scaffold added for approved future reference validation
+- WSL-backed bwa/samtools/minimap2 readiness audited
+- duplicate stale public-release copies cleaned
+```

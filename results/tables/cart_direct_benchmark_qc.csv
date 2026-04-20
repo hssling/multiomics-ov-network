@@ -1,0 +1,3 @@
+file,sampled_reads,mean_read_length,sd_read_length,gc_fraction,n_fraction,compressed_size_bytes
+data\raw\external_validation\car_benchmark\SRR31001810\SRR31001810_1.fastq.gz,50000,75.5212,1.2291096615029924,0.4802185346631145,0.000595594349666054,1594117031
+data\raw\external_validation\car_benchmark\SRR31001810\SRR31001810_2.fastq.gz,50000,75.48648,1.0998805433318657,0.48562577033662185,0.001555775285852513,1747874203
