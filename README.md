@@ -234,6 +234,7 @@ Optional extension outputs:
 - Kaggle package folder: `public_release/kaggle_dataset/`
 - Hugging Face package folder: `public_release/hf_dataset/`
 - Both contain derived outputs only (no raw GDC redistribution).
+- Landing page: `PUBLIC_RELEASE_INDEX.md`
 
 ## CAR Scaffold Release
 

@@ -1,0 +1,13 @@
+{
+  "id": "jkhospital/tcga-ov-car-panel-scaffold",
+  "title": "TCGA-OV CAR Panel Scaffold Notebook",
+  "code_file": "tcga_ov_car_panel_scaffold.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "false",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "dataset_sources": [
+    "jkhospital/tcga-ov-multiomics-network-derived-results"
+  ]
+}
