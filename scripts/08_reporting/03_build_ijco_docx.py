@@ -115,7 +115,7 @@ def vancouver_refs() -> list[str]:
         "Gao J, Aksoy BA, Dogrusoz U, Dresdner G, Gross B, Sumer SO, et al. Integrative analysis of complex cancer genomics and clinical profiles using the cBioPortal. Sci Signal. 2013;6(269):pl1. doi:10.1126/scisignal.2004088.",
         "National Cancer Institute. Proteomic Data Commons (PDC) [Internet]. Available from: https://pdc.cancer.gov/",
         "Cox DR. Regression models and life-tables. J R Stat Soc Series B Stat Methodol. 1972;34(2):187-220.",
-        "Hagberg A, Swart P, S Chult D. Exploring network structure, dynamics, and function using NetworkX. In: Proceedings of the 7th Python in Science Conference; 2008. p. 11-15.",
+        "Hagberg AA, Schult DA, Swart PJ. Exploring network structure, dynamics, and function using NetworkX. In: Proceedings of the 7th Python in Science Conference; 2008. p. 11-15.",
     ]
 
 
@@ -163,7 +163,7 @@ def build_main_docx(base: Path) -> None:
     doc = Document()
     set_default_font(doc)
 
-    add_heading(doc, "Uncertainty-Aware Multi-Omics Integration and Network Perturbation Analysis in TCGA Ovarian Cancer", level=1)
+    add_heading(doc, "Uncertainty-Aware Multi-Omics Integration Reveals Stable Cross-Layer Hubs and Perturbation-Sensitive Network Architecture in TCGA Ovarian Cancer", level=1)
     p = doc.add_paragraph("Author: Dr Siddalingaiah H S, Professor, Community Medicine, Shridevi Institute of Medical Sciences and Research Hospital, Tumkur. ")
     p.add_run("Email: hssling@yahoo.com | Phone: 8941087719. ").bold = False
     p.add_run("ORCID: 0000-0002-4771-8285.")
@@ -182,7 +182,7 @@ def build_main_docx(base: Path) -> None:
         f"Top all-sample Cox C-index was {metrics['best_cox_model']} {metrics['best_cox']}. "
         f"Top stable hubs were {top_hubs}."
     )
-    doc.add_paragraph("Conclusions: A reproducible uncertainty-aware multi-omics framework identifies robust cross-layer ovarian cancer signals and perturbation-sensitive hubs suitable for translational hypothesis generation.")
+    doc.add_paragraph("Conclusions: The strongest evidence in TCGA-OV arises from stable cross-layer hubs, perturbation-sensitive architecture, and calibrated mechanistic interpretation rather than high-confidence clinical prediction.")
 
     add_heading(doc, "Key Points", level=2)
     doc.add_paragraph("Question: Which omics layers and network hubs provide the most reproducible evidence in TCGA-OV when uncertainty is explicitly quantified?")
@@ -191,7 +191,7 @@ def build_main_docx(base: Path) -> None:
 
     add_heading(doc, "Plain-Language Summary", level=2)
     doc.add_paragraph("1. We combined several public ovarian cancer molecular data types from the same patients.")
-    doc.add_paragraph("2. A small set of latent hubs (LF7, LF8, LF6) repeatedly showed strong influence across analyses.")
+    doc.add_paragraph("2. A small set of latent hubs (LF8, LF5, LF6, LF7) repeatedly showed strong influence across analyses.")
     doc.add_paragraph("3. Simulated perturbations confirmed that these hubs produce the largest downstream network changes.")
     doc.add_paragraph("4. Predictive models were moderate, so findings are strongest for mechanistic hypothesis generation.")
     doc.add_paragraph("5. The full workflow is reproducible and designed for external validation and extension.")
@@ -265,6 +265,9 @@ def build_main_docx(base: Path) -> None:
         f"The highest Cox C-index was observed for {metrics['best_cox_model']} ({metrics['best_cox']})."
     )
     doc.add_paragraph(
+        "Mutation-only features were weak in direct supervised modeling, while transcript-derived modules carried the clearest discriminative signal and CNA carried the strongest survival-ranking signal."
+    )
+    doc.add_paragraph(
         "When comparisons were restricted to protein-matched samples, ranking changed for some models, demonstrating why fairness-controlled comparisons are necessary before making cross-model claims."
     )
     add_heading(doc, "Objective 3: Stable Network Hubs and Cross-Layer Flow", level=3)
@@ -306,6 +309,12 @@ def build_main_docx(base: Path) -> None:
     doc.add_paragraph(
         "Taken together, the evidence profile favors robust biological mechanism discovery over immediate high-accuracy prediction claims in this dataset."
     )
+    if not ablation.empty:
+        top_ablation = ablation.sort_values("auc", ascending=False).head(1).iloc[0]
+        doc.add_paragraph(
+            f"Ablation analysis identified {top_ablation['blocks']} as the strongest matched-subset combination "
+            f"(AUC={top_ablation['auc']:.3f}), supporting complementarity between transcript and protein module summaries."
+        )
 
     # Keep only key summary tables in main manuscript; full tables are in supplementary.
     t1 = sample.copy()
@@ -335,7 +344,7 @@ def build_main_docx(base: Path) -> None:
     add_heading(doc, "Discussion", level=2)
     doc.add_paragraph(
         "This analysis demonstrates that robust network and perturbation findings can be obtained from public TCGA-OV multi-omics data "
-        "even when predictive discrimination remains moderate. The stability of latent-factor hubs across centrality, bootstrap ranking, and perturbation-fraction sensitivity "
+        "even when predictive discrimination remains moderate. The stability of latent-factor hubs across centrality, bootstrap ranking, perturbation-fraction sensitivity, and pathway orientation "
         "supports their prioritization as mechanistic candidates."
     )
     doc.add_paragraph(
