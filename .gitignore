@@ -47,3 +47,5 @@ manuscript/submission_package/targets/**/Internal_*.docx
 .kaggle/
 *.kaggle.json
 .hf/
+
+~$*.docx
