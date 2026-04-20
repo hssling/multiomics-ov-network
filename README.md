@@ -1,6 +1,27 @@
 # multiomics-ov-network
 
-Reproducible, end-to-end public TCGA ovarian cancer multi-omics pipeline for network modelling.
+Reproducible, end-to-end public TCGA ovarian cancer multi-omics pipeline for network modelling, uncertainty-aware benchmarking, external ovarian immune-context validation, and CAR-product benchmarking.
+
+## Current public release
+
+- Preferred manuscript package: `manuscript/submission_package/targets/journal_of_biomedical_informatics/`
+- Current compliant main manuscript: JBI package with required statement-of-significance table and `<=8` combined main-manuscript tables/figures
+- Public mirrors:
+  - GitHub repository: workflow, source code, manuscript assets, and release notes
+  - Hugging Face dataset: derived results, public manuscript bundles, and release documentation
+  - Kaggle dataset: derived results and notebook-ready public package
+
+## Release notes
+
+Latest refresh highlights:
+
+- JBI submission package rebuilt as the primary submission-grade manuscript bundle
+- JBI main manuscript reduced to a compliant `7` combined figure/table objects while retaining the significance table
+- in-text table and figure callouts corrected to appear sequentially before captions
+- JBI reference first-appearance ordering corrected
+- graphical abstract rebuilt in a cleaner, journal-facing layout
+- CAR motif benchmark documentation clarified so all-zero heuristic motif rows are not misinterpreted as construct absence
+- public release package refreshed to keep GitHub, Hugging Face, and Kaggle outputs aligned
 
 ## Scope (first runnable pass)
 - Cohort: `TCGA-OV`

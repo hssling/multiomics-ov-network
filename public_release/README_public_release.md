@@ -1,6 +1,16 @@
 # Multiomics OV Public Release
 
-This folder contains publication-ready derived outputs from the TCGA-OV multi-omics network analysis.
+This folder contains publication-ready derived outputs from the TCGA-OV multi-omics network analysis, including the current Journal of Biomedical Informatics submission bundle and public benchmark assets.
+
+## Current release notes
+
+- JBI package is the preferred current manuscript bundle.
+- JBI main manuscript now includes the required statement-of-significance table.
+- JBI main manuscript was reduced to a compliant `<=8` combined tables/figures in the main paper while preserving detailed supporting material in the supplement.
+- in-text citation order for main-manuscript tables and figures was corrected.
+- reference first-appearance order was corrected in the JBI manuscript.
+- graphical abstract was rebuilt in a cleaner journal-facing format.
+- CAR motif benchmark notes now explain why heuristic all-zero rows do not imply construct absence.
 
 ## Preferred manuscript package
 - `manuscript/journal_of_biomedical_informatics/`: primary current submission bundle

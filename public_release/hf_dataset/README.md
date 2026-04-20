@@ -21,6 +21,22 @@ size_categories:
 
 This dataset contains **derived, publication-ready outputs** from a reproducible TCGA-OV multi-omics network analysis pipeline.
 
+## Current status
+
+- Primary manuscript target: Journal of Biomedical Informatics
+- Preferred bundle: `manuscript/journal_of_biomedical_informatics/`
+- Current JBI main manuscript status:
+  - required statement-of-significance table included
+  - main-paper combined tables/figures reduced to a compliant `<=8`
+  - sequential in-text callouts and corrected reference-order audit completed
+
+## Release notes
+
+- Refreshed JBI submission bundle with compliant main manuscript, declarations, title page, cover letter, checklist, supplement, and graphical abstract
+- Clarified CAR motif benchmark interpretation so heuristic all-zero motif rows are not misread as construct absence
+- Preserved prior IJCO and BJC bundles for provenance while marking JBI as the active preferred package
+- Kept the release derived-only: no raw GDC redistribution and no engineered CAR construct FASTA
+
 ## Preferred manuscript package
 - `manuscript/journal_of_biomedical_informatics/`: primary current submission-grade package with main manuscript, cover letter, declarations, supplementary appendix, graphical abstract, and submission metadata
 - `manuscript/ijco/` and `manuscript/british_journal_of_cancer/`: prior journal-tailored packages retained for provenance

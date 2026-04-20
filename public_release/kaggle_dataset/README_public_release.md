@@ -1,6 +1,15 @@
 # Multiomics OV Public Release
 
-This folder contains publication-ready derived outputs from the TCGA-OV multi-omics network analysis.
+This Kaggle package contains publication-ready derived outputs from the TCGA-OV multi-omics network analysis together with the current preferred Journal of Biomedical Informatics manuscript bundle.
+
+## Current release notes
+
+- Preferred manuscript bundle updated to the Journal of Biomedical Informatics package
+- JBI main manuscript now includes the required statement-of-significance table
+- JBI main manuscript reduced to a compliant `<=8` combined tables/figures in the main paper
+- in-text table/figure callout order and reference first-appearance order were corrected
+- graphical abstract refreshed
+- CAR motif benchmark notes clarified to explain heuristic zero-count rows
 
 ## Preferred manuscript package
 - `manuscript/journal_of_biomedical_informatics/`: primary current submission package

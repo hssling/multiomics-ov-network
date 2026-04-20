@@ -13,10 +13,11 @@ from docx.shared import Inches, Pt
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / "manuscript" / "submission_package" / "targets" / "journal_of_biomedical_informatics"
 TITLE = (
-    "A Reproducible Uncertainty-Aware Multi-Omics Network Pipeline for Ovarian Cancer: "
-    "Stable Cross-Layer Hubs, External Immune-Context Validation, and Direct CAR-Product Benchmarking"
+    "Uncertainty-Aware Multi-Omics Network Analysis of Ovarian Cancer Reveals "
+    "Stable Cross-Layer Hubs with External Immune-Context Validation and "
+    "CAR-Product Benchmarking"
 )
-SHORT_TITLE = "Uncertainty-Aware Ovarian Multi-Omics Informatics Pipeline"
+SHORT_TITLE = "Uncertainty-Aware Ovarian Multi-Omics Analysis"
 
 
 def refs() -> list[str]:
@@ -63,6 +64,28 @@ def add_table(doc: Document, df: pd.DataFrame, title: str, max_rows: int | None 
         cells = table.add_row().cells
         for i, c in enumerate(dfx.columns):
             cells[i].text = str(row[c])
+    doc.add_paragraph("")
+
+
+def add_significance_table(doc: Document) -> None:
+    doc.add_paragraph("Statement of Significance").runs[0].bold = True
+    table = doc.add_table(rows=2, cols=4)
+    table.style = "Table Grid"
+    headers = [
+        "Problem or Issue",
+        "What is Already Known",
+        "What this Paper Adds",
+        "Who would benefit from the new knowledge in this paper",
+    ]
+    values = [
+        "Public ovarian multi-omics studies often mix mechanistic, predictive, and translational claims without making their evidential boundaries explicit.",
+        "TCGA-OV supports cross-layer integration, but matched cohorts shrink rapidly and predictive gains are often unstable.",
+        "This study provides an uncertainty-aware framework that separates stable network biology from modest predictive performance and strengthens inference with external ovarian immune-context validation and a real CAR-product sequencing benchmark.",
+        "Biomedical informaticians, translational cancer researchers, and clinicians evaluating the credibility and reuse value of public-data ovarian analyses.",
+    ]
+    for i, header in enumerate(headers):
+        table.cell(0, i).text = header
+        table.cell(1, i).text = values[i]
     doc.add_paragraph("")
 
 
@@ -125,8 +148,6 @@ def build_main() -> Path:
     bench = pd.read_csv(tables / "model_benchmark.csv")
     advanced_ml = pd.read_csv(tables / "advanced_ml_benchmark.csv")
     perm = pd.read_csv(tables / "permutation_test_auc.csv")
-    motif = pd.read_csv(tables / "cart_motif_benchmark.csv") if (tables / "cart_motif_benchmark.csv").exists() else pd.DataFrame()
-    readiness = pd.read_csv(tables / "cart_reference_alignment_readiness.csv") if (tables / "cart_reference_alignment_readiness.csv").exists() else pd.DataFrame()
     hub_stab = pd.read_csv(nets / "network_centrality_stability.csv")
     ext_immune = pd.read_csv(tables / "external_ovarian_immune_summary.csv")
     cart_qc = pd.read_csv(tables / "cart_direct_benchmark_qc.csv")
@@ -152,10 +173,10 @@ def build_main() -> Path:
 
     heading(doc, "Abstract", 2)
     abstract = (
-        f"Objective: To build a reproducible multi-omics informatics pipeline that distinguishes robust mechanistic signals from unstable predictive claims in TCGA ovarian cancer. "
+        f"Objective: To develop and evaluate an uncertainty-aware multi-omics analysis strategy that distinguishes robust mechanistic signals from unstable predictive claims in TCGA ovarian cancer. "
         f"Materials and methods: Public TCGA-OV mutation, copy-number alteration, methylation, RNA, clinical, and optional protein data were harmonized at patient level and analyzed using latent integration, supervised multiblock modeling, multilayer network centrality, perturbation, sensitivity analysis, ablation, and advanced machine-learning calibration. External support was added through an ovarian tumor-infiltrating CD8 T-cell RNA-seq dataset and a direct CAR-product raw-read benchmark dataset. "
         f"Results: The core matched cohort included {n_core} patients; the processed protein-matched subset included {n_prot}. RNA modules achieved the highest all-available AUC ({top_auc['auc']:.3f}, 95% CI {top_auc['auc_ci_low']:.3f}-{top_auc['auc_ci_high']:.3f}), whereas CNA achieved the highest Cox C-index ({top_cox['cox_c_index']:.3f}, 95% CI {top_cox['cox_c_index_ci_low']:.3f}-{top_cox['cox_c_index_ci_high']:.3f}). Stable hubs were {top_hubs}. External ovarian validation showed higher exhaustion-regulatory scores in CD137-positive and CD137-negative PD-1high CD39+ T-cell states than in PD-1+ CD39- controls. Direct CAR benchmarking successfully ingested paired FASTQ files from a public CD22 CAR-T product run and generated sequence-QC outputs. "
-        "Discussion and conclusion: The pipeline’s strongest contribution is a reproducible evidence structure linking uncertainty-aware network biology, external ovarian immune-context support, and a direct raw-read CAR benchmark without overstating construct-recovery claims."
+        "Discussion and conclusion: The study establishes a reproducible evidence framework linking uncertainty-aware network biology, external ovarian immune-context support, and direct raw-read CAR benchmarking without overstating construct-recovery claims."
     )
     doc.add_paragraph(abstract)
     doc.add_paragraph("Keywords: ovarian cancer; multi-omics; network biology; translational bioinformatics; reproducible research; CAR-T benchmarking")
@@ -165,7 +186,7 @@ def build_main() -> Path:
         "A central problem in translational bioinformatics is how to distinguish computationally interesting patterns from findings that remain stable when examined through complementary analytical views. This is especially relevant in multi-omics cancer studies, where feature dimensionality is high, matched patient cohorts are modest, and apparent gains from integration can be driven by unstable estimates rather than reproducible biology [1-11]."
     )
     doc.add_paragraph(
-        "We therefore reframed the ovarian cancer question as an informatics problem: can a public-data pipeline recover cross-layer signals that remain coherent across latent integration, supervised discrimination, network centrality, perturbation analysis, external immune-context comparison, and raw-read benchmark extensions? The aim was not merely to optimize a classifier but to produce a reusable and auditable evidence structure."
+        "We therefore reframed the ovarian cancer question as an informatics problem: can a public-data analysis recover cross-layer signals that remain coherent across latent integration, supervised discrimination, network centrality, perturbation analysis, external immune-context comparison, and raw-read benchmark extensions? The aim was not merely to optimize a classifier but to produce a reusable and auditable evidence structure."
     )
     doc.add_paragraph(
         "This distinction matters because public cancer resources are increasingly used to support translational claims, yet the analytical narrative often collapses several different forms of evidence into a single headline metric. A modest AUC, a stable network hub, an interpretable pathway module, and an externally coherent immune-state signal do not carry the same meaning. A stronger computational manuscript should therefore separate them, quantify them, and state explicitly which claims are supported by which data products."
@@ -174,18 +195,19 @@ def build_main() -> Path:
         "Ovarian cancer is a suitable test case for this strategy. TCGA-OV offers broad multi-layer public coverage, but the effective matched cohort shrinks as data types are intersected, especially when protein is included. That makes it a realistic setting in which uncertainty-aware reporting is not optional. If a method remains useful under these conditions, it is more likely to be informative in other public multi-omics cohorts as well."
     )
     doc.add_paragraph(
-        "The present study was therefore designed around traceability as much as around biological discovery. Every major result is linked to an inspectable intermediate artifact: matched-sample counts, per-layer features, benchmark intervals, network stability summaries, perturbation deltas, external validation tables, or sequence-file QC products. This reporting structure serves both oncology readers interested in ovarian biology and biomedical informatics readers interested in how evidence travels from raw public files to manuscript-ready claims."
+        "The present study was therefore designed around traceability as much as around biological discovery. Every major result is linked to an inspectable intermediate artifact: matched-sample counts, per-layer features, benchmark intervals, network stability summaries, perturbation deltas, external validation summaries, or sequence-file QC products. This reporting structure serves both oncology readers interested in ovarian biology and biomedical informatics readers interested in how evidence travels from raw public files to manuscript-ready claims."
     )
     doc.add_paragraph(
         "A further motivation was the recurring mismatch between what public datasets can answer and what readers hope they can answer. TCGA-OV can support integrated systems-level analyses of tumor biology, but it does not directly resolve engineered therapeutic sequence architecture. External immune datasets can strengthen a biological direction, but they do not automatically validate a risk classifier. By building these distinctions directly into the pipeline, the study models a more careful standard for computational oncology reporting."
     )
     doc.add_paragraph(
-        "The resulting manuscript is positioned as a pipeline-and-evidence paper rather than a pure performance paper. Its scientific value depends on whether the workflow can recover coherent ovarian biology while also making the limits of public inference explicit. That combination is more informative than a superficially stronger but less defensible predictive narrative."
+        "The resulting manuscript is positioned as an evidence-driven translational bioinformatics study rather than a pure performance paper. Its scientific value depends on whether the analysis can recover coherent ovarian biology while also making the limits of public inference explicit. That combination is more informative than a superficially stronger but less defensible predictive narrative."
     )
+    add_significance_table(doc)
 
     heading(doc, "2. Materials and methods", 2)
     doc.add_paragraph(
-        "TCGA-OV data were retrieved through GDC-oriented workflows and harmonized at patient level with strict ID matching [2-4]. The main analysis required matched mutation, CNA, methylation, and RNA data; protein was evaluated in a fairness-restricted subset. Latent cross-omics structure was modeled using MOFA-like factors [5,6], supervised multiblock structure using a DIABLO-like framework [7,8], and downstream relations through a multilayer NetworkX-based graph with perturbation and sensitivity analysis [13]."
+        "TCGA-OV data were retrieved through GDC-oriented workflows and harmonized at patient level with strict ID matching [2-4]. The main analysis required matched mutation, CNA, methylation, and RNA data; protein was evaluated in a fairness-restricted subset. Expression preprocessing and normalization followed established RNA-seq analytical principles consistent with differential-expression-oriented count modeling workflows [12]. Latent cross-omics structure was modeled using MOFA-like factors [5,6], supervised multiblock structure using a DIABLO-like framework [7,8], and downstream relations through a multilayer NetworkX-based graph with perturbation and sensitivity analysis [13]."
     )
     doc.add_paragraph(
         "To strengthen external support, we added two extensions. First, an ovarian tumor-infiltrating CD8 T-cell RNA-seq dataset (GSE160705/SRX9423612) was used for immune-context comparison using gene-set-derived proxy scores. Second, a public CD22 CAR-T product RNA-seq run (SRR31001810) was downloaded from ENA/SRA and passed through a lightweight raw-read ingestion and QC benchmark. This second extension was designed to validate the external raw-read branch and dataset suitability, not to claim CAR construct recovery without a validated reference panel."
@@ -200,13 +222,13 @@ def build_main() -> Path:
         "The external ovarian validation branch was analyzed at expression level using the normalized GEO workbook and group labels recovered from the GEO series metadata. The direct CAR benchmark branch was intentionally lightweight: paired FASTQ files were downloaded, checksummed, and summarized by read-length and nucleotide composition from sampled reads. This provided a reproducible benchmark for public raw-read handling while avoiding unsupported claims of CAR construct recovery."
     )
     doc.add_paragraph(
-        "All downstream outputs, including inventories, checksums, figures, and manuscript-ready tables, were written into the project workspace so that both scientific interpretation and computational provenance could be audited together."
+        "All downstream outputs, including inventories, checksums, figures, and manuscript-ready tables, were generated within a reproducible analytical framework so that both scientific interpretation and computational provenance could be audited together."
     )
     doc.add_paragraph(
         "Model benchmarking used repeated resampling to report interval estimates rather than isolated point estimates wherever possible. The same principle guided hub prioritization: nodes were ranked not only by centrality magnitude but also by bootstrap stability and top-k retention frequency. For the machine-learning branch, the emphasis was on calibrated interpretation of limited predictive signal rather than forced performance inflation."
     )
     doc.add_paragraph(
-        "The project also included explicit scope controls. Synthetic data fallbacks were removed from QC and parsing stages so that all reported outputs derive from true public files. The CAR-related branch was restricted to what the downloaded data can justify directly: file-level benchmarking, sampled-read QC, heuristic motif screening, and readiness planning for future alignment against a validated external reference panel."
+        "The study also included explicit scope controls. Synthetic data fallbacks were removed from QC and parsing stages so that all reported outputs derive from true public files. The CAR-related branch was restricted to what the downloaded data can justify directly: file-level benchmarking, sampled-read QC, heuristic motif screening, and readiness planning for future alignment against a validated external reference panel."
     )
 
     heading(doc, "3. Results", 2)
@@ -220,7 +242,7 @@ def build_main() -> Path:
         "The latent hubs were especially informative because they persisted across several analytical stress tests. They ranked highly in bootstrap centrality summaries, drove the largest perturbation responses, and occupied the most central positions in the directed layer graph. This persistence argues against interpreting them as artifacts of one fitting procedure and instead supports their use as integrated regulatory states for downstream follow-up."
     )
     doc.add_paragraph(
-        "External ovarian immune-context validation reinforced the biological plausibility of the project’s immune-state axis. In GSE160705, exhaustion-regulatory scores were materially higher in CD137-positive and CD137-negative PD-1high CD39+ CD8 T-cell groups than in PD-1+ CD39- control cells. This does not validate the TCGA-OV risk model directly, but it supports the relevance of the immune-state direction captured by the RNA-derived proxy framework."
+        "External ovarian immune-context validation reinforced the biological plausibility of the study's immune-state axis. In GSE160705, exhaustion-regulatory scores were materially higher in CD137-positive and CD137-negative PD-1high CD39+ CD8 T-cell groups than in PD-1+ CD39- control cells. This does not validate the TCGA-OV risk model directly, but it supports the relevance of the immune-state direction captured by the RNA-derived proxy framework."
     )
     doc.add_paragraph(
         "The same external dataset also showed coherent differences for T-cell core, cytolytic, and interferon/antigen-presentation score families across the three annotated groups. Because this dataset was collected in a different biological context from the main TCGA cohort, it is best interpreted as directional support for the immune-state framework rather than as a direct replication of the outcome model. That distinction is analytically important and is preserved explicitly in the pipeline outputs."
@@ -229,19 +251,25 @@ def build_main() -> Path:
         "The direct CAR benchmark confirmed the practicality of the external raw-read branch. The CD22 CAR-T product run SRR31001810 was downloaded successfully as paired FASTQ files and yielded stable lightweight QC summaries with mean sampled read lengths of approximately 75.5 bases and GC fractions of 0.48 to 0.49. These results establish a real public raw-read benchmark for future alignment-based screening once a validated reference panel is available."
     )
     doc.add_paragraph(
-        "This branch improves the project in a different way from the external ovarian validation branch. It does not add ovarian biology, but it proves that the workflow can retrieve, inventory, checksum, and summarize true CAR-product sequence data in a reproducible manner. That is a necessary intermediate step before any alignment-based CAR screening claim can be made responsibly."
+        "This branch improves the study in a different way from the external ovarian validation branch. It does not add ovarian biology, but it proves that the analysis framework can retrieve, inventory, checksum, and summarize true CAR-product sequence data in a reproducible manner. That is a necessary intermediate step before any alignment-based CAR screening claim can be made responsibly."
     )
     doc.add_paragraph(
-        "The conservative motif benchmark further clarified this boundary. Across sampled reads from both mates, the heuristic screen did not identify the selected backbone-like motifs at detectable frequency. This negative result should not be overinterpreted: short-read orientation, transcript design, sequencing depth distribution, and construct-specific architecture all limit motif-based inference. Its practical value is to show why a validated alignment panel is required before any sequence-level conclusion is reported."
+        "The conservative motif benchmark further clarified this boundary. Across sampled reads from both mates, the heuristic screen did not identify the selected backbone-like motifs at detectable frequency. This negative result should not be overinterpreted: short-read orientation, transcript design, sequencing depth distribution, and construct-specific architecture all limit motif-based inference. Its practical value is to show why a validated alignment panel is required before any sequence-level conclusion is reported. Detailed CAR QC, motif-screen, and alignment-readiness summaries are therefore retained in the supplementary appendix rather than in the main manuscript."
     )
     doc.add_paragraph(
         f"Advanced machine-learning analyses did not materially overturn the uncertainty-aware picture. The best flexible model achieved AUC {top_ml['auc']:.3f}, while permutation testing remained non-significant at p={perm_p:.4f}. In this dataset, the most defensible outputs are therefore stable hubs, pathway-level directions, and uncertainty-aware comparative benchmarks rather than aggressive claims of high clinical prediction accuracy."
     )
     doc.add_paragraph(
-        "A dedicated alignment-readiness audit translated the CAR requirement into operational terms. The workspace now includes a reference-panel staging area, readiness checks for the expected FASTA and metadata files, and a shell-command template for future alignment. At the time of manuscript assembly, the benchmark branch remained appropriately blocked at the construct-inference stage because no validated public reference panel had been installed."
+        "A dedicated alignment-readiness audit translated the CAR requirement into operational terms. The analysis framework now includes a reference-panel staging interface, readiness checks for the expected FASTA and metadata files, and a command template for future alignment. At the time of manuscript assembly, the construct-inference stage remained appropriately blocked because no validated public reference panel had been supplied. Those operational details are reported in the supplement so that the main paper can remain within journal size limits without losing reproducibility."
     )
     doc.add_paragraph(
         "Input-output ablation analyses also showed that integrated performance gains were selective rather than universal. Some outputs benefited most from RNA module summaries, whereas others retained stronger ordering information from CNA-derived features. This heterogeneity supports the study's underlying design choice: a multi-layer ovarian model should preserve layer-specific interpretability instead of collapsing all views into a single opaque score."
+    )
+    doc.add_paragraph(
+        "The core benchmarking results are summarized in Table 1, the most stable cross-layer hubs are ranked in Table 2, and the external ovarian immune-context comparison is summarized in Table 3."
+    )
+    doc.add_paragraph(
+        "The corresponding visual evidence is presented in sequence through the integrated network map (Figure 1), perturbation confidence-interval summary (Figure 2), and external ovarian immune-state score distributions (Figure 3)."
     )
 
     add_table(
@@ -254,47 +282,24 @@ def build_main() -> Path:
         hub_stab[["node", "rank_score_mean", "rank_score_ci_low", "rank_score_ci_high", "topk_freq"]].head(6),
         "Table 2. Stable cross-layer hub summary.",
     )
-    add_table(
-        doc,
-        ext_immune,
-        "Table 3. External ovarian immune-context validation summary.",
-    )
-    add_table(
-        doc,
-        cart_qc,
-        "Table 4. Direct CAR-product raw-read benchmark QC summary.",
-    )
-    if not motif.empty:
-        add_table(
-            doc,
-            motif,
-            "Table 5. Heuristic CAR motif benchmark summary.",
-        )
-    if not readiness.empty:
-        add_table(
-            doc,
-            readiness,
-            "Table 6. CAR reference-panel alignment readiness audit.",
-        )
+    add_table(doc, ext_immune, "Table 3. External ovarian immune-context validation summary.")
 
     add_figure(doc, figs / "multilayer_network_graph.png", "Figure 1. Integrated multilayer network centered on stable latent hubs.")
     add_figure(doc, figs / "perturbation_bootstrap_ci.png", "Figure 2. Perturbation effect sizes with bootstrap confidence intervals.")
     add_figure(doc, figs / "external_ovarian_immune_scores.png", "Figure 3. External ovarian immune-state score distributions across CD137-defined cell groups.")
-    add_figure(doc, figs / "external_ovarian_immune_heatmap.png", "Figure 4. Correlation structure of external ovarian immune-state scores.")
-    add_figure(doc, ga_path, "Figure 5. Graphical abstract.")
 
     heading(doc, "4. Discussion", 2)
     doc.add_paragraph(
-        "From an informatics perspective, the value of this work lies in how different evidence layers are separated and audited. TCGA-OV supports strong mechanism-oriented network inference, but only modest direct prediction. External ovarian RNA-seq provides biologically relevant immune-context support, whereas direct CAR-product sequencing provides a realistic benchmark for the raw-read branch. Treating those two extensions as equivalent would be methodologically weak; separating them makes the workflow more credible and reusable."
+        "From an informatics perspective, the value of this work lies in how different evidence layers are separated and audited. TCGA-OV supports strong mechanism-oriented network inference, but only modest direct prediction. External ovarian RNA-seq provides biologically relevant immune-context support, whereas direct CAR-product sequencing provides a realistic benchmark for the raw-read branch. Treating those two extensions as equivalent would be methodologically weak; separating them makes the study more credible and reusable."
     )
     doc.add_paragraph(
-        "The resulting package is stronger than a single-cohort classifier paper. It combines strict matching, uncertainty calibration, hub stability, perturbation analysis, external immune-context comparison, sequence-file inventory, direct FASTQ benchmark acquisition, and manuscript-ready reproducibility assets. In practical terms, it provides both a prioritized biological shortlist and a tested informatics framework for future extension."
+        "The resulting study is stronger than a single-cohort classifier report. It combines strict matching, uncertainty calibration, hub stability, perturbation analysis, external immune-context comparison, sequence-file inventory, direct FASTQ benchmark acquisition, and reproducibility-oriented reporting. In practical terms, it provides both a prioritized biological shortlist and a tested analytical foundation for future extension."
     )
     doc.add_paragraph(
-        "The study also illustrates a broader principle for translational bioinformatics. Public datasets often tempt analysts to move directly from model performance to biological narrative. In this project, a better sequence was possible: first quantify the stability of network structure, then assess whether the same biological direction remains visible in an external ovarian immune dataset, and only then extend the workflow toward a true raw-read CAR benchmark. Each step answers a different methodological question and reduces the risk of conflating scope."
+        "The study also illustrates a broader principle for translational bioinformatics. Public datasets often tempt analysts to move directly from model performance to biological narrative. In this study, a better sequence was possible: first quantify the stability of network structure, then assess whether the same biological direction remains visible in an external ovarian immune dataset, and only then extend the workflow toward a true raw-read CAR benchmark. Each step answers a different methodological question and reduces the risk of conflating scope."
     )
     doc.add_paragraph(
-        "This is particularly relevant for engineered-construct questions. Ovarian tumor datasets do not become CAR-sequence resources simply because they include T-cell populations. Conversely, CAR-product raw-read datasets do not become ovarian validation resources simply because they are immunologically relevant. By partitioning these purposes, the present workflow produces a cleaner and more defensible evidence chain."
+        "This is particularly relevant for engineered-construct questions. Ovarian tumor datasets do not become CAR-sequence resources simply because they include T-cell populations. Conversely, CAR-product raw-read datasets do not become ovarian validation resources simply because they are immunologically relevant. By partitioning these purposes, the present study produces a cleaner and more defensible evidence chain."
     )
     doc.add_paragraph(
         "The network-centric results are also scientifically useful on their own terms. The stable prominence of LF8, LF5, LF6, and LF7 suggests that the most reproducible cross-layer structure in this cohort is concentrated in latent regulatory states rather than in isolated single genes. Because the same hubs remain visible under perturbation and resampling, they form a stronger shortlist for future mechanistic follow-up than any single thresholded association."
@@ -303,13 +308,13 @@ def build_main() -> Path:
         "Equally important, the study makes explicit what it does not show. The available evidence does not justify claims of a ready-to-deploy ovarian clinical decision model, nor does it justify recovery of therapeutic CAR design from the current benchmark branch. These negatives are not weaknesses in the reporting. They are examples of disciplined scope control, which is itself a contribution in a field where public-data analyses can otherwise drift into exaggerated translational framing."
     )
     doc.add_paragraph(
-        "The manuscript is therefore intended for a readership that values methodological clarity over inflated certainty. For biomedical informatics journals, that framing is appropriate because reproducibility, auditable provenance, and honest uncertainty are central scientific outcomes rather than mere reporting accessories. The current workflow demonstrates how a public cancer study can be built to preserve those properties from download through manuscript assembly."
+        "The manuscript is therefore intended for a readership that values methodological clarity over inflated certainty. For biomedical informatics journals, that framing is appropriate because reproducibility, auditable provenance, and honest uncertainty are central scientific outcomes rather than mere reporting accessories. The current analysis demonstrates how a public cancer study can be built to preserve those properties from download through manuscript assembly."
     )
     doc.add_paragraph(
         "A second future direction is comparative deployment of the workflow across other TCGA cohorts with similar matched-layer shrinkage. That would allow investigators to compare when integrated network evidence remains stable and when predictive performance collapses under honest validation. Such a comparative informatics resource would likely be more valuable than another isolated case study because it would turn one ovarian analysis into a general benchmark design pattern."
     )
     doc.add_paragraph(
-        "For future work, the most natural next step is a validated, alignment-based CAR reference panel evaluated on the downloaded CAR-product dataset. Once that stage is implemented, the existing file inventory, checksums, and QC outputs can act as the audited starting point. In parallel, the external ovarian immune branch can be expanded to additional GEO or SRA cohorts to determine whether the immune-state direction remains stable across independent ovarian microenvironments."
+        "For future work, the most natural next step is a validated, alignment-based CAR reference panel evaluated on the downloaded CAR-product dataset. Once that stage is implemented, the existing inventory, checksum, and QC outputs can serve as the audited starting point. In parallel, the external ovarian immune branch can be expanded to additional GEO or SRA cohorts to determine whether the immune-state direction remains stable across independent ovarian microenvironments."
     )
 
     heading(doc, "5. Limitations", 2)
@@ -317,19 +322,19 @@ def build_main() -> Path:
         "This remains a public-data computational study with no new wet-lab validation. The external ovarian validation dataset is small, and the direct CAR benchmark currently stops at ingestion and QC rather than full alignment-based construct screening. Those constraints are explicit in the pipeline and are preferable to overstated claims."
     )
     doc.add_paragraph(
-        "The latent factors are model-derived constructs and should be treated as hypothesis-generating states rather than experimentally validated pathways. The external ovarian validation branch uses processed public counts rather than a unified re-alignment with the TCGA branch. The direct CAR benchmark is intentionally limited by the absence of a validated public reference panel suitable for responsible alignment-based interpretation. None of these limitations invalidate the pipeline, but they define the boundary of the current claim set."
+        "The latent factors are model-derived constructs and should be treated as hypothesis-generating states rather than experimentally validated pathways. The external ovarian validation branch uses processed public counts rather than a unified re-alignment with the TCGA branch. The direct CAR benchmark is intentionally limited by the absence of a validated public reference panel suitable for responsible alignment-based interpretation. None of these limitations invalidate the study, but they define the boundary of the current claim set."
     )
 
     heading(doc, "6. Conclusion", 2)
     doc.add_paragraph(
-        "A reproducible ovarian cancer multi-omics informatics pipeline identified stable cross-layer hubs, confirmed the importance of uncertainty-aware interpretation, and added two complementary external support layers: ovarian immune-context validation and direct CAR-product raw-read benchmarking. This integrated evidence structure is suitable for journal submission as a translational bioinformatics contribution."
+        "An uncertainty-aware ovarian cancer multi-omics analysis identified stable cross-layer hubs, confirmed the importance of cautious interpretation of predictive performance, and added two complementary external support layers: ovarian immune-context validation and direct CAR-product raw-read benchmarking. This integrated evidence structure supports a journal-ready translational bioinformatics contribution."
     )
 
     heading(doc, "Declarations", 2)
     doc.add_paragraph("Funding: This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.")
     doc.add_paragraph("Competing interests: The author declares no competing interests.")
     doc.add_paragraph("Ethics: This study used public de-identified datasets and did not require new institutional ethics approval or participant consent.")
-    doc.add_paragraph("Data and code availability: Source data are available from GDC, GEO, ENA/SRA, cBioPortal, and PDC under their respective terms. Derived outputs and reproducibility assets are available in this project workspace.")
+    doc.add_paragraph("Data and code availability: Source data are available from GDC, GEO, ENA/SRA, cBioPortal, and PDC under their respective terms. Code supporting the analytical workflow and derived non-raw outputs are publicly available through the public code repository and associated public data-release archives.")
     doc.add_paragraph(
         "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process: During the preparation of this work, AI-assisted tools were used to support drafting, organization, and language refinement. All scientific content, factual verification, interpretation, and final editing were reviewed by the author, who takes full responsibility for the manuscript."
     )
@@ -429,7 +434,7 @@ def build_declarations() -> Path:
         "Competing interests: The author declares no competing interests.",
         "Funding: This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.",
         "Ethics: This study used only public de-identified datasets. No new institutional ethics approval or participant consent was required.",
-        "Data availability: Public source data are available from GDC, GEO, ENA/SRA, cBioPortal, and PDC under their respective terms. Derived outputs and reproducibility assets are available in the project workspace.",
+        "Data availability: Public source data are available from GDC, GEO, ENA/SRA, cBioPortal, and PDC under their respective terms. Code supporting the analytical workflow and derived non-raw outputs are publicly available through the public code repository and associated public data-release archives.",
         "Generative AI disclosure: AI-assisted tools were used for drafting support and language refinement. The author reviewed, edited, and takes full responsibility for the manuscript content.",
     ]
     for item in items:
