@@ -6,98 +6,126 @@ TCGA-OV Multi-Omics Network Perturbation
 
 # Structured Abstract
 ## Background
-Integrated ovarian cancer analyses frequently report single-model results without uncertainty calibration across model performance, network stability, and perturbation sensitivity. We developed a reproducible public-data pipeline to quantify robust cross-layer signals in TCGA ovarian cancer (TCGA-OV).
+Integrated ovarian cancer multi-omics studies often report model performance without full uncertainty calibration for prediction, network stability, and perturbation response. We developed a reproducible end-to-end public-data framework to identify robust cross-layer hubs in TCGA ovarian cancer (TCGA-OV).
 
 ## Methods
-Public TCGA-OV mutation, copy-number alteration (CNA), DNA methylation, RNA, clinical, and optional protein data were harmonized at patient level. We applied unsupervised latent integration (MOFA-like factors), supervised multiblock integration (DIABLO-like components), multilayer network construction, and in silico hub perturbation. Evidence was expanded using DAG-style pathway orientation, perturbation-fraction sensitivity experiments, input-output ablation, and advanced machine-learning (ML) benchmarking with repeated stratified cross-validation confidence intervals. A permutation test assessed whether the best advanced-ML discrimination exceeded shuffled-label null performance.
+Public TCGA-OV mutation, copy-number alteration (CNA), DNA methylation, RNA expression, clinical, and optional protein data were harmonized at patient level. We applied MOFA-like latent integration, DIABLO-like supervised multiblock integration, multilayer network analysis, and in silico hub perturbation. Additional evidence layers included DAG-style pathway orientation, perturbation-fraction sensitivity curves, input-output ablation experiments, and repeated stratified cross-validation confidence intervals for advanced machine learning (ML). A permutation test evaluated whether the best ML model outperformed shuffled-label null performance.
 
 ## Results
-The core matched cohort (RNA+CNA+methylation+mutation) comprised 90 patients; the protein-matched subset comprised 57 patients. In all-available benchmarking, RNA modules achieved the highest AUC (0.613, 95% CI 0.489-0.737), and CNA achieved the highest Cox C-index (0.616, 95% CI 0.534-0.699). In protein-matched fair benchmarking, integrated-no-protein achieved the highest AUC (0.575, 95% CI 0.423-0.729). Network analysis identified stable top hubs (LF8, LF5, LF6, LF7). Sensitivity slopes across perturbation fractions ranked LF7/LF8/LF6 as strongest monotonic global-response hubs. DAG aggregation showed dominant RNA->Latent transitions (40 edges) and Latent->Protein transitions (16 edges). In advanced ML on integrated features, XGBoost showed top AUC (0.526, 95% repeated-CV CI 0.445-0.649); permutation testing did not show strong statistical separation from null (p=0.2745).
+The core matched cohort (RNA+CNA+methylation+mutation) included 90 patients; the protein-matched subset included 57 patients. In all-available benchmarking, RNA modules achieved the highest AUC (0.613, 95% CI 0.489-0.737), while CNA achieved the highest Cox C-index (0.616, 95% CI 0.534-0.699). In protein-matched fair benchmarking, integrated-no-protein yielded the highest AUC (0.575, 95% CI 0.423-0.729). Stable top hubs were LF8, LF5, LF6, and LF7. Sensitivity slopes ranked LF7/LF8/LF6 as strongest monotonic high-impact hubs. DAG aggregation showed dominant RNA->Latent (40 edges) and Latent->Protein (16 edges) transitions. Advanced ML in integrated features showed modest discrimination (top XGBoost AUC 0.526, 95% repeated-CV CI 0.445-0.649), with non-significant permutation separation (p=0.2745).
 
 ## Conclusions
-This reproducible framework identifies robust cross-layer network hubs and calibrated uncertainty for perturbation and prediction in TCGA-OV. Core network findings are stronger than current advanced-ML discrimination, emphasizing mechanistic network evidence over claims of immediate clinical predictive utility.
+This reproducible framework identifies robust cross-layer network hubs and calibrated uncertainty in TCGA-OV. Current evidence is strongest for mechanistic, network-level biological insight and translational hypothesis generation rather than immediate clinical prediction deployment.
 
 # Keywords
 Ovarian cancer; TCGA; multi-omics; network biology; perturbation analysis; DAG; reproducible research
 
+# Key Points
+- Question: Which omics layers and network hubs remain robust when uncertainty is explicitly quantified?
+- Findings: Stable latent hubs persisted across centrality, bootstrap, perturbation-fraction sensitivity, and pathway-orientation analyses, while predictive discrimination remained modest.
+- Meaning: The strongest immediate contribution is robust mechanistic evidence for translational follow-up, not stand-alone bedside prediction.
+
 # Plain-Language Summary
-1. We combined several public ovarian cancer data types (DNA changes, RNA, and protein) from the same patients.
-2. We identified a small set of stable “hub” signals (LF7, LF8, LF6) that repeatedly showed strong influence in the network.
-3. When we simulated perturbations, these hubs consistently produced the largest downstream network changes.
-4. Predictive models showed moderate performance; therefore, this work is strongest as biologically grounded hypothesis generation rather than immediate bedside prediction.
-5. The full workflow is reproducible and publicly shareable, so other groups can validate and extend these findings.
+1. We combined several public ovarian cancer molecular data types from the same patients.
+2. We found a small set of stable "hub" signals (LF7, LF8, LF6) that repeatedly influenced the network.
+3. When we simulated perturbations, these hubs consistently caused the largest downstream changes.
+4. Prediction models were only moderate, so the strongest message is biological insight and testable hypotheses.
+5. The workflow is reproducible and shareable, allowing other teams to validate and extend the findings.
 
 # Introduction
-Ovarian cancer remains a high-mortality disease with clinically important molecular heterogeneity [1]. Multi-omics integration can connect upstream DNA-layer variation to downstream transcriptomic and proteomic states and then to patient-level outcomes [2-8]. However, many analyses still rely on point-estimate performance reporting without uncertainty-aware interpretation across model discrimination, network robustness, and perturbation sensitivity.
+Ovarian cancer remains a high-mortality malignancy with substantial molecular heterogeneity [1]. Multi-omics integration offers a biologically coherent approach to link upstream DNA-level aberrations with transcriptomic and proteomic states and then to clinical outcomes [2-8]. However, many reports still rely on single-model point estimates without explicit calibration of uncertainty across prediction, network stability, and intervention-like perturbation behavior.
 
-This study addresses that gap using a full reproducible public-data workflow. We integrated mutation, CNA, methylation, RNA, and optional protein layers from TCGA-OV; modeled shared structure with unsupervised and supervised multi-omics approaches; and quantified robustness using bootstrap-based hub/perturbation stability plus repeated cross-validation confidence intervals for advanced ML. We further introduced DAG-style pathway orientation and block-level input-output ablation to characterize layer-to-layer signal transfer.
+This study addresses that gap with an end-to-end reproducible public-data pipeline using TCGA-OV. We integrated mutation, CNA, methylation, RNA, and optional protein layers; learned cross-view latent structure; built supervised multi-block predictors; assembled a multilayer network; and quantified robustness using bootstrap- and repeated-CV-based uncertainty reporting. We then extended evidence with pathway orientation (DAG-style), perturbation-fraction sensitivity analysis, and block-wise input-output ablation.
+
+To improve clarity for broad audiences, we report findings as answers to clinically intuitive questions: (1) what data remain after strict matching, (2) which views best predict outcomes, (3) which hubs are stable across methods, and (4) how strongly does the system respond when those hubs are perturbed.
 
 # Methods
 ## Study Design and Data Sources
-Public de-identified TCGA-OV data were accessed through GDC programmatic retrieval [2,3]. Optional context/extension sources included cBioPortal and PDC resources [9-11]. The primary analysis required matched RNA, CNA, methylation, and mutation; protein was analyzed when matched.
+Public de-identified TCGA-OV data were accessed through GDC programmatic retrieval [2,3]. Context and extension sources included cBioPortal and PDC where relevant [9-11]. Core analyses required matched RNA, CNA, methylation, and mutation; protein was included when matched.
 
-## Harmonization, Preprocessing, and Feature Engineering
-Patient IDs were harmonized from TCGA barcodes. Layer-specific preprocessing included expression normalization, CNA clipping/z-scoring, methylation filtering/summarization, and mutation binary/burden feature derivation. Module-level representations were generated for RNA/protein to reduce high-dimensional noise.
+## Data Lineage and Reproducibility
+Raw downloads were retained as immutable artifacts. Harmonized and processed matrices were generated via scripted stages with explicit logging and configuration control. This design supports reproducibility audits and traceability from source files to final figures/tables.
 
-## Integrative Modeling
-1. MOFA-like latent-factor integration to capture cross-view structure [5,6].
-2. DIABLO-like supervised multiblock integration for risk-group discrimination [7,8].
-3. Multilayer graph assembly with centrality-based hub ranking (degree, betweenness, PageRank) [12,13].
+## Harmonization and Preprocessing
+Patient-level harmonization used TCGA barcodes and strict intersection logic for core multi-layer analyses. Layer-specific processing included expression normalization, CNA clipping/z-scoring, methylation filtering and summarization, and mutation encoding as binary and burden-style features. Module-level summaries were generated for RNA/protein to reduce high-dimensional noise and improve interpretability.
 
-## Perturbation and Sensitivity
-Top hubs were perturbed by edge-weight dampening; outcomes included hub-specific and global PageRank deltas with bootstrap uncertainty. A perturbation-fraction grid (0.1 to 0.9) generated slope-based sensitivity rankings and monotonicity checks.
+## Core Integration Models
+1. MOFA-like latent-factor integration to capture shared and view-specific variation [5,6].
+2. DIABLO-like supervised N-integration for risk-group discrimination [7,8].
+3. Multilayer graph construction with centrality-based hub ranking (degree, betweenness, PageRank) [12,13].
 
-## Advanced Evidence Layer
-1. DAG-style pathway orientation from multilayer edges (input->RNA->latent->protein/outcome).
+## Perturbation and Sensitivity Framework
+Top hubs were perturbed by edge-weight dampening. Outputs included hub-specific and global PageRank deltas with bootstrap confidence intervals. A perturbation-fraction grid (0.1 to 0.9) produced slope-based sensitivity rankings and monotonicity checks.
+
+## Extended Evidence Layer
+1. DAG-style pathway orientation from multilayer edges.
 2. Input-output ablation across omics block combinations.
 3. Advanced ML benchmarking (logistic, elastic net, random forest, XGBoost).
 4. Repeated stratified CV AUC confidence intervals.
-5. Label permutation test for the top advanced-ML model.
+5. Permutation testing for top advanced-ML model discrimination versus shuffled-label null.
 
-## Statistical Reporting
-Model discrimination is reported as AUC/C-index/Cox C-index with confidence intervals from resampling methods used by each module. Given limited sample size in protein-matched analyses, effect sizes and uncertainty were prioritized over strict dichotomous significance claims.
+## Statistical Interpretation Principles
+Performance was summarized with AUC/C-index/Cox C-index and uncertainty intervals. Because strict matching reduces sample size, effect sizes and uncertainty were prioritized over dichotomous significance-only claims. Protein analyses used fairness-restricted comparisons on the same matched subset.
 
 # Results
-## Cohort and Feature Coverage
-Main matched cohort size was 90 and protein-matched size was 57 (Table 1). Feature coverage remained high for RNA and CNA with reduced but substantial methylation/mutation coverage (Table 2).
+## Objective 1: Cohort Matching and Feature Sufficiency
+The main matched cohort included 90 patients; the protein-matched subset included 57 patients (Table 1). Feature availability was highest for RNA/CNA, with expected dimensional and coverage constraints in methylation/mutation/protein layers (Table 2). This attrition profile is typical for deep multi-omics matching and was handled prospectively by design.
 
-## Core Predictive and Survival Benchmarks
-In all-available analysis, RNA modules produced the highest AUC (0.613, 95% CI 0.489-0.737), while CNA produced the highest Cox C-index (0.616, 95% CI 0.534-0.699) (Table 3, Figure 4-5). In protein-matched fair comparison, integrated-no-protein produced the highest AUC (0.575, 95% CI 0.423-0.729) (Table 4, Figure 6-7).
+## Objective 2: Predictive and Survival Benchmarking
+In all-available benchmarking, RNA modules yielded the highest AUC (0.613, 95% CI 0.489-0.737), while CNA yielded the highest Cox C-index (0.616, 95% CI 0.534-0.699) (Table 3; Figures 4-5). In protein-matched fair benchmarking, integrated-no-protein showed top AUC (0.575, 95% CI 0.423-0.729) (Table 4; Figures 6-7).
 
-## Network Hub Robustness
-Top hubs were LF8, LF5, LF6, and LF7 with high bootstrap persistence (Table 5-6). Perturbation effects concentrated around latent hubs with stable rank behavior (Table 7, Figure 8).
+These patterns suggest that model ranking depends on sampling context and matching constraints. Accordingly, we avoid overstatement and emphasize uncertainty-aware comparison.
 
-## Sensitivity and DAG Pathway Evidence
-Sensitivity slopes across perturbation fractions identified LF7, LF8, and LF6 as strongest monotonic response hubs (Table 8, Figure 12). DAG aggregation indicated dominant RNA->Latent transitions (40 edges; mean absolute weight 0.441) followed by Latent->Protein transitions (16 edges; mean absolute weight 0.350), supporting biologically coherent cross-layer flow (Table 13, Figure 11).
+## Objective 3: Stable Hubs Across Methods
+Network analysis identified LF8, LF5, LF6, and LF7 as top hubs with high bootstrap persistence (Tables 5-6; Figure 10). Stability across multiple centrality metrics reduced the likelihood that rankings were metric artifacts. These latent hubs represent cross-layer convergence points and were therefore prioritized for perturbation analysis.
 
-## Advanced ML and Input-Output Experiments
-Advanced ML on integrated features showed modest discrimination: XGBoost AUC 0.526 (95% repeated-CV CI 0.445-0.649), elastic net 0.525, random forest 0.523, logistic 0.458 (Table 9, Figure 13). The best ablation combination was protein modules + RNA modules (AUC 0.644) (Table 10, Figure 14). Permutation testing for XGBoost yielded p=0.2745, indicating limited inferential separation from shuffled null labels at current sample size (Table 12).
+## Objective 4: Perturbation and Sensitivity Evidence
+Hub perturbation produced concentrated downstream effects around latent nodes, with stable rank behavior under bootstrap (Table 7; Figure 8). Sensitivity slopes across perturbation fractions identified LF7/LF8/LF6 as strongest monotonic high-impact hubs (Table 8; Figure 12). This monotonic response strengthens their suitability as intervention candidates for downstream biological validation.
+
+## Objective 5: Pathway Orientation and Input-Output Experiments
+DAG aggregation showed dominant RNA->Latent transitions (40 edges; mean absolute weight 0.441) and Latent->Protein transitions (16 edges; mean absolute weight 0.350), consistent with coherent cross-layer information flow (Table 13; Figure 11).
+
+Ablation analysis identified protein modules + RNA modules as the highest-AUC combination among tested sets (AUC 0.644), suggesting potential complementarity between transcript and protein module representations (Table 10; Figure 14).
+
+## Objective 6: Advanced ML Calibration
+Advanced ML showed modest discrimination on integrated features: XGBoost AUC 0.526 (95% repeated-CV CI 0.445-0.649), elastic net 0.525, random forest 0.523, and logistic 0.458 (Table 9; Figure 13). Permutation testing for XGBoost gave p=0.2745 (Table 12), indicating limited inferential separation from null labels in this cohort.
+
+The overall evidence profile therefore favors robust mechanistic inference over aggressive predictive claims.
 
 # Discussion
-This study provides a reproducible uncertainty-aware TCGA-OV systems-oncology framework integrating unsupervised structure learning, supervised multi-block integration, network centrality, perturbation stability, and pathway-oriented sensitivity analysis. The strongest evidence in this cohort arises from network-level robustness and perturbation behavior rather than high clinical discrimination from advanced ML.
+This study delivers a reproducible uncertainty-aware systems-oncology framework for TCGA-OV and provides convergent evidence across unsupervised integration, supervised integration, network centrality, perturbation sensitivity, and pathway-orientation analyses. The strongest signals are stable latent hubs and coherent cross-layer transitions rather than high predictive discrimination.
 
-The advanced-ML results are scientifically informative despite modest AUC values. They show that with strict sample matching and current features, predictive gains are constrained; however, the ablation and DAG analyses still reveal interpretable cross-layer signal architecture, particularly RNA-latent-protein transitions and stable latent hubs. This supports a mechanistic, hypothesis-generating interpretation.
+From a translational perspective, this is a meaningful result. In multi-omics oncology, robust mechanism discovery is often a prerequisite for valid predictive translation. Here, hub stability and monotonic perturbation sensitivity provide a defensible shortlist for orthogonal laboratory validation.
 
-## What This Means for Clinicians and Translational Teams
-First, this study provides a practical shortlist of robust molecular hub candidates that can be prioritized for orthogonal laboratory validation. Second, it demonstrates that uncertainty-aware reporting can prevent overstatement of predictive readiness. Third, it offers a reusable analytic template for other cohorts, helping teams move from fragmented multi-omics analyses toward more reliable, transparent evidence synthesis.
+The advanced-ML findings are still informative. They show that after strict matching, prediction gains are constrained, and permutation testing discourages overinterpretation. This calibrated reporting is critical to prevent inflation of claims in small-to-moderate matched cohorts.
+
+Objective-wise synthesis supports this interpretation:
+1. Layer contribution: RNA modules showed strongest discrimination; CNA showed strongest survival ranking.
+2. Cross-method robustness: LF8/LF5/LF6/LF7 remained top hubs with bootstrap support.
+3. Perturbation sensitivity: LF7/LF8/LF6 exhibited strongest monotonic system response.
+4. Pathway structure: RNA->Latent and Latent->Protein transitions dominated directional flow.
+5. Predictive calibration: advanced ML remained moderate and not strongly separated from null in permutation testing.
+
+## Clinical and Translational Interpretation
+For clinicians, the immediate value is not a replacement for existing risk tools. Instead, this work provides a conservative, ranked list of molecular control points for future validation. For translational teams, the identified hubs and module-level interactions provide direct candidates for perturbation experiments, expression assays, and pathway-focused follow-up studies.
 
 ## Strengths
-1. Fully scriptable and reproducible public-data pipeline.
-2. Multi-level uncertainty reporting (performance, hub stability, perturbation sensitivity).
-3. Explicit fairness comparison for protein-matched subsets.
-4. Cross-method triangulation: latent integration, supervised integration, graph evidence, and ablation.
+1. Reproducible, scriptable end-to-end public-data pipeline.
+2. Multi-level uncertainty reporting for model performance, hub stability, and perturbation effects.
+3. Fairness-restricted protein benchmarking to reduce hidden sample-overlap bias.
+4. Cross-method triangulation across latent, supervised, network, and ablation views.
 
 ## Limitations
 1. Sample attrition under strict multi-layer matching.
-2. Single-cohort design without external validation.
-3. Modest advanced-ML discrimination and non-significant permutation test in current setting.
-4. DAG orientation is computationally inferred and not proof of biological causality.
+2. Single-cohort design without external independent validation.
+3. Moderate predictive discrimination in current feature/sampling setting.
+4. DAG orientation is computational and hypothesis-generating, not definitive causal proof.
 
-## Translational Implications
-The most defensible near-term outputs are robust hub/module candidates for downstream validation rather than direct clinical deployment. LF7/LF8/LF6-centered pathways and RNA-protein module interactions are priority candidates for mechanistic laboratory follow-up.
+## Future Directions
+Priority next steps are external validation in independent ovarian cohorts, standardized proteomic augmentation, and wet-lab follow-up of LF7/LF8/LF6-centered pathways. Prospective evaluation should determine whether these robust mechanistic signals can be translated into clinically meaningful prediction or treatment stratification.
 
 # Conclusions
-A reproducible uncertainty-calibrated TCGA-OV multi-omics framework identifies robust latent hubs and cross-layer pathway architecture. Current evidence supports strong network-level biological insights and moderated claims for clinical prediction, with external validation as the critical next step.
+A reproducible uncertainty-calibrated TCGA-OV multi-omics framework identified stable latent hubs, coherent cross-layer transitions, and high-impact perturbation targets. The current evidence is strongest for biologically grounded hypothesis generation and translational prioritization, with external validation required before clinical deployment claims.
 
 # Declarations
 ## Ethics Approval and Consent to Participate
