@@ -3,6 +3,9 @@
 This folder contains a journal-tailored package for **International Journal of Clinical Oncology (IJCO)** submission using current project outputs.
 
 ## Files
+- `IJCO_Manuscript_Final_Submission.md`: final full-length manuscript for submission
+- `IJCO_Supplementary_Final.md`: final supplementary appendix (methods + assets map)
+- `IJCO_Final_Audit_Report.md`: final internal audit report
 - `ijco_manuscript_draft.md`: IJCO-tailored full manuscript draft
 - `ijco_title_page_template.md`: title page template (authors/affiliations placeholders)
 - `ijco_structured_abstract.md`: final abstract text ready to paste into submission system
