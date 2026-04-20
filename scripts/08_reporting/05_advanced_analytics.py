@@ -2,6 +2,7 @@ from pathlib import Path
 import itertools
 import sys
 import warnings
+import subprocess
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,6 +10,7 @@ import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.base import clone
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.pipeline import Pipeline
@@ -66,25 +68,77 @@ def cv_auc(X: np.ndarray, y: np.ndarray, model) -> float:
     return float(roc_auc_score(y, p))
 
 
-def bootstrap_auc_ci(X: np.ndarray, y: np.ndarray, model, n_boot: int = 200) -> tuple[float, float]:
+def detect_gpu_profile() -> dict:
+    try:
+        out = subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=name,memory.total,memory.free", "--format=csv,noheader,nounits"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+        line = out.splitlines()[0]
+        name, total, free = [x.strip() for x in line.split(",")]
+        return {"available": True, "name": name, "memory_total_mb": int(total), "memory_free_mb": int(free)}
+    except Exception:
+        return {"available": False, "name": None, "memory_total_mb": 0, "memory_free_mb": 0}
+
+
+def cv_auc_xgb_native(X: np.ndarray, y: np.ndarray, xgb_cfg: dict, seed: int = 42, n_splits: int = 5) -> float:
+    try:
+        import xgboost as xgb
+    except Exception:
+        return np.nan
+
+    if X.shape[1] == 0 or len(np.unique(y)) < 2:
+        return np.nan
+    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed)
+    pred = np.full(len(y), np.nan, dtype=float)
+    num_round = int(xgb_cfg.get("num_boost_round", 200))
+    params = {k: v for k, v in xgb_cfg.items() if k != "num_boost_round"}
+    for tr, te in skf.split(X, y):
+        dtr = xgb.DMatrix(X[tr], label=y[tr])
+        dte = xgb.DMatrix(X[te], label=y[te])
+        bst = xgb.train(params, dtr, num_boost_round=num_round, verbose_eval=False)
+        pred[te] = bst.predict(dte)
+    if np.isnan(pred).any():
+        return np.nan
+    return float(roc_auc_score(y, pred))
+
+
+def cv_auc_dispatch(X: np.ndarray, y: np.ndarray, model_spec, seed: int = 42) -> float:
+    if isinstance(model_spec, dict) and model_spec.get("kind") == "xgb_native":
+        return cv_auc_xgb_native(X, y, model_spec["cfg"], seed=seed)
+    return cv_auc(X, y, model_spec)
+
+
+def repeated_cv_auc_ci(
+    X: np.ndarray,
+    y: np.ndarray,
+    model,
+    n_repeats: int = 30,
+    n_splits: int = 5,
+    seed: int = 42,
+) -> tuple[float, float]:
     if X.shape[1] == 0 or len(np.unique(y)) < 2:
         return np.nan, np.nan
-    rng = np.random.default_rng(42)
     vals = []
-    n = len(y)
-    for _ in range(n_boot):
-        idx = rng.integers(0, n, n)
-        xb, yb = X[idx], y[idx]
-        if len(np.unique(yb)) < 2:
-            continue
-        vals.append(cv_auc(xb, yb, model))
+    for r in range(n_repeats):
+        if isinstance(model, dict) and model.get("kind") == "xgb_native":
+            v = cv_auc_xgb_native(X, y, model["cfg"], seed=seed + r, n_splits=n_splits)
+            if not np.isnan(v):
+                vals.append(float(v))
+        else:
+            skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed + r)
+            m = clone(model)
+            p = cross_val_predict(m, X, y, cv=skf, method="predict_proba")[:, 1]
+            if len(np.unique(y)) >= 2:
+                vals.append(float(roc_auc_score(y, p)))
     if len(vals) == 0:
         return np.nan, np.nan
     return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
 
 
 def permutation_p_value(X: np.ndarray, y: np.ndarray, model, n_perm: int = 200) -> dict:
-    obs = cv_auc(X, y, model)
+    obs = cv_auc_dispatch(X, y, model, seed=42)
     if np.isnan(obs):
         return {"auc_observed": np.nan, "auc_null_mean": np.nan, "auc_null_sd": np.nan, "p_value_right_tail": np.nan}
     rng = np.random.default_rng(42)
@@ -92,7 +146,7 @@ def permutation_p_value(X: np.ndarray, y: np.ndarray, model, n_perm: int = 200) 
     for _ in range(n_perm):
         yp = y.copy()
         rng.shuffle(yp)
-        nulls.append(cv_auc(X, yp, model))
+        nulls.append(cv_auc_dispatch(X, yp, model, seed=42))
     nulls = np.asarray([v for v in nulls if not np.isnan(v)], dtype=float)
     p = float((np.sum(nulls >= obs) + 1) / (len(nulls) + 1)) if len(nulls) else np.nan
     return {
@@ -200,31 +254,50 @@ def main():
         ),
         "random_forest": RandomForestClassifier(n_estimators=400, random_state=42, class_weight="balanced"),
     }
+    gpu = detect_gpu_profile()
     try:
-        from xgboost import XGBClassifier
-
-        models["xgboost"] = XGBClassifier(
-            n_estimators=300,
-            max_depth=4,
-            learning_rate=0.05,
-            subsample=0.85,
-            colsample_bytree=0.85,
-            eval_metric="logloss",
-            random_state=42,
-        )
+        # Resource-aware XGBoost config for ~6 GB VRAM environments.
+        if gpu["available"] and gpu["memory_total_mb"] <= 7000:
+            xgb_cfg = {
+                "objective": "binary:logistic",
+                "eval_metric": "logloss",
+                "eta": 0.05,
+                "max_depth": 3,
+                "subsample": 0.85,
+                "colsample_bytree": 0.85,
+                "max_bin": 128,
+                "tree_method": "hist",
+                "device": "cuda",
+                "nthread": 4,
+                "seed": 42,
+                "num_boost_round": 220,
+            }
+            models["xgboost"] = {"kind": "xgb_native", "cfg": xgb_cfg}
+        else:
+            xgb_cfg = {
+                "objective": "binary:logistic",
+                "eval_metric": "logloss",
+                "eta": 0.05,
+                "max_depth": 4,
+                "subsample": 0.85,
+                "colsample_bytree": 0.85,
+                "max_bin": 256,
+                "tree_method": "hist",
+                "device": "cuda" if gpu["available"] else "cpu",
+                "nthread": 6,
+                "seed": 42,
+                "num_boost_round": 280,
+            }
+            models["xgboost"] = {"kind": "xgb_native", "cfg": xgb_cfg}
     except Exception:
         pass
 
     adv_rows = []
     for name, m in models.items():
-        auc = cv_auc(X, y, m)
-        lo, hi = bootstrap_auc_ci(X, y, m, n_boot=40)
-        if pd.notna(auc) and pd.notna(lo) and pd.notna(hi):
-            if lo > hi:
-                lo, hi = hi, lo
-            # Conservative guardrail for unstable bootstrap distributions in very small n.
-            if not (lo <= auc <= hi):
-                lo, hi = np.nan, np.nan
+        auc = cv_auc_dispatch(X, y, m, seed=42)
+        lo, hi = repeated_cv_auc_ci(X, y, m, n_repeats=30, n_splits=5, seed=42)
+        if pd.notna(lo) and pd.notna(hi) and lo > hi:
+            lo, hi = hi, lo
         adv_rows.append({"model": name, "n_samples": int(len(y)), "auc": auc, "auc_ci_low": lo, "auc_ci_high": hi})
     adv = pd.DataFrame(adv_rows).sort_values("auc", ascending=False)
     adv.to_csv(tables / "advanced_ml_benchmark.csv", index=False)
@@ -242,7 +315,7 @@ def main():
             )
             ax.bar(p["model"], p["auc"], yerr=yerr, capsize=3)
             ax.set_ylim(0.0, 1.0)
-            ax.set_ylabel("AUC (95% bootstrap CI)")
+            ax.set_ylabel("AUC (95% repeated CV CI)")
             ax.set_title("Advanced ML Benchmark (Integrated Input Set)")
             ax.tick_params(axis="x", rotation=20)
         fig.tight_layout()
@@ -331,7 +404,12 @@ def main():
             tables / "causal_pathway_strength_summary.csv", index=False
         )
 
-    log.info("Advanced analytics complete: PCA, ML, ablation, permutation, causal-pathway summary")
+    log.info(
+        "Advanced analytics complete: PCA, ML, ablation, permutation, causal-pathway summary | GPU=%s (%s, free=%sMB)",
+        gpu["available"],
+        gpu["name"],
+        gpu["memory_free_mb"],
+    )
 
 
 if __name__ == "__main__":
