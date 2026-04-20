@@ -1,6 +1,6 @@
 ﻿param(
   [string]$KaggleVersionNotes = "Initial public release",
-  [string]$HFRepo = "jkhospital/tcga-ov-multiomics-network-derived-results",
+  [string]$HFRepo = "hssling/tcga-ov-multiomics-network-derived-results",
   [switch]$PublishKaggle,
   [switch]$PublishHF
 )
@@ -25,7 +25,7 @@ if ($PublishKaggle) {
 
 if ($PublishHF) {
   Write-Host "Publishing to Hugging Face Hub..."
-  hf repo create $HFRepo --type dataset --private false --exist-ok
+  hf repos create $HFRepo --type dataset --public --exist-ok
   hf upload $HFRepo "$hfPath" . --repo-type dataset
 }
 
